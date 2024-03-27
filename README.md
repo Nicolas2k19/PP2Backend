@@ -14,7 +14,7 @@ Este proyecto contiene el backend para la aplicación VDG. Proporciona instrucci
 
 ## Configuración de la base de datos y el puerto
 
-Los parámetros de la base de datos y el puerto se configuran en el archivo `application.properties`, el cual está incluido en el archivo `.gitignore` para evitar conflictos.
+Los parámetros de la base de datos y el puerto se configuran en el archivo `application.properties`.
 
 La aplicación se ejecuta en el puerto 9090 por defecto.
 
