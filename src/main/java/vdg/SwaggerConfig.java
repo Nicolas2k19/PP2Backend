@@ -30,10 +30,10 @@ public class SwaggerConfig {
 	
 	private ApiInfo getApiInfo() {
 		return new ApiInfo(
-				"Order Service API",
-				"Order Service API Description",
+				"VDG Backend API",
+				"VDG Backend API Description",
 				"1.0",
-				"http://codmind.com/terms",
+				"https://github.com/Nicolas2k19/PP2Backend",
 				new Contact("Codmind", "https://codmind.com", "apis@codmind.com"),
 				"LICENSE",
 				"LICENSE URL",
