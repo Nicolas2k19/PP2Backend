@@ -22,17 +22,16 @@ Este proyecto contiene el backend para la aplicación VDG. Proporciona instrucci
 
 3. **Ejecutar los scripts SQL:** Ejecuta los scripts SQL que contienen los inserts iniciales en tu base de datos `vdg` (carpeta `ScriptMysql`).
 
-4. **Limpiar el proyecto:** En Eclipse, ve a `Project > Clean` para limpiar el proyecto.
+4. **Configurar properties:** Se debe configurar el `aplication.properties` con los parametros de la base de datos y el puerto como se muestra a continuacion.
+   Los parámetros de la base de datos y el puerto se configuran en el archivo `application.properties`.
 
-5. **Compilar y correr:** Compila el proyecto y ejecútalo.
+   ![image](https://github.com/Nicolas2k19/PP2Backend/assets/86579814/ec539424-c248-4ac3-ae84-f9393bab5acb)
+   
+   La aplicación se ejecuta en el puerto 9090 por defecto.
+   
+6. **Limpiar el proyecto:** En Eclipse, ve a `Project > Clean` para limpiar el proyecto.
 
-## Configuración de la base de datos y el puerto
-
-Los parámetros de la base de datos y el puerto se configuran en el archivo `application.properties`.
-
-![image](https://github.com/Nicolas2k19/PP2Backend/assets/86579814/ec539424-c248-4ac3-ae84-f9393bab5acb)
-
-La aplicación se ejecuta en el puerto 9090 por defecto.
+7. **Compilar y correr:** Compila el proyecto y ejecútalo.
 
 ## Documentación de la API
 
