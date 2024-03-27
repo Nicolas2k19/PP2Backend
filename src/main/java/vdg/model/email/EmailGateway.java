@@ -9,8 +9,8 @@ import javax.mail.internet.MimeMessage;
 
 public class EmailGateway {
 	
-	private static String user = "departamentoviolenciadegenero@gmail.com";
-	private static String pass = "violenciadegenero";
+	private static String user = "pp2proyectoviolenciagenero@gmail.com";
+	private static String pass = "kdfa oxdq kvse sziu";
 	
 	public static boolean enviarMail(String email, String mensaje, String asunto) {
 
