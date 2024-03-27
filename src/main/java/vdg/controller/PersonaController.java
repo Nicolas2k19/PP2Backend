@@ -16,7 +16,6 @@ import vdg.model.domain.Persona;
 import vdg.model.domain.RolDeUsuario;
 import vdg.model.domain.Usuario;
 import vdg.repository.PersonaRepository;
-import vdg.repository.UsuarioRepository;
 
 @RestController
 @RequestMapping("/Persona")

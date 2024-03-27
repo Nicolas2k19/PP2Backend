@@ -2,21 +2,16 @@ package vdg.controller;
 
 import java.util.Base64;
 import java.util.Base64.Decoder;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import vdg.model.domain.FotoIdentificacion;
-import vdg.model.domain.FotoIdentificacion2;
 import vdg.model.domain.FotoPruebaDeVida;
 import vdg.model.domain.FotoPruebaDeVida2;
-import vdg.repository.FotoIdentificacionRepository;
 import vdg.repository.FotoPruebaDeVidaRepository;
 
 @RestController

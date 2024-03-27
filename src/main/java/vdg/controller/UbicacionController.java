@@ -96,6 +96,7 @@ public class UbicacionController {
 		return ubicacionRepo.findIlocalizables(fechaLimite);
 	}
 	
+	@SuppressWarnings("deprecation")
 	private void chequearUbicacionRutina(Ubicacion ubicacion) {
 		//FALTA CEQUEAR NULOS
 		if((ubicacion.getFecha().getMinutes()>= 00 && ubicacion.getFecha().getMinutes()<= 05) || 

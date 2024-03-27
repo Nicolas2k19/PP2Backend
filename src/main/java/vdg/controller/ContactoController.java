@@ -33,7 +33,7 @@ public class ContactoController {
 	public List<Contacto> getContactosDamnificada(@PathVariable("emailDamnificada") String emailDamnificada){
 		Usuario usuario = usuarioController.findByEmail(emailDamnificada);
 		Persona damnificada = personaController.getByIdUsuario(usuario.getIdUsuario());
-		return contactoRepo.findByIdDamnificada(damnificada.getIdPersona());
+		return contactoRepo.findByIdDamnificada(damnificada.getIdUsuario());
 	}
 	
 	@PostMapping

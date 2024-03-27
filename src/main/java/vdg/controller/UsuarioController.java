@@ -19,7 +19,6 @@ import vdg.model.domain.Usuario;
 import vdg.model.dto.ErrorDTO;
 import vdg.model.email.EmailGateway;
 import vdg.model.logica.Encriptar;
-import vdg.model.logica.GeneradorContraseña;
 import vdg.model.validadores.ValidadoresUsuario;
 import vdg.repository.UsuarioRepository;
 
@@ -94,7 +93,6 @@ public class UsuarioController {
 	
 	@PostMapping("/loginApp")
 	public RolDeUsuario loginApp(@RequestBody Map<String, String> info) {
-
 		Usuario user = findByEmail(info.get("email"));
 		if (user == null)
 			return null;

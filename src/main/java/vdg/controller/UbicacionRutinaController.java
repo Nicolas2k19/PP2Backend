@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import vdg.model.controladorRutina.ControladorRutina;
+//import vdg.model.controladorRutina.ControladorRutina;
 import vdg.model.controladorRutina.HistorialUbicacionFecha;
 import vdg.model.controladorRutina.UbicacionRutina;
 import vdg.model.domain.Ubicacion;
@@ -25,8 +25,8 @@ public class UbicacionRutinaController {
 	@Autowired
 	private UbicacionRutinaRepository ubicacionRutinaRepo;
 
-	@Autowired
-	private ControladorRutina controladorRutina;
+	//@Autowired
+	//private ControladorRutina controladorRutina;
 
 	@Autowired
 	private HistorialUbicacionFecha historial;
@@ -63,6 +63,7 @@ public class UbicacionRutinaController {
 		return ubicacionRutinaRepo.findByPersonaAndFecha(idPersona, dia, hora, minutos);
 	}
 
+	@SuppressWarnings("deprecation")
 	@PostMapping
 	public UbicacionRutina agregar(@RequestBody UbicacionRutina ubicacionRutina) {
 		

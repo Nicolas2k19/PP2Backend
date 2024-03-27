@@ -5,27 +5,21 @@ import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import vdg.model.controladorNotificaciones.GeneradorNotificaciones;
 import vdg.model.domain.BotonAntipanico;
 import vdg.model.domain.Contacto;
 import vdg.model.domain.Incidencia;
-import vdg.model.domain.Notificacion;
 import vdg.model.domain.Persona;
-import vdg.model.domain.TipoIncidencia;
-import vdg.model.domain.Ubicacion;
 import vdg.model.domain.Usuario;
 import vdg.model.email.EmailGateway;
 import vdg.repository.BotonAntipanicoRepository;
 import vdg.repository.ContactoRepository;
-import vdg.repository.NotificacionRepository;
-import vdg.repository.UbicacionRepository;
+//import vdg.repository.NotificacionRepository;
 
 @RestController
 @RequestMapping("/BotonAntipanico")
@@ -40,8 +34,8 @@ public class BotonAntipanicoController {
 	private UsuarioController usuarioController;
 	@Autowired
 	private PersonaController personaController;
-	@Autowired
-	private NotificacionRepository notificacionRepo;
+	//@Autowired
+	//private NotificacionRepository notificacionRepo;
 	
 	@PostMapping("/{emailDamnificada}")
 	public BotonAntipanico alertar(@RequestBody BotonAntipanico botonAntipanico, @PathVariable("emailDamnificada") String emailDamnificada) {

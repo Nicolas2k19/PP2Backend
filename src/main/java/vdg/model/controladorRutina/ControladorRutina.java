@@ -15,6 +15,7 @@ public class ControladorRutina {
 
 	// VERIFICO SI LA UBICACION ACTUAL ESTA DENTRO DE UN ÁREA COMUN PARA ESE DIA Y
 	// HORARIO
+	@SuppressWarnings("deprecation")
 	public boolean estaEnRutina(Ubicacion ubicacionActual) {
 
 		Timestamp fecha = ubicacionActual.getFecha();

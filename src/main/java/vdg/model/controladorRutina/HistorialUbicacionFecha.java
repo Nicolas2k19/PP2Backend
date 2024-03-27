@@ -71,6 +71,7 @@ public class HistorialUbicacionFecha {
 	}
 	
 	//CALCULA LA UBICACION PROMEDIO ENTRE TODAS LAS UBICACIONES CERCANAS (AREA DE 100 MTS)
+	@SuppressWarnings("deprecation")
 	public Ubicacion getUbicacionPromedio(List<UbicacionRutina> ubicaciones) {
 		
 		Ubicacion ubicacionPromedio = new Ubicacion();
