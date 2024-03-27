@@ -1,4 +1,4 @@
-# 💻 VDG Backend
+# VDG Backend 🌐
 
 Este proyecto contiene el backend para la aplicación VDG. Proporciona instrucciones sobre cómo configurar y ejecutar el repositorio.
 
