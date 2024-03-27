@@ -10,7 +10,8 @@ import javax.persistence.*;
 public class BotonAntipanico {
 	
 	@Id
-	@Column
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // Generación automática del ID
+	@Column(name = "idBotonAntipanico")
 	private int idBotonAntipanico;
 	
 	@Column

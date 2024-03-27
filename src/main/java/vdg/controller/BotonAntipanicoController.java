@@ -52,7 +52,6 @@ public class BotonAntipanicoController {
 		botonAntipanico.setIdDamnificada(damnificada.getIdPersona());
 		//ENVIO ALERTAS A LOS CONTACTOS DE LA DAMNIFICADA
 		enviarMail(damnificada, botonAntipanico);
-		
 		return botonAntipanicoRepo.save(botonAntipanico);
 	}
 	
