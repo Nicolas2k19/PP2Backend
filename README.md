@@ -4,17 +4,33 @@ Este proyecto contiene el backend para la aplicación VDG. Proporciona instrucci
 
 ## Instrucciones para correr el repo
 
-1. **Crear una base de datos (MySQL):** Crea una base de datos llamada `vdg` en tu servidor MySQL.
+1. **Crear una base de datos (MySQL):** Crea una base de datos llamada `vdg` en tu servidor MySQL junto a un usario vdgpps y una contraseña vdgpps2019.
+   ```
+   -- Crear la base de datos
+   CREATE DATABASE vdg;
+      
+   -- Usar la base de datos creada
+   USE vdg;
 
-2. **Ejecutar los scripts SQL:** Ejecuta los scripts SQL que contienen los inserts iniciales en tu base de datos `vdg` (archivo `ScriptMysql/vdg.sql`).
+   --Crear usuario y darle permisos
+   CREATE USER 'vdgpps'@'%' IDENTIFIED BY 'vdgpps2019';
 
-3. **Limpiar el proyecto:** En Eclipse, ve a `Project > Clean` para limpiar el proyecto.
+   GRANT ALL PRIVILEGES ON *.* TO 'vdgpps'@'%';
+    
+   FLUSH PRIVILEGES;
+   ```
 
-4. **Compilar y correr:** Compila el proyecto y ejecútalo.
+3. **Ejecutar los scripts SQL:** Ejecuta los scripts SQL que contienen los inserts iniciales en tu base de datos `vdg` (carpeta `ScriptMysql`).
+
+4. **Limpiar el proyecto:** En Eclipse, ve a `Project > Clean` para limpiar el proyecto.
+
+5. **Compilar y correr:** Compila el proyecto y ejecútalo.
 
 ## Configuración de la base de datos y el puerto
 
 Los parámetros de la base de datos y el puerto se configuran en el archivo `application.properties`.
+
+![image](https://github.com/Nicolas2k19/PP2Backend/assets/86579814/ec539424-c248-4ac3-ae84-f9393bab5acb)
 
 La aplicación se ejecuta en el puerto 9090 por defecto.
 
@@ -23,6 +39,9 @@ La aplicación se ejecuta en el puerto 9090 por defecto.
 La documentación de la API se genera automáticamente con Swagger y está disponible en:
 
 [http://localhost:9090/swagger-ui.html](http://localhost:9090/swagger-ui.html)
+
+![image](https://github.com/Nicolas2k19/PP2Backend/assets/86579814/e105e139-640a-4384-bebd-e8ad43be27c4)
+
 
 Puedes utilizar esta página para explorar y probar las API proporcionadas por el backend.
 
