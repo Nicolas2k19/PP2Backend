@@ -72,6 +72,7 @@ public class UsuarioController {
 
 	@GetMapping("/GetByEmail/{email}")
 	public Usuario findByEmail(@PathVariable("email") String email) {
+		System.out.println("Llegue al get");
 		List<Usuario> usuarios = usuarioRepo.findByEmail(email);
 		return usuarios.isEmpty() ? null : usuarios.get(0);
 	}
@@ -143,6 +144,9 @@ public class UsuarioController {
 	
 	@PutMapping("/modificarUsuario")
 	public Usuario modificarUsuario(@RequestBody Usuario usuario) {
+		System.out.println(usuario.getEstadoUsuario());
+		System.out.println("Llegue al put");
+
 		return usuarioRepo.save(usuario);
 	}
 
