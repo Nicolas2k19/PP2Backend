@@ -7,6 +7,7 @@ import javax.persistence.*;
 public class FotoPruebaDeVida {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // Generación automática del ID
 	@Column
 	private int idFoto;
 

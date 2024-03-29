@@ -110,6 +110,12 @@ public class UsuarioController {
 		return usuarios.isEmpty() ? null : usuarios.get(0);
 	}
 	
+	@GetMapping("/{id}")
+	public Usuario findByIdUsuarios(@PathVariable("id") int id) {
+		List<Usuario> usuarios = usuarioRepo.findByIdUsuario(id);
+		return usuarios.isEmpty() ? null : usuarios.get(0);
+	}
+	
 	@PutMapping("/recuperarContrasena")
 	public ErrorDTO recuperarContrasena(@RequestBody Usuario usuario) {
 		ErrorDTO error = new ErrorDTO();

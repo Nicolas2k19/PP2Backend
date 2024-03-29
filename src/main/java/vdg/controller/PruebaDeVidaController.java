@@ -102,7 +102,6 @@ public class PruebaDeVidaController {
 	
 	private void generarNotificacionVictimario(String peticion, Timestamp fecha, int idPersona) {
 		Persona persona = personaController.getById(idPersona);
-
 		Notificacion notificacion = new Notificacion();
 		notificacion.setEstado(EstadoNotificacion.NoVista);
 		notificacion.setAsunto("Nueva prueba de Vida");
