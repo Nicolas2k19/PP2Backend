@@ -160,5 +160,11 @@ public class UsuarioController {
 		List<Usuario> usuarios = usuarioRepo.findAllByestadoUsuario(estadoUsuario);
 		return usuarios;
 	}
+	
+	@GetMapping("/rolDeUsuario/{rolDeUsuario}")
+	public List<Usuario> findByRolUsuarios(@PathVariable("rolDeUsuario") RolDeUsuario rolDeUsuario) {
+		List<Usuario> usuarios = usuarioRepo.findAllByrolDeUsuario(rolDeUsuario);
+		return usuarios;
+	}
 
 }
