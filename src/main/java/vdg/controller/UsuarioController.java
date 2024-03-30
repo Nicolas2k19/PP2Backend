@@ -3,6 +3,9 @@ package vdg.controller;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import javax.persistence.EnumType;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import vdg.model.domain.EstadoUsuario;
 import vdg.model.domain.RolDeUsuario;
 import vdg.model.domain.Usuario;
 import vdg.model.dto.ErrorDTO;
@@ -148,6 +152,13 @@ public class UsuarioController {
 		System.out.println("Llegue al put");
 
 		return usuarioRepo.save(usuario);
+	}
+	
+	
+	@GetMapping("/estadoUsuario/{estadoUsuario}")
+	public List<Usuario> findByEstadoUsuarios(@PathVariable("estadoUsuario") EstadoUsuario estadoUsuario) {
+		List<Usuario> usuarios = usuarioRepo.findAllByestadoUsuario(estadoUsuario);
+		return usuarios;
 	}
 
 }
