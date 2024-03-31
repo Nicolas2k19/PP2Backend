@@ -48,7 +48,7 @@ public class UsuarioController {
 			error.setHayError();
 			error.addMensajeError("Ya existe un usuario creado con ese MAIL");
 			return error;
-		}
+	}
 	//	usuario.setContrasena(GeneradorContraseña.generarContraseña());
 	//	String mensaje = "Se ha dado de alta un nuevo usuario para el sistema.\nSu contraseña es: "+usuario.getContrasena();	
 		usuario.setContrasena(Encriptar.sha256(usuario.getContrasena()));
