@@ -8,8 +8,6 @@ import vdg.model.domain.Juzgado;
 
 
 
-
-
 public interface JuzgadoRepository extends Repository<Juzgado, Integer> {
 	
 	
@@ -17,7 +15,7 @@ public interface JuzgadoRepository extends Repository<Juzgado, Integer> {
 	
 	public void delete(Juzgado juzgado);
 	
-	public Juzgado findByidJJuzgado(int id);
+	public Juzgado findByidJuzgado(int id);
 
 	public List<Juzgado> findAll();
 }
