@@ -4,6 +4,8 @@ import java.sql.Date;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.Cascade;
+
 @Entity
 @Table(name = "RestriccionPerimetral")
 public class RestriccionPerimetral {
@@ -11,10 +13,8 @@ public class RestriccionPerimetral {
 	@Id
 	@Column
 	private int idRestriccion;
-
 	@Column
 	private int idUsuario;
-
 	@Column
 	private int idDamnificada;
 	
@@ -26,11 +26,19 @@ public class RestriccionPerimetral {
 	
 	@Column
 	private Date fechaSentencia;
-
+	
+	@Column
+	private Integer idGrupo; 
+	
+	public Integer getIdGrupo() {
+		return idGrupo;
+	}
+	public void setIdGrupo(Integer idGrupo) {
+		this.idGrupo = idGrupo;
+	}
 	public RestriccionPerimetral() {
 		
 	}
-
 	public int getIdRestriccion() {
 		return idRestriccion;
 	}
