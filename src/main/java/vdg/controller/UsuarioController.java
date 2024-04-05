@@ -121,6 +121,12 @@ public class UsuarioController {
 		return usuarios.isEmpty() ? null : usuarios.get(0);
 	}
 	
+	
+	
+	
+	
+	
+	
 	@PutMapping("/recuperarContrasena")
 	public ErrorDTO recuperarContrasena(@RequestBody Usuario usuario) {
 		ErrorDTO error = new ErrorDTO();

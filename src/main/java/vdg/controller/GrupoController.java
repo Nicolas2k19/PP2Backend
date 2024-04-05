@@ -47,11 +47,19 @@ public class GrupoController {
 	}
 	
 	/**
-	 * Obtiene todos los grupos de trabajo
+	 * Obtiene todos los grupos de trabajo que coincidan con el id
+	 * **/
+	@GetMapping("/obtenerGruposPorId/{idGrupo}")
+	public List<Grupo> obtenerGruposPorId(@PathVariable("idGrupo") int idGrupo) {
+		return this.repository.findAllByidGrupo(idGrupo);
+	}
+	
+	/**
+	 * Obtiene los grupos de trabajo que coincidan con el id
 	 * **/
 	@GetMapping("/obtenerGrupo/{idGrupo}")
 	public Grupo obtenerGrupo(@PathVariable("idGrupo") int idGrupo) {
-		return this.repository.findByidGrupo(idGrupo);
+		return this.repository.findDistinctByidGrupo(idGrupo);
 	}
 	
 	

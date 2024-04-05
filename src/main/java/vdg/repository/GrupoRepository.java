@@ -14,7 +14,12 @@ public interface GrupoRepository extends Repository<Grupo, Integer> {
 	/**
 	 * Encuentra al grupo que coincida con el id pasado por parametro
 	 * **/
-	public Grupo findByidGrupo(int idgrupo);
+	public Grupo findDistinctByidGrupo(int idgrupo);
+	
+	/**
+	 * Encuentra los grupos que coincidan con el id pasado por parametro
+	 * **/
+	public List<Grupo> findAllByidGrupo(int idgrupo);
 	/**
 	 * Guarda al grupo pasado por párametro
 	 * **/
