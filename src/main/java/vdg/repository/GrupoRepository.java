@@ -16,6 +16,13 @@ public interface GrupoRepository extends Repository<Grupo, Integer> {
 	 * **/
 	public Grupo findDistinctByidGrupo(int idgrupo);
 	
+	
+	/**
+	 * Encuentra al grupo que coincida con el nombre pasado por parametro
+	 * **/
+	public Grupo findBynombreGrupo(String nombreGrupo);
+	
+	
 	/**
 	 * Encuentra los grupos que coincidan con el id pasado por parametro
 	 * **/

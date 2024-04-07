@@ -42,10 +42,8 @@ public class VistaRestriccionDTO {
 	
 	@Column
 	private String dniDamnificada;
+	
 
-	public VistaRestriccionDTO() {
-		// TODO Auto-generated constructor stub
-	}
 
 	public int getIdRestriccion() {
 		return idRestriccion;

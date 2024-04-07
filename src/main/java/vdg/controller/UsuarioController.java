@@ -172,5 +172,13 @@ public class UsuarioController {
 		List<Usuario> usuarios = usuarioRepo.findAllByrolDeUsuario(rolDeUsuario);
 		return usuarios;
 	}
+	
+	
+	
+	@GetMapping("/obtenerUsuarioPorGrupo/{idgrupo}")
+	public List<Usuario> obtenerUsuariosPorIDGrupo(@PathVariable("idgrupo") int idGrupo) {
+		return usuarioRepo.findAllByIdGrupo(idGrupo);
+		 
+	}
 
 }

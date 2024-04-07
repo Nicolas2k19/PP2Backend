@@ -20,6 +20,7 @@ public interface UsuarioRepository extends Repository<Usuario, Integer>{
 	public List<Usuario> findEmpleados();
 	public List<Usuario> findAllByestadoUsuario(EstadoUsuario estadoUsuario);
 	public List<Usuario> findAllByrolDeUsuario(RolDeUsuario rolDeUsuario);
+	public List<Usuario> findAllByIdGrupo(Integer idGrupo);
 	
 
 }

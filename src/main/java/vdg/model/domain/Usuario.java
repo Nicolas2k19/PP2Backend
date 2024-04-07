@@ -10,6 +10,9 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
 	private int idUsuario;
+	
+	@Column
+	private int idGrupo;
 
 	@Column
 	private String email;
@@ -29,6 +32,24 @@ public class Usuario {
 	public Usuario() {
 		
 	}
+	
+	
+	
+	
+	public int getIdGrupo() {
+		return idGrupo;
+	}
+
+
+
+
+	public void setIdGrupo(int idGrupo) {
+		this.idGrupo = idGrupo;
+	}
+
+
+
+
 	public int getIdUsuario() {
 		return idUsuario;
 	}
@@ -44,6 +65,12 @@ public class Usuario {
 	public String getContrasena() {
 		return contrasena;
 	}
+	
+	
+	
+	
+	
+	
 	
 	/**
 	 * setea la contraseña

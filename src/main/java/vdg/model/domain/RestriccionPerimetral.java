@@ -86,6 +86,12 @@ public class RestriccionPerimetral {
 	public void setFechaSentencia(Date fechaSentencia) {
 		this.fechaSentencia = fechaSentencia;
 	}
+	@Override
+	public String toString() {
+		return "RestriccionPerimetral [idRestriccion=" + idRestriccion + ", idUsuario=" + idUsuario + ", idDamnificada="
+				+ idDamnificada + ", idVictimario=" + idVictimario + ", distancia=" + distancia + ", fechaSentencia="
+				+ fechaSentencia + ", idGrupo=" + idGrupo + "]";
+	}
 	
 	
 	

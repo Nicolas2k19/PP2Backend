@@ -17,8 +17,11 @@ import vdg.model.controladorUbicaciones.ControladorDistancias;
 import vdg.model.controladorUbicaciones.ControladorUbicaciones;
 import vdg.model.domain.RestriccionPerimetral;
 import vdg.model.dto.ErrorDTO;
+import vdg.model.logica.SelectorAdministrativo;
 import vdg.model.validadores.ValidadoresRestriccion;
+import vdg.repository.GrupoRepository;
 import vdg.repository.RestriccionPerimetralRepository;
+import vdg.repository.UsuarioRepository;
 
 @RestController
 @RequestMapping("/RestriccionPerimetral")
@@ -27,6 +30,10 @@ public class RestriccionPerimetralController {
 
 	@Autowired
 	private RestriccionPerimetralRepository restriccionPerimetralRepo;
+	@Autowired
+	private GrupoRepository grupo;
+	@Autowired
+	private UsuarioRepository usuario;
 	
 	@Autowired
 	ValidadoresRestriccion validador = new ValidadoresRestriccion();
@@ -37,19 +44,37 @@ public class RestriccionPerimetralController {
 	@Autowired
 	ControladorUbicaciones controladorUbicaciones = new ControladorUbicaciones();
 	
+	
+	@Autowired
+	SelectorAdministrativo selectorAdminstrador;
+	
 	@GetMapping
 	public List<RestriccionPerimetral> listar() {
 		return restriccionPerimetralRepo.findAll();
 	}
 
 	@PostMapping
-	public ErrorDTO agregar(@RequestBody RestriccionPerimetral restriccionPerimetral) {
-		ErrorDTO error = validador.validarAltaRestriccion(restriccionPerimetral);
-		if(error.getHayError()) {
+	public ErrorDTO agregar(@RequestBody RestriccionPerimetral restriccionPerimetral) throws Exception {
+		try {
+			RestriccionPerimetral res= selectorAdminstrador.seleccionarAdminstrativo(restriccionPerimetral, grupo, usuario);
+			ErrorDTO error = validador.validarAltaRestriccion(res);
+			if(error.getHayError()) {
+				return error;
+			}
+			restriccionPerimetralRepo.save(res);
 			return error;
+		
 		}
-		restriccionPerimetralRepo.save(restriccionPerimetral);
-		return error;
+		catch(Exception e) {
+			
+			System.out.println("Ocurrio un error y entre al catch");
+			ErrorDTO error = new ErrorDTO();
+			error.setHayError();
+			error.addMensajeError(e.getMessage());
+			return error;	
+		}
+		
+		
 	}
 
 	@DeleteMapping("/borrar/{id}")
@@ -79,6 +104,12 @@ public class RestriccionPerimetralController {
 	public RestriccionPerimetral getByIdRestriccion(@PathVariable("id") int idRestriccion) {
 		return restriccionPerimetralRepo.findByIdRestriccion(idRestriccion);
 	}
+	
+	@GetMapping("/ObtenerPorIdGrupo/{idGrupo}")
+	public List<RestriccionPerimetral> getByIdGrupoRestriccion(@PathVariable("idGrupo") int idGrupo) {
+		return restriccionPerimetralRepo.findAllByidGrupo(idGrupo);
+	}
+	
 
 	public List<RestriccionPerimetral> getByPersona(int idPersona) {
 		List<RestriccionPerimetral> ret = restriccionPerimetralRepo.findByIdVictimario(idPersona);
@@ -90,6 +121,8 @@ public class RestriccionPerimetralController {
 	
 	@PutMapping
 	public RestriccionPerimetral modificarRestriccion(@RequestBody RestriccionPerimetral restriccion) {
+		System.out.println(restriccion);
+		
 		return restriccionPerimetralRepo.save(restriccion);
 	}
 

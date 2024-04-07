@@ -3,6 +3,10 @@ package vdg.model.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -12,47 +16,35 @@ import javax.persistence.Table;
 /**Clase que representa a la entidad grupo**/
 public class Grupo {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
 	public Integer idGrupo;
 	@Column
-	int idUsuario;
+	@Enumerated(EnumType.STRING)
+	private TurnoGrupo turnoGrupo;
 	@Column
-	int idRestriccion;
-	@Column
-	String horaInicial;
-	@Column 
-	String horaFinal;
-
+    private String nombreGrupo;
 	
+	
+
 	public Integer getIdGrupo() {
 		return idGrupo;
 	}
 	public void setIdGrupo(Integer idGrupo) {
 		this.idGrupo = idGrupo;
 	}
-	public int getIdUsuario() {
-		return idUsuario;
+
+	public TurnoGrupo getTurnoGrupo() {
+		return turnoGrupo;
 	}
-	public void setIdUsuario(int idUsuario) {
-		this.idUsuario = idUsuario;
+	public void setTurnoGrupo(TurnoGrupo turnoGrupo) {
+		this.turnoGrupo = turnoGrupo;
 	}
-	public int getIdRestriccion() {
-		return idRestriccion;
+	public String getNombreGrupo() {
+		return nombreGrupo;
 	}
-	public void setIdRestriccion(int idRestriccion) {
-		this.idRestriccion = idRestriccion;
-	}
-	public String getHoraInicial() {
-		return horaInicial;
-	}
-	public void setHoraInicial(String horaInicial) {
-		this.horaInicial = horaInicial;
-	}
-	public String getHoraFinal() {
-		return horaFinal;
-	}
-	public void setHoraFinal(String horaFinal) {
-		this.horaFinal = horaFinal;
+	public void setNombreGrupo(String nombreGrupo) {
+		this.nombreGrupo = nombreGrupo;
 	}
 	
 	

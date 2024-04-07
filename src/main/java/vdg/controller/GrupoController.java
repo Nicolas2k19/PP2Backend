@@ -28,7 +28,7 @@ public class GrupoController {
 	 * Agrega un nuevo grupo de trabajo a la base de datos con el grupo pasado por parametro
 	 * **/
 	public void nuevoGrupo(@RequestBody Grupo grupo) {
-		System.out.println(grupo);
+		//System.out.println(grupo.getIdUsuario());
 		this.repository.save(grupo);
 	}
 	/**
@@ -62,6 +62,15 @@ public class GrupoController {
 		return this.repository.findDistinctByidGrupo(idGrupo);
 	}
 	
+	
+	
+	/**
+	 * Obtiene los grupos de trabajo que coincidan con el string pasado por parametro
+	 * **/
+	@GetMapping("/obtenerGrupoPorNombre/{nombreGrupo}")
+	public Grupo obtenerGrupo(@PathVariable("nombreGrupo") String nombreGrupo) {
+		return this.repository.findBynombreGrupo(nombreGrupo);
+	}
 	
 
 }
