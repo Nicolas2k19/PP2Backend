@@ -4,19 +4,29 @@ import java.sql.Timestamp;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
+import springfox.documentation.spring.web.json.Json;
 import vdg.model.domain.BotonAntipanico;
 import vdg.model.domain.Contacto;
 import vdg.model.domain.Incidencia;
 import vdg.model.domain.Persona;
 import vdg.model.domain.Usuario;
 import vdg.model.email.EmailGateway;
+import vdg.model.notificacionesTerceros.CuerpoMensaje;
+import vdg.model.notificacionesTerceros.CuerpoNotificacion;
+import vdg.model.notificacionesTerceros.WpNotificador;
 import vdg.repository.BotonAntipanicoRepository;
 import vdg.repository.ContactoRepository;
 //import vdg.repository.NotificacionRepository;
@@ -34,6 +44,19 @@ public class BotonAntipanicoController {
 	private UsuarioController usuarioController;
 	@Autowired
 	private PersonaController personaController;
+	
+	@Autowired
+	private WpNotificador  wpNotificador;
+	
+	@Value("${servicioMensajeria}")
+    private String mensajeria;
+	
+	@Value("${preview_url}")
+    private Boolean preview_url;
+	@Value("${recipient_type}")
+	private String recipient_type;
+	
+	
 	//@Autowired
 	//private NotificacionRepository notificacionRepo;
 	
@@ -54,6 +77,32 @@ public class BotonAntipanicoController {
 		enviarMail(damnificada, botonAntipanico);
 		return botonAntipanicoRepo.save(botonAntipanico);
 	}
+	
+	
+	@PostMapping("/alertarPolicia")
+	/**Envia un mensaje a la api de Whatsapp
+	 *@Returns CuerpoNotificacion
+	 ***/
+	public String alertarPolicia() throws Exception {
+		return this.wpNotificador.notificar(configurarCuerpo());
+	}
+
+	/**Configura el cuerpo a enviar a la api de Whatsapp
+	 *@Returns CuerpoNotificacion
+	 ***/
+	private CuerpoNotificacion configurarCuerpo() throws Exception {
+		CuerpoNotificacion cuerpo  = new CuerpoNotificacion();
+		CuerpoMensaje cuerpoMensaje = new CuerpoMensaje();
+		cuerpo.setMessaging_product(this.mensajeria);
+		cuerpo.setTo("541166375768");
+		cuerpo.setPreview_url(this.preview_url);
+		cuerpo.setRecipient_type(this.recipient_type);
+		cuerpoMensaje.setBody("Este es mi primer mensaje desde java");
+		cuerpo.setCuerpoMensaje(cuerpoMensaje);
+		return cuerpo;
+	}
+	
+	
 	
 	public void enviarMail(Persona damnificada, BotonAntipanico botonAntipanico) {
 		
@@ -77,5 +126,20 @@ public class BotonAntipanicoController {
 //		notificacionRepo.save(notificacion);
 		
 	}
+	
+	
+
+	@Bean
+	public RestTemplate restTemplate() {
+	    return new RestTemplate();
+	}
+	
+	@Bean
+	public HttpHeaders HttpHeaders() {
+		HttpHeaders header = new HttpHeaders();
+	    return header ;
+	}
+	
+	
 	
 }
