@@ -20,9 +20,26 @@ Este proyecto contiene el backend para la aplicación VDG. Proporciona instrucci
    FLUSH PRIVILEGES;
    ```
 
-3. **Ejecutar los scripts SQL:** Ejecuta los scripts SQL que contienen los inserts iniciales en tu base de datos `vdg` (carpeta `ScriptMysql`).
+3. **Ejecutar los scripts SQL:** Ejecuta los scripts SQL que contienen los inserts iniciales en tu base de datos `vdg` (carpeta `ScriptMysql`). Como se muestra a continuacion:
 
-4. **Configurar properties:** Se debe configurar el `aplication.properties` con los parametros de la base de datos y el puerto como se muestra a continuacion.
+   Una manera de ejecutarlos es corriendo el comando: source `rutadelarchivo`, como por ejemplo:
+
+   ![image](https://github.com/Nicolas2k19/PP2Backend/assets/86579814/e97a1739-cb9d-4811-af00-5b255894878c)
+
+   Debemos ejecuutar los scrips en el siguiente orden:
+   
+         -vdg.sql
+         -fotoIdentificacion1.sql
+         -fotoIdentificacion2.sql
+         -fotoIdentificacion3.sql
+         -fotoPruebaDeVida.sql
+         -incidencia.sql
+         -localidad.sql
+         -notificacion.sql
+         -ciudad.sql
+         -comisaria.sql
+
+5. **Configurar properties:** Se debe configurar el `aplication.properties` con los parametros de la base de datos y el puerto como se muestra a continuacion.
    Los parámetros de la base de datos y el puerto se configuran en el archivo `application.properties`.
 
    ![image](https://github.com/Nicolas2k19/PP2Backend/assets/86579814/ec539424-c248-4ac3-ae84-f9393bab5acb)
