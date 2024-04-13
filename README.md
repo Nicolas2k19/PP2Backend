@@ -22,9 +22,9 @@ Este proyecto contiene el backend para la aplicación VDG. Proporciona instrucci
 
 3. **Ejecutar los scripts SQL:** Ejecuta los scripts SQL que contienen los inserts iniciales en tu base de datos `vdg` (carpeta `ScriptMysql`). Como se muestra a continuacion:
 
-   Una manera de ejecutarlos es corriendo el comando: source `rutadelarchivo`, como por ejemplo:
+   Una manera de ejecutarlos es corriendo el comando: "source <`rutadelarchivo`>", como por ejemplo:
 
-   ![image](https://github.com/Nicolas2k19/PP2Backend/assets/86579814/e97a1739-cb9d-4811-af00-5b255894878c)
+   ![image](https://github.com/Nicolas2k19/PP2Backend/assets/86579814/72a6ed9f-2881-4863-86eb-6d4710ae9a4c)
 
    Debemos ejecuutar los scripts en el siguiente orden:
    
