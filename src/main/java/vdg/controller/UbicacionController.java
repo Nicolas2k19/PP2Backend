@@ -1,6 +1,7 @@
 package vdg.controller;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
@@ -64,13 +65,13 @@ public class UbicacionController {
 		Usuario u = usuarioController.findByEmail(emailUsuario);
 		Persona p = personaController.getByIdUsuario(u.getIdUsuario());
 		Ubicacion ubicacion = new Ubicacion();
-		ubicacion.setLatitud(BigDecimal.valueOf(posicion.get("latitud")));
-		ubicacion.setLongitud(BigDecimal.valueOf(posicion.get("longitud")));
+		ubicacion.setLatitud(BigDecimal.valueOf(posicion.get("latitud")).setScale(6, RoundingMode.HALF_UP));
+		ubicacion.setLongitud(BigDecimal.valueOf(posicion.get("longitud")).setScale(6, RoundingMode.HALF_UP));
 		ubicacion.setIdPersona(p.getIdPersona());
 		ubicacion.setIdUbicacion(p.getIdPersona());
 		Date ahora = new Date();
 		ubicacion.setFecha(new Timestamp(ahora.getTime()));
-		chequearUbicacionRutina(ubicacion);
+		//chequearUbicacionRutina(ubicacion);
 		return ubicacionRepo.save(ubicacion);
 	}
 	
