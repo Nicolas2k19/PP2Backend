@@ -26,7 +26,7 @@ Este proyecto contiene el backend para la aplicación VDG. Proporciona instrucci
 
    ![image](https://github.com/Nicolas2k19/PP2Backend/assets/86579814/e97a1739-cb9d-4811-af00-5b255894878c)
 
-   Debemos ejecuutar los scrips en el siguiente orden:
+   Debemos ejecuutar los scripts en el siguiente orden:
    
          -vdg.sql
          -fotoIdentificacion1.sql
