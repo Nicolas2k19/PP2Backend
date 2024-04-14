@@ -285,6 +285,7 @@ CREATE TABLE `Usuario` (
 --
 
 INSERT INTO `Usuario` (`idUsuario`, `email`, `contrasena`, `rolDeUsuario`,`estadoUsuario`) VALUES
+(1, "admin@admin.com", "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918", "SUPERVISOR",'AUSENTE'),
 (2, 'agresor1@agresor1.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'VICTIMARIO','AUSENTE'),
 (4, 'victima1@victima1.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'DAMNIFICADA','AUSENTE'),
 (5, 'gfgrillo3@gmail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'ADMINISTRATIVO','AUSENTE'),
