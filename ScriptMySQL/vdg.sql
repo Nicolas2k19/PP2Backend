@@ -34,7 +34,25 @@ SET time_zone = "+00:00";
 --
 -- Estructura de tabla para la tabla `BotonAntipanico`
 --
+
+drop database vdg;
+
+create database vdg;
+
 use vdg;
+
+CREATE TABLE `Grupo` (
+  `idGrupo` int NOT NULL,
+  `nombreGrupo` varchar(50) DEFAULT NULL,
+  `turnoGrupo` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (idGrupo)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+insert into grupo (idGrupo, nombreGrupo, turnoGrupo) values (1, 'Mañana 1', 'MAÑANA');
+insert into grupo (idGrupo, nombreGrupo, turnoGrupo) values (2, 'Tarde 1','TARDE');
+insert into grupo (idGrupo, nombreGrupo, turnoGrupo) values (3, 'Noche 1','NOCHE');
+
+
 
 CREATE TABLE `BotonAntipanico` (
   `idBotonAntipanico` int NOT NULL,
@@ -277,23 +295,25 @@ CREATE TABLE `Usuario` (
   `email` varchar(64) NOT NULL,
   `contrasena` varchar(64) NOT NULL,
   `rolDeUsuario` varchar(25) DEFAULT NULL,
-  `estadoUsuario` varchar(25) DEFAULT NULL
+  `estadoUsuario` varchar(25) DEFAULT NULL,
+  `idGrupo` int,
+  FOREIGN KEY (idGrupo) REFERENCES Grupo(idGrupo)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `Usuario`
 --
 
-INSERT INTO `Usuario` (`idUsuario`, `email`, `contrasena`, `rolDeUsuario`,`estadoUsuario`) VALUES
-(1, "admin@admin.com", "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918", "SUPERVISOR",'AUSENTE'),
-(2, 'agresor1@agresor1.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'VICTIMARIO','AUSENTE'),
-(4, 'victima1@victima1.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'DAMNIFICADA','AUSENTE'),
-(5, 'gfgrillo3@gmail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'ADMINISTRATIVO','AUSENTE'),
-(7, 'agresor2@agresor2.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'VICTIMARIO','AUSENTE'),
-(18, 'gustycruz85@gmail.com', '983adc986531868a9ef48446fd07d5751982f6336ee073b10512d6568ad149e1', 'ADMINISTRATIVO','AUSENTE'),
-(20, 'usuario@prueba.com.ar', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'ADMINISTRATIVO','AUSENTE'),
-(21, 'agresor3@agresor.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'VICTIMARIO','AUSENTE'),
-(23, 'damnificada2@damnificada.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'DAMNIFICADA','AUSENTE');
+INSERT INTO `Usuario` (`idUsuario`, `email`, `contrasena`, `rolDeUsuario`,`estadoUsuario`, `idGrupo`) VALUES
+(1, "admin@admin.com", "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918", "SUPERVISOR",'AUSENTE',1),
+(2, 'agresor1@agresor1.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'VICTIMARIO','AUSENTE',null),
+(4, 'victima1@victima1.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'DAMNIFICADA','AUSENTE',null),
+(5, 'gfgrillo3@gmail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'ADMINISTRATIVO','AUSENTE', 2),
+(7, 'agresor2@agresor2.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'VICTIMARIO','AUSENTE',null),
+(18, 'gustycruz85@gmail.com', '983adc986531868a9ef48446fd07d5751982f6336ee073b10512d6568ad149e1', 'ADMINISTRATIVO','AUSENTE',3),
+(20, 'usuario@prueba.com.ar', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'ADMINISTRATIVO','AUSENTE',1),
+(21, 'agresor3@agresor.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'VICTIMARIO','AUSENTE',null),
+(23, 'damnificada2@damnificada.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'DAMNIFICADA','AUSENTE',null);
 
 -- --------------------------------------------------------
 
@@ -456,17 +476,18 @@ CREATE TABLE `RestriccionPerimetral` (
   `idDamnificada` int DEFAULT NULL,
   `idVictimario` int DEFAULT NULL,
   `distancia` int DEFAULT NULL,
-  `fechaSentencia` date DEFAULT NULL
+  `fechaSentencia` date DEFAULT NULL,
+   `idGrupo` int
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `RestriccionPerimetral`
 --
 
-INSERT INTO `RestriccionPerimetral` (`idRestriccion`, `idUsuario`, `idDamnificada`, `idVictimario`, `distancia`, `fechaSentencia`) VALUES
-(1, 20, 2, 1, 500, '2021-01-07'),
-(3, 5, 2, 4, 300, '2019-11-19'),
-(6, 5, 9, 7, 500, '2011-01-14');
+INSERT INTO `RestriccionPerimetral` (`idRestriccion`, `idUsuario`, `idDamnificada`, `idVictimario`, `distancia`, `fechaSentencia`,`idGrupo`) VALUES
+(1, 20, 2, 1, 500, '2021-01-07',1),
+(3, 5, 2, 4, 300, '2019-11-19',2),
+(6, 18, 9, 7, 500, '2011-01-14',3);
 
 -- --------------------------------------------------------
 
@@ -745,7 +766,8 @@ ALTER TABLE `RestriccionPerimetral`
   ADD PRIMARY KEY (`idRestriccion`),
   ADD KEY `idUsuario` (`idUsuario`),
   ADD KEY `idDamnificada` (`idDamnificada`),
-  ADD KEY `idVictimario` (`idVictimario`);
+  ADD KEY `idVictimario` (`idVictimario`),
+  ADD KEY `idGrupo` (`idGrupo`);
 
 --
 -- Indices de la tabla `RolDeUsuario`
@@ -969,7 +991,8 @@ ALTER TABLE `PruebaDeVida`
 ALTER TABLE `RestriccionPerimetral`
   ADD CONSTRAINT `restriccionperimetral_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `Usuario` (`idUsuario`),
   ADD CONSTRAINT `restriccionperimetral_ibfk_2` FOREIGN KEY (`idDamnificada`) REFERENCES `Persona` (`idPersona`),
-  ADD CONSTRAINT `restriccionperimetral_ibfk_3` FOREIGN KEY (`idVictimario`) REFERENCES `Persona` (`idPersona`);
+  ADD CONSTRAINT `restriccionperimetral_ibfk_3` FOREIGN KEY (`idVictimario`) REFERENCES `Persona` (`idPersona`),
+  ADD CONSTRAINT `restriccionperimetral_ibfk_4` FOREIGN KEY (`idGrupo`) REFERENCES `Grupo` (`idGrupo`);
 
 --
 -- Filtros para la tabla `Ubicacion`
