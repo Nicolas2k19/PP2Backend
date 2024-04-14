@@ -1,4 +1,4 @@
----CREATE USER 'vdgpps'@'%' IDENTIFIED BY 'vdgpps2019';
+-- CREATE USER 'vdgpps'@'%' IDENTIFIED BY 'vdgpps2019';
 
 GRANT ALL PRIVILEGES ON *.* TO 'vdgpps'@'%';
 
@@ -34,8 +34,7 @@ SET time_zone = "+00:00";
 --
 -- Estructura de tabla para la tabla `BotonAntipanico`
 --
-
---use vdg;
+use vdg;
 
 CREATE TABLE `BotonAntipanico` (
   `idBotonAntipanico` int NOT NULL,
@@ -353,7 +352,7 @@ INSERT INTO `Persona` (`idPersona`, `nombre`, `apellido`, `DNI`, `telefono`, `fe
 CREATE TABLE Provincia (
   idProvincia INT NOT NULL,
   nombre VARCHAR(50) NOT NULL,
-  PRIMARY KEY (`idProvincia`)
+  PRIMARY KEY (idProvincia)
 );
 
 --
@@ -727,8 +726,8 @@ ALTER TABLE `Persona`
 --
 -- Indices de la tabla `Provincia`
 --
-ALTER TABLE `Provincia`
-  ADD PRIMARY KEY (`idProvincia`);
+-- ER TABLE `Provincia`
+ --  ADD PRIMARY KEY (`idProvincia`);
 
 --
 -- Indices de la tabla `PruebaDeVida`
