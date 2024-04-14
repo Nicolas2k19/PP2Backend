@@ -136,6 +136,7 @@ public class RestriccionDTOController {
 			restriccion.setDistancia(res.getDistanvica());
 			restriccion.setIdDamnificada(res.getIdDamnificada());
 			restriccion.setIdVictimario(res.getIdVictimario());
+			restriccion.setIdGrupo(res.getIdGrupo());
 			
 			RestriccionDTO restriccionDTO = new RestriccionDTO(damnificada, victimario, usuario, restriccion);
 			ret.add(restriccionDTO);

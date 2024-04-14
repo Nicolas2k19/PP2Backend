@@ -48,6 +48,8 @@ CREATE TABLE `Grupo` (
   PRIMARY KEY (idGrupo)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+
+insert into grupo (idGrupo, nombreGrupo, turnoGrupo) values (0, 'PERSONAS', 'MAÑANA');
 insert into grupo (idGrupo, nombreGrupo, turnoGrupo) values (1, 'Mañana 1', 'MAÑANA');
 insert into grupo (idGrupo, nombreGrupo, turnoGrupo) values (2, 'Tarde 1','TARDE');
 insert into grupo (idGrupo, nombreGrupo, turnoGrupo) values (3, 'Noche 1','NOCHE');
@@ -306,14 +308,14 @@ CREATE TABLE `Usuario` (
 
 INSERT INTO `Usuario` (`idUsuario`, `email`, `contrasena`, `rolDeUsuario`,`estadoUsuario`, `idGrupo`) VALUES
 (1, "admin@admin.com", "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918", "SUPERVISOR",'AUSENTE',1),
-(2, 'agresor1@agresor1.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'VICTIMARIO','AUSENTE',null),
-(4, 'victima1@victima1.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'DAMNIFICADA','AUSENTE',null),
+(2, 'agresor1@agresor1.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'VICTIMARIO','AUSENTE',0),
+(4, 'victima1@victima1.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'DAMNIFICADA','AUSENTE',0),
 (5, 'gfgrillo3@gmail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'ADMINISTRATIVO','AUSENTE', 2),
-(7, 'agresor2@agresor2.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'VICTIMARIO','AUSENTE',null),
+(7, 'agresor2@agresor2.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'VICTIMARIO','AUSENTE',0),
 (18, 'gustycruz85@gmail.com', '983adc986531868a9ef48446fd07d5751982f6336ee073b10512d6568ad149e1', 'ADMINISTRATIVO','AUSENTE',3),
 (20, 'usuario@prueba.com.ar', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'ADMINISTRATIVO','AUSENTE',1),
-(21, 'agresor3@agresor.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'VICTIMARIO','AUSENTE',null),
-(23, 'damnificada2@damnificada.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'DAMNIFICADA','AUSENTE',null);
+(21, 'agresor3@agresor.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'VICTIMARIO','AUSENTE',0),
+(23, 'damnificada2@damnificada.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'DAMNIFICADA','AUSENTE',0);
 
 -- --------------------------------------------------------
 
@@ -604,6 +606,7 @@ CREATE TABLE `VistaRestriccionDTO` (
 ,`apellidoDamnificada` varchar(50)
 ,`nombreDamnificada` varchar(50)
 ,`dniDamnificada` varchar(20)
+,`idGrupo` int(11)
 );
 
 -- --------------------------------------------------------
@@ -626,7 +629,7 @@ CREATE TABLE `VistaUsuarioPersona` (
 --
 DROP TABLE IF EXISTS `VistaRestriccionDTO`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`vdgpps`@`%` SQL SECURITY DEFINER VIEW `VistaRestriccionDTO`  AS SELECT `r`.`idRestriccion` AS `idRestriccion`, `r`.`distancia` AS `distancia`, `r`.`idUsuario` AS `idAdministrativo`, `u`.`email` AS `email`, `r`.`idVictimario` AS `idVictimario`, `pV`.`apellido` AS `apellidoVictimario`, `pV`.`nombre` AS `nombreVictimario`, `pV`.`DNI` AS `dniVictimario`, `r`.`idDamnificada` AS `idDamnificada`, `pD`.`apellido` AS `apellidoDamnificada`, `pD`.`nombre` AS `nombreDamnificada`, `pD`.`DNI` AS `dniDamnificada` FROM (((`RestriccionPerimetral` `r` join `Persona` `pV` on((`r`.`idVictimario` = `pV`.`idPersona`))) join `Persona` `pD` on((`r`.`idDamnificada` = `pD`.`idPersona`))) join `Usuario` `u` on((`r`.`idUsuario` = `u`.`idUsuario`))) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`vdgpps`@`%` SQL SECURITY DEFINER VIEW `VistaRestriccionDTO`  AS SELECT `r`.`idRestriccion` AS `idRestriccion`, `r`.`distancia` AS `distancia`, `r`.`idUsuario` AS `idAdministrativo`,`r`.`idGrupo` AS `idGrupo`, `u`.`email` AS `email`, `r`.`idVictimario` AS `idVictimario`, `pV`.`apellido` AS `apellidoVictimario`, `pV`.`nombre` AS `nombreVictimario`, `pV`.`DNI` AS `dniVictimario`, `r`.`idDamnificada` AS `idDamnificada`, `pD`.`apellido` AS `apellidoDamnificada`, `pD`.`nombre` AS `nombreDamnificada`, `pD`.`DNI` AS `dniDamnificada` FROM (((`RestriccionPerimetral` `r` join `Persona` `pV` on((`r`.`idVictimario` = `pV`.`idPersona`))) join `Persona` `pD` on((`r`.`idDamnificada` = `pD`.`idPersona`))) join `Usuario` `u` on((`r`.`idUsuario` = `u`.`idUsuario`))) ;
 
 -- --------------------------------------------------------
 

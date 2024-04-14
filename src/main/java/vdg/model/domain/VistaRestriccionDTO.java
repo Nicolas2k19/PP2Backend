@@ -12,6 +12,9 @@ public class VistaRestriccionDTO {
 
 	@Column
 	private int distancia;
+	
+	@Column
+	private int idGrupo;
 
 	@Column
 	private int idAdministrativo;
@@ -147,6 +150,14 @@ public class VistaRestriccionDTO {
 
 	public void setDniDamnificada(String dniDamnificada) {
 		this.dniDamnificada = dniDamnificada;
+	}
+
+	public int getIdGrupo() {
+		return idGrupo;
+	}
+
+	public void setIdGrupo(int idGrupo) {
+		this.idGrupo = idGrupo;
 	}
 	
 	
