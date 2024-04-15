@@ -25,4 +25,10 @@ public class VistaRestriccionDTOController {
 		return vistaRestriccionDTOrepo.findByIdAdministrativo(idAdministrativo);
 	};
 
+	@GetMapping("/getByIdGrupo/{idGrupo}")
+	public List<VistaRestriccionDTO> getRestriccionesGrupo(@PathVariable("idGrupo") int idGrupo){
+		return vistaRestriccionDTOrepo.findByIdGrupo(idGrupo);
+	};
+	
+	
 }

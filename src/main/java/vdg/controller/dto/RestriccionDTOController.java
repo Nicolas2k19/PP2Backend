@@ -9,9 +9,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import vdg.controller.GrupoController;
 import vdg.controller.PersonaController;
 import vdg.controller.UbicacionController;
 import vdg.controller.UsuarioController;
+import vdg.model.domain.Grupo;
 import vdg.model.domain.Persona;
 import vdg.model.domain.RestriccionPerimetral;
 import vdg.model.domain.RolDeUsuario;
@@ -34,6 +36,8 @@ public class RestriccionDTOController {
 	@Autowired
 	UbicacionController ubicacionController;
 	@Autowired
+	GrupoController grupoController;
+	@Autowired
 	ValidadoresFormPersona validador = new ValidadoresFormPersona();
 	@Autowired
 	private RestriccionPerimetralRepository restriccionPerimetralRepo;
@@ -55,6 +59,14 @@ public class RestriccionDTOController {
 		
 		return generarRestriccionsDTO(restricciones);
 	}
+	
+	@GetMapping("/getByIdGrupo/{idGrupo}")
+	public List<RestriccionDTO> getRestriccionesGrupo(@PathVariable("idGrupo") int idGrupo){
+		//TRAIGO LAS RESTRICCIONES
+		List<VistaRestriccionDTO> restricciones = vistaRestriccionDTORepo.findByIdGrupo(idGrupo);
+		return generarRestriccionsDTO(restricciones);
+	}
+
 
 	@GetMapping("/getByUsuarioApp/{email}")
 	public List<RestriccionDTO> getByUsuarioApp(@PathVariable("email") String email) {
@@ -85,6 +97,7 @@ public class RestriccionDTOController {
 		Persona victimario = personaController.getById(idVictimario);
 		return getByPersona(victimario, RolDeUsuario.VICTIMARIO);
 	}
+	
 
 	private List<RestriccionDTO> getByPersona(Persona persona, RolDeUsuario rol) {
 		List<RestriccionPerimetral> restricciones = new ArrayList<>();

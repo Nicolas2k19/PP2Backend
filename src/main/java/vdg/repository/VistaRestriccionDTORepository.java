@@ -10,4 +10,5 @@ public interface VistaRestriccionDTORepository extends Repository<VistaRestricci
 	
 	public List<VistaRestriccionDTO> findAll();
 	public List<VistaRestriccionDTO> findByIdAdministrativo(int idAdministrativo);
+	public List<VistaRestriccionDTO> findByIdGrupo(int idGrupo);
 }
