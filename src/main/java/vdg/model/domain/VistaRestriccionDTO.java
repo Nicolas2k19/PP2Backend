@@ -1,5 +1,7 @@
 package vdg.model.domain;
 
+import java.sql.Date;
+
 import javax.persistence.*;
 
 @Entity
@@ -18,6 +20,9 @@ public class VistaRestriccionDTO {
 
 	@Column
 	private int idAdministrativo;
+	
+	@Column
+	private Date fechaSentencia;
 
 	@Column
 	private String email;
@@ -159,6 +164,14 @@ public class VistaRestriccionDTO {
 	public void setIdGrupo(int idGrupo) {
 		this.idGrupo = idGrupo;
 	}
-	
+
+	public Date getFechaSentencia() {
+		return fechaSentencia;
+	}
+
+	public void setFechaSentencia(Date fechaSentencia) {
+		this.fechaSentencia = fechaSentencia;
+	}
+
 	
 }
