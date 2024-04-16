@@ -12,5 +12,7 @@ public class VdgApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(VdgApplication.class, args);
+		
+	        
 	}
 }

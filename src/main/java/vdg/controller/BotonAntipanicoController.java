@@ -1,10 +1,13 @@
 package vdg.controller;
 
+import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -17,19 +20,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import antlr.collections.List;
 import springfox.documentation.spring.web.json.Json;
+import vdg.model.api.NormalizacionCoordenadas;
 import vdg.model.domain.BotonAntipanico;
+import vdg.model.domain.Comisaria;
 import vdg.model.domain.Contacto;
 import vdg.model.domain.Incidencia;
 import vdg.model.domain.Persona;
+import vdg.model.domain.UbicacionNormalizada;
 import vdg.model.domain.Usuario;
 import vdg.model.email.EmailGateway;
+import vdg.model.logica.PuntoCercano;
 import vdg.model.notificacionesTerceros.CuerpoMensaje;
 import vdg.model.notificacionesTerceros.CuerpoNotificacion;
 import vdg.model.notificacionesTerceros.WpNotificador;
 import vdg.repository.BotonAntipanicoRepository;
+import vdg.repository.ComisariaRepository;
 import vdg.repository.ContactoRepository;
-//import vdg.repository.NotificacionRepository;
+
 
 @RestController
 @RequestMapping("/BotonAntipanico")
@@ -47,6 +56,14 @@ public class BotonAntipanicoController {
 	
 	@Autowired
 	private WpNotificador  wpNotificador;
+	
+	@Autowired
+	private NormalizacionCoordenadas normalizador;
+	
+	@Autowired PuntoCercano puntoMasCercano;
+	
+	@Autowired private ComisariaRepository  comisariaRepo;
+	
 	
 	@Value("${servicioMensajeria}")
     private String mensajeria;
@@ -79,22 +96,48 @@ public class BotonAntipanicoController {
 	}
 	
 	
-	@PostMapping("/alertarPolicia")
-	/**Envia un mensaje a la api de Whatsapp
+	
+	/**Envia un mensaje a la api de Whatsapp alertando a la policia
 	 *@Returns CuerpoNotificacion
 	 ***/
-	public String alertarPolicia() throws Exception {
-		return this.wpNotificador.notificar(configurarCuerpo());
+	@PostMapping("/alertarPolicia/{lat}/{lon}")
+	public Comisaria alertarPolicia(@PathVariable("lat") double lat,@PathVariable("lon")  double lon ) throws Exception {		
+		UbicacionNormalizada respuesta = this.normalizador.ObtenerCoordenadas(lat, lon);
+		String municipioAlerta = respuesta.getUbicacion().getMunicipio().getNombre();
+		ArrayList<Comisaria> comisariasMunicipio = (ArrayList<Comisaria>) this.comisariaRepo.findAllBypartido(municipioAlerta);
+		Comisaria comisaria = this.puntoMasCercano.puntoMasCercano(new BigDecimal(lat),new BigDecimal(lon),comisariasMunicipio);
+		String nroTelefono = comisaria.getTelefono();
+		this.wpNotificador.notificar(configurarCuerpo(nroTelefono));
+		return comisaria;
 	}
 
+	
+	
+	/**Envia un mensaje a la api de Whatsapp alertando a la policia, se debe pasar por parametro la ciudad
+	 *@Returns CuerpoNotificacion
+	 ***/
+	@PostMapping("/alertarPoliciaPorCiudad/{lat}/{lon}/{ciudad}")
+	public Comisaria alertarPoliciaDandoCiudad(@PathVariable("lat") double lat,@PathVariable("lon")  double lon,@PathVariable("ciudad")String ciudad) throws Exception {		
+		System.out.println("Llegue");
+		System.out.println(ciudad);
+		ArrayList<Comisaria> comisariasMunicipio = (ArrayList<Comisaria>) this.comisariaRepo.findAllBypartido(ciudad);
+		Comisaria comisaria = this.puntoMasCercano.puntoMasCercano(new BigDecimal(lat),new BigDecimal(lon),comisariasMunicipio);
+		String nroTelefono = comisaria.getTelefono();
+		this.wpNotificador.notificar(configurarCuerpo(nroTelefono));
+		return comisaria;
+	}
+	
+	
+	
+	
 	/**Configura el cuerpo a enviar a la api de Whatsapp
 	 *@Returns CuerpoNotificacion
 	 ***/
-	private CuerpoNotificacion configurarCuerpo() throws Exception {
+	private CuerpoNotificacion configurarCuerpo(String nroTelefono) throws Exception {
 		CuerpoNotificacion cuerpo  = new CuerpoNotificacion();
 		CuerpoMensaje cuerpoMensaje = new CuerpoMensaje();
 		cuerpo.setMessaging_product(this.mensajeria);
-		cuerpo.setTo("541166375768");
+		cuerpo.setTo(nroTelefono);
 		cuerpo.setPreview_url(this.preview_url);
 		cuerpo.setRecipient_type(this.recipient_type);
 		cuerpoMensaje.setBody("Este es mi primer mensaje desde java");
@@ -139,6 +182,18 @@ public class BotonAntipanicoController {
 		HttpHeaders header = new HttpHeaders();
 	    return header ;
 	}
+	
+	@Bean RestTemplateBuilder restTemplateBuilder(){
+		
+		return new RestTemplateBuilder();
+	}
+	
+	@Bean NormalizacionCoordenadas normalizacionCoordenadas(){
+		return new NormalizacionCoordenadas(this.restTemplateBuilder());
+	}
+	
+	
+	
 	
 	
 	

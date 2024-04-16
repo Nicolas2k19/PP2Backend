@@ -16,6 +16,8 @@ public interface ComisariaRepository extends Repository<Comisaria, Integer> {
 	public void delete(Comisaria comisaria);
 	
 	public Comisaria findByidComisaria(int id);
+	
+	public List<Comisaria> findAllBypartido(String partido);
 
 	public List<Comisaria> findAll();
 }
