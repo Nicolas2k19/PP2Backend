@@ -2,6 +2,8 @@ package vdg.model.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,12 +29,16 @@ public class Comisaria {
 	String partido;
 	@Column
 	String comisariaACargo;
+	@Column 
+	@Enumerated(EnumType.STRING)
+	TipoComisaria tipo;
 	@Column
 	String coordenadaX;
 	@Column 
 	String coordenadaY;
 	
 	
+
 	/**
 	 * Obtiene el id de la comisaria
 	 * 
@@ -132,6 +138,7 @@ public class Comisaria {
 	public String getComisariaACargo() {
 		return comisariaACargo;
 	}
+	
 	/**
 	 * Setea el comisarioAcargo 
 	 ***/
@@ -140,12 +147,25 @@ public class Comisaria {
 	}
 	
 	/**
+	 * Obtiene el tipo 
+	 ***/
+	public TipoComisaria getTipo() {
+		return tipo;
+	}
+	
+	/**
+	 * Setea el tipo 
+	 ***/
+	public void setTipo(TipoComisaria tipo) {
+		this.tipo = tipo;
+	}
+	
+	/**
 	 * Obtiene la coordena x de la comisaria
 	 ***/
 	public String getCoordenadaX() {
 		return coordenadaX;
 	}
-	
 	
 	/**
 	 * Setea la coordena x de la comisaria
@@ -167,8 +187,5 @@ public class Comisaria {
 	public void setCoordenadaY(String coordenadaY) {
 		this.coordenadaY = coordenadaY;
 	}
-	
-	
-	
 	
 }
