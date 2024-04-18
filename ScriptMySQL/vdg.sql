@@ -101,7 +101,7 @@ CREATE TABLE `Contacto` (
 
 --
 -- Volcado de datos para la tabla `Contacto`
---
+--tipo varchar(255)
 
 INSERT INTO `Contacto` (`idContacto`, `apellido`, `nombre`, `email`, `telefono`, `relacion`, `idDamnificada`) VALUES
 (20, 'Cruz', 'Gustavo', 'gustycruz85@gmail.com', '1122334422', 'Amigo/a', 2);
@@ -657,6 +657,7 @@ CREATE TABLE `comisaria` (
   `nombre` varchar(255) DEFAULT NULL,
   `partido` varchar(255) DEFAULT NULL,
   `telefono` varchar(255) DEFAULT NULL,
+  `tipo` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`idComisaria`)
 );
 
