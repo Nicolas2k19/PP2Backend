@@ -8,7 +8,7 @@ FLUSH PRIVILEGES;
 -- phpMyAdmin SQL Dump
 -- version 5.1.0
 -- https://www.phpmyadmin.net/
---
+--	
 -- Servidor: 127.0.0.1:3306
 -- Tiempo de generación: 06-04-2021 a las 19:23:39
 -- Versión del servidor: 8.0.23
@@ -39,7 +39,7 @@ drop database vdg;
 
 create database vdg;
 
-use vdg;
+use vdg;	
 
 CREATE TABLE `Grupo` (
   `idGrupo` int NOT NULL,
@@ -101,7 +101,7 @@ CREATE TABLE `Contacto` (
 
 --
 -- Volcado de datos para la tabla `Contacto`
---tipo varchar(255)
+-- tipo varchar(255)
 
 INSERT INTO `Contacto` (`idContacto`, `apellido`, `nombre`, `email`, `telefono`, `relacion`, `idDamnificada`) VALUES
 (20, 'Cruz', 'Gustavo', 'gustycruz85@gmail.com', '1122334422', 'Amigo/a', 2);
@@ -221,7 +221,8 @@ CREATE TABLE `Incidencia` (
   `fecha` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `descripcion` varchar(500) DEFAULT NULL,
   `topico` varchar(50) DEFAULT NULL,
-  `idRestriccion` int DEFAULT NULL
+  `idRestriccion` int DEFAULT NULL,
+  `peligrosidad` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --

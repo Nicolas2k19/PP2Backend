@@ -6,12 +6,14 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import vdg.model.controladorNotificaciones.GeneradorNotificaciones;
 import vdg.model.domain.Incidencia;
 import vdg.model.domain.Notificacion;
+import vdg.model.domain.Peligrosidad;
 import vdg.model.domain.Persona;
 import vdg.model.domain.RestriccionPerimetral;
 import vdg.model.domain.Usuario;
@@ -63,8 +65,9 @@ public class IncidenciaController {
 	public Incidencia getById(int idIncidencia) {
 		return incidenciaRepo.findByIdIncidencia(idIncidencia);
 	}
-
-	@PostMapping
+	
+	
+	@PostMapping("/agregar")
 	public Incidencia agregar(@RequestBody Incidencia incidencia) {		
 		//GUARDO LA INCIDENCIA
 		Incidencia nuevaIncidencia = incidenciaRepo.save(incidencia);
@@ -79,6 +82,11 @@ public class IncidenciaController {
 		
 		return nuevaIncidencia;
 	}
+	
+	
+
+	
+	
 	
 	
 	public List<Incidencia> modificarIncidencias(List<Incidencia> incidencias) {

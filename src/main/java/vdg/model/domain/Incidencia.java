@@ -29,6 +29,10 @@ public class Incidencia {
 	@Column
 	private int idRestriccion;
 	
+	
+	@Enumerated(EnumType.STRING)
+	private Peligrosidad peligrosidad;
+	
 	public Incidencia() {
 		
 	}
@@ -72,5 +76,17 @@ public class Incidencia {
 	public void setIdRestriccion(int idRestriccion) {
 		this.idRestriccion = idRestriccion;
 	}
+
+	public Peligrosidad getPeligrosidad() {
+		return peligrosidad;
+	}
+
+	public void setPeligrosidad(Peligrosidad peligrosidad) {
+		this.peligrosidad = peligrosidad;
+	}
+
+	
+	
+
 	
 }
