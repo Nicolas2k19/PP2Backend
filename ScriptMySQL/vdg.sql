@@ -42,7 +42,7 @@ create database vdg;
 use vdg;	
 
 CREATE TABLE `Grupo` (
-  `idGrupo` int NOT NULL,
+  `idGrupo` int AUTO_INCREMENT NOT NULL,
   `nombreGrupo` varchar(50) DEFAULT NULL,
   `turnoGrupo` varchar(50) DEFAULT NULL,
   PRIMARY KEY (idGrupo)
