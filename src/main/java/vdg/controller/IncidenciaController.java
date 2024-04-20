@@ -54,13 +54,49 @@ public class IncidenciaController {
 		return incidenciaRepo.getIlocalizable(idRestriccion);
 	}
 	
-	public List<Incidencia> getIncidenciasDamnificadaIlocalizable(int idRestriccion){
+	
+	@GetMapping("/DamnificadaIlocalizable/{idRestriccion}")
+	public List<Incidencia> getIncidenciasDamnificadaIlocalizable( @PathVariable("idRestriccion")int idRestriccion){
 		return incidenciaRepo.getDamnificadaIlocalizable(idRestriccion);
 	}
 	
-	public List<Incidencia> getIncidenciasVictimarioIlocalizable(int idRestriccion){
+	
+	@GetMapping("/VictimarioIlocalizable/{idRestriccion}")
+	public List<Incidencia> getIncidenciasVictimarioIlocalizable(@PathVariable("idRestriccion") int idRestriccion){
 		return incidenciaRepo.getVictimarioIlocalizable(idRestriccion);
 	}
+	
+	@GetMapping("/PruebaDeVidaFallida/{idRestriccion}")
+	public List<Incidencia> getIncidenciasPruebaDeVidaFallida(@PathVariable("idRestriccion") int idRestriccion){
+		return incidenciaRepo.getPruebaDeVidaFallida(idRestriccion);
+	}
+	
+	@GetMapping("/InfraccionDeRestriccion/{idRestriccion}")
+	public List<Incidencia> getIncidenciasInfraccionDeRestriccion(@PathVariable("idRestriccion") int idRestriccion){
+		return incidenciaRepo.getInfraccionDeRestriccion(idRestriccion);
+	}
+	
+	@GetMapping("/FueraDeRutina/{idRestriccion}")
+	public List<Incidencia> getFueraDeRutina(@PathVariable("idRestriccion") int idRestriccion){
+		return incidenciaRepo.getFueraDeRutina(idRestriccion);
+	}
+	
+	@GetMapping("/PeligrosidadA/{idRestriccion}")
+	public List<Incidencia> getPeligrosidadA(@PathVariable("idRestriccion") int idRestriccion){
+		return incidenciaRepo.getPeligrosidadA(idRestriccion);
+	}
+	
+	@GetMapping("/PeligrosidadM/{idRestriccion}")
+	public List<Incidencia> getPeligrosidadM(@PathVariable("idRestriccion") int idRestriccion){
+		return incidenciaRepo.getPeligrosidadM(idRestriccion);
+	}
+	
+	@GetMapping("/PeligrosidadB/{idRestriccion}")
+	public List<Incidencia> getPeligrosidadB(@PathVariable("idRestriccion") int idRestriccion){
+		return incidenciaRepo.getPeligrosidadB(idRestriccion);
+	}
+
+	
 	
 	public Incidencia getById(int idIncidencia) {
 		return incidenciaRepo.findByIdIncidencia(idIncidencia);
