@@ -964,6 +964,6 @@ INSERT INTO `Incidencia` (`idIncidencia`, `fecha`, `descripcion`, `topico`, `idR
 (1283, '2021-02-01 18:10:37', 'Fallo la prueba de vida de: Agresor1, Agresor1. Descripción de prueba de vida: Levantar dedo pulgar izquierdo. Fecha de petición: 2019-10-24 23:01:50.0', 'PruebaDeVidaFallida', 1);
 
 
-update incidencia set peligrosidad="NO_CATEGORIZADO" WHERE idIncidencia<4000;
+update incidencia set peligrosidad="MEDIA" WHERE idIncidencia<4000;
 
-update incidencia set peligrosidad="ALTO" WHERE idIncidencia=1283;
+update incidencia set peligrosidad="NO_CATEGORIZADO" WHERE idIncidencia=1283;
