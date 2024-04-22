@@ -17,6 +17,9 @@ public class VistaRestriccionDTO {
 	
 	@Column
 	private int idGrupo;
+	
+	@Column
+	private String nombreGrupo;
 
 	@Column
 	private int idAdministrativo;
@@ -171,6 +174,14 @@ public class VistaRestriccionDTO {
 
 	public void setFechaSentencia(Date fechaSentencia) {
 		this.fechaSentencia = fechaSentencia;
+	}
+
+	public String getNombreGrupo() {
+		return nombreGrupo;
+	}
+
+	public void setNombreGrupo(String nombreGrupo) {
+		this.nombreGrupo = nombreGrupo;
 	}
 
 	

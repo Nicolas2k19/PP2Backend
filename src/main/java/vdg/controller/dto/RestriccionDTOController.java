@@ -114,13 +114,15 @@ public class RestriccionDTOController {
 		Persona damnificada;
 		Usuario usuario;
 		RestriccionDTO restriccionDTO;
+		Grupo grupo;
 
 		for (RestriccionPerimetral restriccion : restricciones) {
 			usuario = usuarioController.findByIdUsuario(restriccion.getIdUsuario());
 			victimario = personaController.getById(restriccion.getIdVictimario());
 			damnificada = personaController.getById(restriccion.getIdDamnificada());
+			grupo = grupoController.obtenerGrupo(restriccion.getIdGrupo());
 
-			restriccionDTO = new RestriccionDTO(damnificada, victimario, usuario, restriccion);
+			restriccionDTO = new RestriccionDTO(damnificada, victimario, usuario, restriccion, grupo);
 			ret.add(restriccionDTO);
 		}
 		return ret;
@@ -135,6 +137,7 @@ public class RestriccionDTOController {
 			Persona damnificada = new Persona();
 			Usuario usuario = new Usuario();
 			RestriccionPerimetral restriccion = new RestriccionPerimetral();
+			Grupo grupo = new Grupo();
 			victimario.setIdPersona(res.getIdVictimario());
 			victimario.setApellido(res.getApellidoVictimario());
 			victimario.setNombre(res.getNombreVictimario());
@@ -152,8 +155,9 @@ public class RestriccionDTOController {
 			restriccion.setIdGrupo(res.getIdGrupo());
 			restriccion.setIdUsuario(res.getIdAdministrativo());
 			restriccion.setFechaSentencia(res.getFechaSentencia());
+			grupo.setNombreGrupo(res.getNombreGrupo());
 			
-			RestriccionDTO restriccionDTO = new RestriccionDTO(damnificada, victimario, usuario, restriccion);
+			RestriccionDTO restriccionDTO = new RestriccionDTO(damnificada, victimario, usuario, restriccion,grupo);
 			ret.add(restriccionDTO);
 		}
 		

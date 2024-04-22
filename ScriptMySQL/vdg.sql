@@ -607,8 +607,9 @@ CREATE TABLE `VistaRestriccionDTO` (
 ,`apellidoDamnificada` varchar(50)
 ,`nombreDamnificada` varchar(50)
 ,`dniDamnificada` varchar(20)
-,`idGrupo` int(11),
-`fechaSentencia` date
+,`idGrupo` int(11)
+,`nombreGrupo` varchar(50)
+,`fechaSentencia` date
 );
 
 -- --------------------------------------------------------
@@ -631,7 +632,14 @@ CREATE TABLE `VistaUsuarioPersona` (
 --
 DROP TABLE IF EXISTS `VistaRestriccionDTO`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`vdgpps`@`%` SQL SECURITY DEFINER VIEW `VistaRestriccionDTO`  AS SELECT `r`.`idRestriccion` AS `idRestriccion`, `r`.`distancia` AS `distancia`, `r`.`idUsuario` AS `idAdministrativo`,`r`.`idGrupo` AS `idGrupo`,`r`.`fechaSentencia` AS `fechaSentencia`, `u`.`email` AS `email`, `r`.`idVictimario` AS `idVictimario`, `pV`.`apellido` AS `apellidoVictimario`, `pV`.`nombre` AS `nombreVictimario`, `pV`.`DNI` AS `dniVictimario`, `r`.`idDamnificada` AS `idDamnificada`, `pD`.`apellido` AS `apellidoDamnificada`, `pD`.`nombre` AS `nombreDamnificada`, `pD`.`DNI` AS `dniDamnificada` FROM (((`RestriccionPerimetral` `r` join `Persona` `pV` on((`r`.`idVictimario` = `pV`.`idPersona`))) join `Persona` `pD` on((`r`.`idDamnificada` = `pD`.`idPersona`))) join `Usuario` `u` on((`r`.`idUsuario` = `u`.`idUsuario`))) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`vdgpps`@`%` SQL SECURITY DEFINER VIEW `VistaRestriccionDTO`  AS SELECT `r`.`idRestriccion` AS `idRestriccion`, `r`.`distancia` AS `distancia`, `r`.`idUsuario` AS `idAdministrativo`,
+`r`.`idGrupo` AS `idGrupo`, `g`.`nombreGrupo` AS `nombreGrupo`,`r`.`fechaSentencia` AS `fechaSentencia`, `u`.`email` AS `email`, `r`.`idVictimario` AS `idVictimario`, `pV`.`apellido` AS `apellidoVictimario`, `pV`.`nombre` AS `nombreVictimario`,
+`pV`.`DNI` AS `dniVictimario`, `r`.`idDamnificada` AS `idDamnificada`, `pD`.`apellido` AS `apellidoDamnificada`, `pD`.`nombre` AS `nombreDamnificada`, `pD`.`DNI` AS `dniDamnificada` 
+FROM ((((`RestriccionPerimetral` `r` 
+join `Persona` `pV` on((`r`.`idVictimario` = `pV`.`idPersona`))) 
+join `Persona` `pD` on((`r`.`idDamnificada` = `pD`.`idPersona`))) 
+join `Usuario` `u` on((`r`.`idUsuario` = `u`.`idUsuario`)))
+join `Grupo` `g` on((`r`.`idGrupo` = `g`.`idGrupo`))) ;
 
 -- --------------------------------------------------------
 
