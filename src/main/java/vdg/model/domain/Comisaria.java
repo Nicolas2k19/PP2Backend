@@ -36,6 +36,10 @@ public class Comisaria {
 	String coordenadaX;
 	@Column 
 	String coordenadaY;
+	@Column 
+	Long idComisariaTelegram;
+	
+	
 	
 	
 
@@ -187,5 +191,15 @@ public class Comisaria {
 	public void setCoordenadaY(String coordenadaY) {
 		this.coordenadaY = coordenadaY;
 	}
+
+	public Long getIdComisariaTelegram() {
+		return idComisariaTelegram;
+	}
+
+	public void setIdComisariaTelegram(Long idComisariaTelegram) {
+		this.idComisariaTelegram = idComisariaTelegram;
+	}
+	
+	
 	
 }
