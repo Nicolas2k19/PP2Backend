@@ -20,4 +20,7 @@ public interface ComisariaRepository extends Repository<Comisaria, Integer> {
 	public List<Comisaria> findAllBypartido(String partido);
 
 	public List<Comisaria> findAll();
+	
+	
+	public Comisaria findBynombre(String nombre);
 }

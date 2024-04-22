@@ -19,6 +19,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+import org.telegram.telegrambots.meta.TelegramBotsApi;
+import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
+import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
 import antlr.collections.List;
 import springfox.documentation.spring.web.json.Json;
@@ -34,6 +37,7 @@ import vdg.model.email.EmailGateway;
 import vdg.model.logica.PuntoCercano;
 import vdg.model.notificacionesTerceros.CuerpoMensaje;
 import vdg.model.notificacionesTerceros.CuerpoNotificacion;
+import vdg.model.notificacionesTerceros.TelegramNotificador;
 import vdg.model.notificacionesTerceros.WpNotificador;
 import vdg.repository.BotonAntipanicoRepository;
 import vdg.repository.ComisariaRepository;
@@ -64,6 +68,8 @@ public class BotonAntipanicoController {
 	
 	@Autowired private ComisariaRepository  comisariaRepo;
 	
+	@Autowired private TelegramNotificador telegramNotificador;
+	
 	
 	@Value("${servicioMensajeria}")
     private String mensajeria;
@@ -74,8 +80,9 @@ public class BotonAntipanicoController {
 	private String recipient_type;
 	
 	
-	//@Autowired
-	//private NotificacionRepository notificacionRepo;
+	@Value("${tokenTelegram}")
+	private String token;
+	
 	
 	@PostMapping("/{emailDamnificada}")
 	public BotonAntipanico alertar(@RequestBody BotonAntipanico botonAntipanico, @PathVariable("emailDamnificada") String emailDamnificada) {
@@ -107,7 +114,11 @@ public class BotonAntipanicoController {
 		ArrayList<Comisaria> comisariasMunicipio = (ArrayList<Comisaria>) this.comisariaRepo.findAllBypartido(municipioAlerta);
 		Comisaria comisaria = this.puntoMasCercano.puntoMasCercano(new BigDecimal(lat),new BigDecimal(lon),comisariasMunicipio);
 		String nroTelefono = comisaria.getTelefono();
-		this.wpNotificador.notificar(configurarCuerpo(nroTelefono));
+		
+		if(comisaria.getIdComisariaTelegram()!=null) 
+			this.telegramNotifador().enviarMensaje(comisaria.getIdComisariaTelegram(), "Alerta en lat :"+lat+ "long"+ lon);
+		
+		//this.wpNotificador.notificar(configurarCuerpo(nroTelefono));
 		return comisaria;
 	}
 
@@ -123,7 +134,11 @@ public class BotonAntipanicoController {
 		ArrayList<Comisaria> comisariasMunicipio = (ArrayList<Comisaria>) this.comisariaRepo.findAllBypartido(ciudad);
 		Comisaria comisaria = this.puntoMasCercano.puntoMasCercano(new BigDecimal(lat),new BigDecimal(lon),comisariasMunicipio);
 		String nroTelefono = comisaria.getTelefono();
-		this.wpNotificador.notificar(configurarCuerpo(nroTelefono));
+		
+		if(comisaria.getIdComisariaTelegram()!=null) 
+			this.telegramNotifador().enviarMensaje(comisaria.getIdComisariaTelegram(), "Alerta en lat :"+lat+ "long"+ lon);
+		
+		//this.wpNotificador.notificar(configurarCuerpo(nroTelefono));
 		return comisaria;
 	}
 	
@@ -190,6 +205,17 @@ public class BotonAntipanicoController {
 	
 	@Bean NormalizacionCoordenadas normalizacionCoordenadas(){
 		return new NormalizacionCoordenadas(this.restTemplateBuilder());
+	}
+	
+	
+	@Bean
+     TelegramNotificador telegramNotifador() throws TelegramApiException {
+		   TelegramBotsApi botsApi = new TelegramBotsApi(DefaultBotSession.class);
+		   TelegramNotificador bot = new TelegramNotificador(); 
+		   
+		   //We moved this line out of the register method, to access it later
+		   botsApi.registerBot(bot);
+		   return bot;  
 	}
 	
 	
