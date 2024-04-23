@@ -1423,6 +1423,14 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "agregar",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
 				}
 			]
 		},
@@ -1792,6 +1800,148 @@
 								"RestriccionPerimetral",
 								"borrar",
 								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "RPLugar",
+			"item": [
+				{
+					"name": "crearNuevoLugar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"distancia\": 100,\r\n   \"direccion\": {\r\n    \"altura\": \"4310\",\r\n    \"calle\": \"Calle\",\r\n    \"departamento\": \"C\",\r\n    \"idDireccion\": 2,\r\n    \"idLocalidad\": 2156,\r\n    \"piso\": 7\r\n  },\r\n  \"idRPLugar\": 3,\r\n  \"idRestriccion\": 3,\r\n  \"latitud\": -34.542663948228935,\r\n  \"longuitud\": -58.71191934414344,\r\n  \"nombre\": \"Algun lugar\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/LugaresRestringidos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"LugaresRestringidos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obtenerTodosLosLugares",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/LugaresRestringidos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"LugaresRestringidos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obtenrLugarPorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/LugaresRestringidos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"LugaresRestringidos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "actualizarLugar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"distancia\": 50,\r\n  \"idDireccion\": 1,\r\n  \"idRPLugar\": 1,\r\n  \"idRestriccion\": 1,\r\n  \"latitud\": -34.542663948228935,\r\n  \"longuitud\": -58.71191934414344,\r\n  \"nombre\": \"Plaza de sanmi\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/LugaresRestringidos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"LugaresRestringidos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "eliminarLugar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/LugaresRestringidos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"LugaresRestringidos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obtenerRPLugarPorIdRestriccion",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/LugaresRestringidos/Restriccion/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"LugaresRestringidos",
+								"Restriccion",
+								"3"
 							]
 						}
 					},
