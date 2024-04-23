@@ -7,7 +7,8 @@ import javax.persistence.*;
 public class Direccion {
 
 	@Id
-	@Column
+	@Column(name = "idDireccion")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idDireccion;
 
 	@Column
