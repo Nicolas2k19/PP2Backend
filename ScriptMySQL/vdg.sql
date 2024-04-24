@@ -1,4 +1,4 @@
--- CREATE USER 'vdgpps'@'%' IDENTIFIED BY 'vdgpps2019';
+IN-- CREATE USER 'vdgpps'@'%' IDENTIFIED BY 'vdgpps2019';
 
 GRANT ALL PRIVILEGES ON *.* TO 'vdgpps'@'%';
 
@@ -49,10 +49,10 @@ CREATE TABLE `Grupo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
-insert into grupo (idGrupo, nombreGrupo, turnoGrupo) values (0, 'PERSONAS', 'MAÑANA');
-insert into grupo (idGrupo, nombreGrupo, turnoGrupo) values (1, 'Mañana 1', 'MAÑANA');
-insert into grupo (idGrupo, nombreGrupo, turnoGrupo) values (2, 'Tarde 1','TARDE');
-insert into grupo (idGrupo, nombreGrupo, turnoGrupo) values (3, 'Noche 1','NOCHE');
+insert into Grupo (idGrupo, nombreGrupo, turnoGrupo) values (0, 'PERSONAS', 'MAÑANA');
+insert into Grupo (idGrupo, nombreGrupo, turnoGrupo) values (1, 'Mañana 1', 'MAÑANA');
+insert into Grupo (idGrupo, nombreGrupo, turnoGrupo) values (2, 'Tarde 1','TARDE');
+insert into Grupo (idGrupo, nombreGrupo, turnoGrupo) values (3, 'Noche 1','NOCHE');
 
 
 
@@ -373,11 +373,11 @@ INSERT INTO `Persona` (`idPersona`, `nombre`, `apellido`, `DNI`, `telefono`, `fe
 -- Estructura de tabla para la tabla `Provincia`
 --
 
-CREATE TABLE Provincia (
+CREATE TABLE `Provincia` (
   idProvincia INT NOT NULL,
   nombre VARCHAR(50) NOT NULL,
   PRIMARY KEY (idProvincia)
-);
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `Provincia`
@@ -386,27 +386,27 @@ CREATE TABLE Provincia (
 INSERT INTO `Provincia` VALUES ('1', 'BUENOS AIRES');
 INSERT INTO `Provincia` VALUES ('2', 'CAPITAL FEDERAL');
 INSERT INTO `Provincia` VALUES ('3', 'CATAMARCA');
-INSERT INTO `provincia` VALUES ('4', 'CHACO');
-INSERT INTO `provincia` VALUES ('5', 'CHUBUT');
-INSERT INTO `provincia` VALUES ('6', 'CORDOBA');
-INSERT INTO `provincia` VALUES ('7', 'CORRIENTES');
-INSERT INTO `provincia` VALUES ('8', 'ENTRE RIOS');
-INSERT INTO `provincia` VALUES ('9', 'FORMOSA');
-INSERT INTO `provincia` VALUES ('10', 'JUJUY');
-INSERT INTO `provincia` VALUES ('11', 'LA PAMPA');
-INSERT INTO `provincia` VALUES ('12', 'LA RIOJA');
-INSERT INTO `provincia` VALUES ('13', 'MENDOZA');
-INSERT INTO `provincia` VALUES ('14', 'MISIONES');
-INSERT INTO `provincia` VALUES ('15', 'NEUQUEN');
-INSERT INTO `provincia` VALUES ('16', 'RIO NEGRO');
-INSERT INTO `provincia` VALUES ('17', 'SALTA');
-INSERT INTO `provincia` VALUES ('18', 'SAN JUAN');
-INSERT INTO `provincia` VALUES ('19', 'SAN LUIS');
-INSERT INTO `provincia` VALUES ('20', 'SANTA CRUZ');
-INSERT INTO `provincia` VALUES ('21', 'SANTA FE');
-INSERT INTO `provincia` VALUES ('22', 'SANTIAGO DEL ESTERO');
-INSERT INTO `provincia` VALUES ('23', 'TIERRA DEL FUEGO');
-INSERT INTO `provincia` VALUES ('24', 'TUCUMAN');
+INSERT INTO `Provincia` VALUES ('4', 'CHACO');
+INSERT INTO `Provincia` VALUES ('5', 'CHUBUT');
+INSERT INTO `Provincia` VALUES ('6', 'CORDOBA');
+INSERT INTO `Provincia` VALUES ('7', 'CORRIENTES');
+INSERT INTO `Provincia` VALUES ('8', 'ENTRE RIOS');
+INSERT INTO `Provincia` VALUES ('9', 'FORMOSA');
+INSERT INTO `Provincia` VALUES ('10', 'JUJUY');
+INSERT INTO `Provincia` VALUES ('11', 'LA PAMPA');
+INSERT INTO `Provincia` VALUES ('12', 'LA RIOJA');
+INSERT INTO `Provincia` VALUES ('13', 'MENDOZA');
+INSERT INTO `Provincia` VALUES ('14', 'MISIONES');
+INSERT INTO `Provincia` VALUES ('15', 'NEUQUEN');
+INSERT INTO `Provincia` VALUES ('16', 'RIO NEGRO');
+INSERT INTO `Provincia` VALUES ('17', 'SALTA');
+INSERT INTO `Provincia` VALUES ('18', 'SAN JUAN');
+INSERT INTO `Provincia` VALUES ('19', 'SAN LUIS');
+INSERT INTO `Provincia` VALUES ('20', 'SANTA CRUZ');
+INSERT INTO `Provincia` VALUES ('21', 'SANTA FE');
+INSERT INTO `Provincia` VALUES ('22', 'SANTIAGO DEL ESTERO');
+INSERT INTO `Provincia` VALUES ('23', 'TIERRA DEL FUEGO');
+INSERT INTO `Provincia` VALUES ('24', 'TUCUMAN');
 
 -- --------------------------------------------------------
 
@@ -414,7 +414,7 @@ INSERT INTO `provincia` VALUES ('24', 'TUCUMAN');
 -- Estructura de tabla para la tabla `Ciudad`
 --
 
-CREATE TABLE ciudad (
+CREATE TABLE `ciudad` (
   idLocalidad int(4) NOT NULL,
   nombre varchar(60) NOT NULL,
   codigoPostal int NOT NULL,
