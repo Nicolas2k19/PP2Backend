@@ -21745,8 +21745,7 @@ INSERT INTO `Localidad` (`idLocalidad`, `nombre`, `codigoPostal`, `idProvincia`)
 (26459, 'RUTA PROVINCIAL 5', 4326, 22),
 (26461, 'RUTA PROVINCIAL 8', 4326, 22),
 (26462, 'CODO VIEJO', 4315, 22),
-(26463, 'SAN ISIDRO', 4338, 22);
-INSERT INTO `Localidad` (`idLocalidad`, `nombre`, `codigoPostal`, `idProvincia`) VALUES
+(26463, 'SAN ISIDRO', 4338, 22),
 (26464, 'BAHIA LAPATAIA', 9410, 23),
 (26465, 'COLLERA HUIRI', 4317, 22),
 (26466, 'SAN NICOLAS', 4339, 22),
