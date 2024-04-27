@@ -6,10 +6,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import vdg.model.domain.RPLugar;
+import vdg.model.domain.RPLugarDTO;
+import vdg.repository.LocalidadRepository;
+import vdg.repository.ProvinciaRepository;
 import vdg.repository.RPLugarRepository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/LugaresRestringidos")
@@ -17,11 +21,29 @@ public class RPLugarController {
 
     @Autowired
     private RPLugarRepository lugarRepository;
+    @Autowired
+    private LocalidadRepository localidadRepository;
+    @Autowired
+    private ProvinciaRepository provinciaRepository;
 
     @GetMapping
     public ResponseEntity<List<RPLugar>> obtenerTodosLosLugares() {
         List<RPLugar> lugares = lugarRepository.findAll();
         return new ResponseEntity<>(lugares, HttpStatus.OK);
+    }
+    
+    @GetMapping("/RplugarDto")
+    public ResponseEntity<List<RPLugarDTO>> obtenerTodosLosLugaresDto() {
+        List<RPLugar> lugares = lugarRepository.findAll();
+
+        // Mapear RPLugar a RPLugarDTO
+        List<RPLugarDTO> lugaresDTO = lugares.stream()
+            .map(lugar -> new RPLugarDTO(lugar,
+            		provinciaRepository.findByIdProvincia(localidadRepository.findByIdLocalidad(lugar.getDireccion().getIdLocalidad()).getIdProvincia()),
+            		localidadRepository.findByIdLocalidad(lugar.getDireccion().getIdLocalidad())))
+            .collect(Collectors.toList());
+
+        return new ResponseEntity<>(lugaresDTO, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")

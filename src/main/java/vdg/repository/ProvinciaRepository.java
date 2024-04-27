@@ -9,5 +9,5 @@ import vdg.model.domain.Provincia;
 public interface ProvinciaRepository extends Repository<Provincia, Integer> {
 	
 	public List<Provincia> findAll();
-	
+	public Provincia findByIdProvincia(int idProvincia);
 }
