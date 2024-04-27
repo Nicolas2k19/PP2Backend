@@ -1,5 +1,6 @@
 package vdg.model.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -23,7 +24,7 @@ public class RPLugar {
     private int idRestriccion;
     @Column
     private String nombre;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idDireccion")  
     private Direccion direccion;
     @Column
