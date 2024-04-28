@@ -71,6 +71,8 @@ public class RPLugarController {
     @PutMapping("/{id}")
     public ResponseEntity<RPLugar> actualizarLugar(@PathVariable Integer id, @RequestBody RPLugar lugar) {
         Optional<RPLugar> lugarOptional = lugarRepository.findById(id);
+        	System.out.println(lugarOptional.isPresent());
+        
         if (lugarOptional.isPresent()) {
             lugar.setIdRestriccion(id);
             RPLugar lugarActualizado = lugarRepository.save(lugar);

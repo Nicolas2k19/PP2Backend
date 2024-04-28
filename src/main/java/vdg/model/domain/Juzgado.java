@@ -29,6 +29,8 @@ public class Juzgado {
 	String coordenadaX;
 	@Column 
 	String coordenadaY;
+	@Column 
+	Long idJuzgadoTelegram;
 	
 	
 	/**
@@ -152,6 +154,18 @@ public class Juzgado {
 	public void setCoordenadaY(String coordenadaY) {
 		this.coordenadaY = coordenadaY;
 	}
+	
+	
+
+	public Long getIdJuzgadoTelegram() {
+		return idJuzgadoTelegram;
+	}
+
+	public void setIdJuzgadoTelegram(Long idJuzgadoTelegram) {
+		this.idJuzgadoTelegram = idJuzgadoTelegram;
+	}
+	
+	
 	
 	
 	

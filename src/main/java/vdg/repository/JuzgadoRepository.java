@@ -16,6 +16,8 @@ public interface JuzgadoRepository extends Repository<Juzgado, Integer> {
 	public void delete(Juzgado juzgado);
 	
 	public Juzgado findByidJuzgado(int id);
+	
+	public Juzgado findBynombre(String nombre);
 
 	public List<Juzgado> findAll();
 }
