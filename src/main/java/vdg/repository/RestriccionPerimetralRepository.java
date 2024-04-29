@@ -16,4 +16,5 @@ public interface RestriccionPerimetralRepository extends Repository<RestriccionP
 	public List<RestriccionPerimetral> findByIdDamnificada(int idPersona);
 	public RestriccionPerimetral findByIdRestriccion(int idRestriccion);
 	public List<RestriccionPerimetral> findAllByidGrupo(int idGrupo);
+	public List<RestriccionPerimetral> findAllByidUsuario(int idUsuario);
 }

@@ -56,7 +56,7 @@ public class RestriccionPerimetralController {
 	@PostMapping
 	public ErrorDTO agregar(@RequestBody RestriccionPerimetral restriccionPerimetral) throws Exception {
 		try {
-			RestriccionPerimetral res= selectorAdminstrador.seleccionarAdminstrativo(restriccionPerimetral, grupo, usuario);
+			RestriccionPerimetral res= selectorAdminstrador.seleccionarAdminstrativo(restriccionPerimetral, restriccionPerimetralRepo, usuario);
 			ErrorDTO error = validador.validarAltaRestriccion(res);
 			if(error.getHayError()) {
 				return error;

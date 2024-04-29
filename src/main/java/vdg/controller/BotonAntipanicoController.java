@@ -120,7 +120,6 @@ public class BotonAntipanicoController {
 	public void alertarJuzgado(@PathVariable("idJuzgado") Integer idJuzgado,@PathVariable("idJuzgado") Integer idPerimetral) {
 		Long idTelegram = this.juzgadoRepository.findByidJuzgado(idJuzgado).getIdJuzgadoTelegram();
 		this.telegramNotificador.enviarMensaje(idTelegram,"Ha ocurrido una violación de la restricción "+ "Nro :"+idPerimetral);
-		
 	}
 	
 	

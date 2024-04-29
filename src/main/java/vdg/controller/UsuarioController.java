@@ -122,6 +122,13 @@ public class UsuarioController {
 	}
 	
 	
+	@GetMapping("porGrupo/{id}")
+	public Usuario obtenerPorIdgrupo(@PathVariable("id") int id) {
+		List<Usuario> usuarios = usuarioRepo.findAllByIdGrupo(id);
+		return usuarios.isEmpty() ? null : usuarios.get(0);
+	}
+	
+	
 	
 	
 	
