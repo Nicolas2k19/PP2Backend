@@ -19,7 +19,6 @@ public class RPLugar {
     @Column(name = "idRPLugar")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idRPLugar;
-    
     @Column
     private int idRestriccion;
     @Column
