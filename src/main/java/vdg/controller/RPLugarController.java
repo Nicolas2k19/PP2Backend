@@ -41,7 +41,7 @@ public class RPLugarController {
             .map(lugar -> new RPLugarDTO(lugar,
             		provinciaRepository.findByIdProvincia(localidadRepository.findByIdLocalidad(lugar.getDireccion().getIdLocalidad()).getIdProvincia()),
             		localidadRepository.findByIdLocalidad(lugar.getDireccion().getIdLocalidad())))
-            .collect(Collectors.toList());
+            		.collect(Collectors.toList());
 
         return new ResponseEntity<>(lugaresDTO, HttpStatus.OK);
     }
