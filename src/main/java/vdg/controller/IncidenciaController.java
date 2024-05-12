@@ -109,8 +109,8 @@ public class IncidenciaController {
 		Incidencia nuevaIncidencia = incidenciaRepo.save(incidencia);
 		//CREO LA NOTIFICAICON CON LOS DATOS DE LA INCIDENCIA CREADA Y LA GUARDO
 		RestriccionPerimetral restriccion = restriccionController.findByIdRestriccion(incidencia.getIdRestriccion());
-		Persona damnificada = personaController.findById(restriccion.getIdDamnificada()).get(0);
-		Persona victimario = personaController.findById(restriccion.getIdVictimario()).get(0);
+		Persona damnificada = personaController.findById(restriccion.getIdDamnificada());
+		Persona victimario = personaController.findById(restriccion.getIdVictimario());
 		Usuario usuario = usuarioController.findByIdUsuario(restriccion.getIdUsuario()).get(0);
 		
 		Notificacion notificacion = GeneradorNotificaciones.generarNotificacion(incidencia, restriccion, damnificada, victimario, usuario);

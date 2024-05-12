@@ -1,15 +1,23 @@
 package vdg.controller;
 
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -20,6 +28,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
+import org.telegram.telegrambots.meta.api.objects.InputFile;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
@@ -29,8 +38,12 @@ import vdg.model.api.NormalizacionCoordenadas;
 import vdg.model.domain.BotonAntipanico;
 import vdg.model.domain.Comisaria;
 import vdg.model.domain.Contacto;
+import vdg.model.domain.DependenciaGenero;
+import vdg.model.domain.FotoIdentificacion;
 import vdg.model.domain.Incidencia;
 import vdg.model.domain.Persona;
+import vdg.model.domain.RestriccionPerimetral;
+import vdg.model.domain.Ubicacion;
 import vdg.model.domain.UbicacionNormalizada;
 import vdg.model.domain.Usuario;
 import vdg.model.email.EmailGateway;
@@ -42,7 +55,11 @@ import vdg.model.notificacionesTerceros.WpNotificador;
 import vdg.repository.BotonAntipanicoRepository;
 import vdg.repository.ComisariaRepository;
 import vdg.repository.ContactoRepository;
+import vdg.repository.DependenciaRepository;
+import vdg.repository.FotoIdentificacionRepository;
 import vdg.repository.JuzgadoRepository;
+import vdg.repository.RestriccionPerimetralRepository;
+import vdg.repository.UbicacionRepository;
 
 
 @RestController
@@ -58,25 +75,27 @@ public class BotonAntipanicoController {
 	private UsuarioController usuarioController;
 	@Autowired
 	private PersonaController personaController;
-	
 	@Autowired
 	private WpNotificador  wpNotificador;
-	
 	@Autowired
 	private NormalizacionCoordenadas normalizador;
-	
 	@Autowired PuntoCercano puntoMasCercano;
-	
 	@Autowired 
 	private ComisariaRepository  comisariaRepo;
-	
-	
 	@Autowired
     private  TelegramNotificador telegramNotificador;
-	
-	
 	@Autowired
 	private JuzgadoRepository juzgadoRepository;
+	@Autowired
+	private DependenciaRepository dependenciaRepository;
+	@Autowired
+	private RestriccionPerimetralRepository restriccionRepository;
+	@Autowired
+	private FotoIdentificacionRepository fotoRepository;
+	@Autowired
+	private UbicacionRepository ubicacion;
+	
+	
 	
 	
 	@Value("${servicioMensajeria}")
@@ -118,7 +137,7 @@ public class BotonAntipanicoController {
 	
 	@PostMapping("/alertarJuzgado/{idJuzgado}/{idPerimetral}")
 	public void alertarJuzgado(@PathVariable("idJuzgado") Integer idJuzgado,@PathVariable("idJuzgado") Integer idPerimetral) {
-		Long idTelegram = this.juzgadoRepository.findByidJuzgado(idJuzgado).getIdJuzgadoTelegram();
+		Long idTelegram = this.juzgadoRepository.findByidJuzgado(idJuzgado).getIdJuzgadoTelegram();		
 		this.telegramNotificador.enviarMensaje(idTelegram,"Ha ocurrido una violación de la restricción "+ "Nro :"+idPerimetral);
 	}
 	
@@ -127,16 +146,27 @@ public class BotonAntipanicoController {
 	/**Envia un mensaje a la api de Whatsapp alertando a la policia
 	 *@Returns CuerpoNotificacion
 	 ***/
-	@PostMapping("/alertarPolicia/{lat}/{lon}")
-	public Comisaria alertarPolicia(@PathVariable("lat") double lat,@PathVariable("lon")  double lon ) throws Exception {		
+	@PostMapping("/alertarPolicia/{lat}/{lon}/{idrestriccion}")
+	public Comisaria alertarPolicia(@PathVariable("lat") double lat,@PathVariable("lon")  double lon,@PathVariable("idrestriccion") int idrestriccion ) throws Exception {		
+		RestriccionPerimetral res =	this.restriccionRepository.findByIdRestriccion(idrestriccion);
 		UbicacionNormalizada respuesta = this.normalizador.ObtenerCoordenadas(lat, lon);
 		String municipioAlerta = respuesta.getUbicacion().getMunicipio().getNombre();
 		ArrayList<Comisaria> comisariasMunicipio = (ArrayList<Comisaria>) this.comisariaRepo.findAllBypartido(municipioAlerta);
 		Comisaria comisaria = this.puntoMasCercano.puntoMasCercano(new BigDecimal(lat),new BigDecimal(lon),comisariasMunicipio);
 		String nroTelefono = comisaria.getTelefono();
+		if(comisaria.getIdComisariaTelegram()!=null) {
+			FotoIdentificacion fotoVictima = this.fotoRepository.findByIdPersona(res.getIdDamnificada());
+			FotoIdentificacion fotoAgresor = this.fotoRepository.findByIdPersona(res.getIdVictimario());
+			cuerpoMensaje(idrestriccion,
+					lat
+				   ,lon
+				   ,comisaria.getIdComisariaTelegram()
+				   ,fotoVictima
+				   ,fotoAgresor);
+		}
+			
 		
-		if(comisaria.getIdComisariaTelegram()!=null) 
-			this.telegramNotificador.enviarMensaje(comisaria.getIdComisariaTelegram(), "Alerta en lat :"+lat+ "long"+ lon);
+			//this.telegramNotificador.enviarMensaje(comisaria.getIdComisariaTelegram(), "Alerta en lat :"+lat+ "long"+ lon);
 		
 		//this.wpNotificador.notificar(configurarCuerpo(nroTelefono));
 		return comisaria;
@@ -147,21 +177,93 @@ public class BotonAntipanicoController {
 	/**Envia un mensaje a la api de Whatsapp alertando a la policia, se debe pasar por parametro la ciudad
 	 *@Returns CuerpoNotificacion
 	 ***/
-	@PostMapping("/alertarPoliciaPorCiudad/{lat}/{lon}/{ciudad}")
-	public Comisaria alertarPoliciaDandoCiudad(@PathVariable("lat") double lat,@PathVariable("lon")  double lon,@PathVariable("ciudad")String ciudad) throws Exception {		
-		System.out.println("Llegue");
-		System.out.println(ciudad);
+	@PostMapping("/alertarPoliciaPorCiudad/{lat}/{lon}/{ciudad}/{idrestriccion}")
+	public Comisaria alertarPoliciaDandoCiudad(@PathVariable("lat") double lat,@PathVariable("lon")  double lon,@PathVariable("ciudad")String ciudad,@PathVariable("idrestriccion") int idrestriccion) throws Exception {		
+		RestriccionPerimetral res =	this.restriccionRepository.findByIdRestriccion(idrestriccion);
 		ArrayList<Comisaria> comisariasMunicipio = (ArrayList<Comisaria>) this.comisariaRepo.findAllBypartido(ciudad);
 		Comisaria comisaria = this.puntoMasCercano.puntoMasCercano(new BigDecimal(lat),new BigDecimal(lon),comisariasMunicipio);
 		String nroTelefono = comisaria.getTelefono();
 		
-		if(comisaria.getIdComisariaTelegram()!=null) 
-			this.telegramNotificador.enviarMensaje(comisaria.getIdComisariaTelegram(), "Alerta en lat :"+lat+ "long"+ lon);
-		
-		//this.wpNotificador.notificar(configurarCuerpo(nroTelefono));
+		if(comisaria.getIdComisariaTelegram()!=null) {
+			FotoIdentificacion fotoVictima = this.fotoRepository.findByIdPersona(res.getIdDamnificada());
+			FotoIdentificacion fotoAgresor = this.fotoRepository.findByIdPersona(res.getIdVictimario());
+			cuerpoMensaje(idrestriccion,
+					lat
+				   ,lon
+				   ,comisaria.getIdComisariaTelegram()
+				   ,fotoVictima
+				   ,fotoAgresor);
+		}
 		return comisaria;
 	}
 	
+	
+
+	/**Envia un mensaje a la api de telegram alertando a la dependencia de genero,que se debe pasar por parametro la ciudad
+	 *@Returns CuerpoNotificacion
+	 ***/
+	@PostMapping("/alertarDependenciaPorCiudad/{idRestriccion}")
+	public  ResponseEntity<DependenciaGenero> alertarDependencia(@PathVariable("idRestriccion") int idRestriccion) throws Exception {		
+		RestriccionPerimetral res =	this.restriccionRepository.findByIdRestriccion(idRestriccion);
+		Ubicacion ubicacion =	this.ubicacion.findByIdPersona(res.getIdDamnificada());
+		DependenciaGenero dependenciaAsignada = this.dependenciaRepository.findByidDependencia(res.getIdDependenciaGenero());
+		
+				
+		if(dependenciaAsignada==null||dependenciaAsignada.getIdComisariaTelegram()==null)
+			return new ResponseEntity<>(dependenciaAsignada, HttpStatus.FAILED_DEPENDENCY);
+		
+		
+		FotoIdentificacion fotoVictima = this.fotoRepository.findByIdPersona(res.getIdDamnificada());
+		FotoIdentificacion fotoAgresor = this.fotoRepository.findByIdPersona(res.getIdVictimario());
+		
+		cuerpoMensaje(
+				idRestriccion,
+				ubicacion.getLatitud().doubleValue(), 
+				ubicacion.getLongitud().doubleValue(),
+				dependenciaAsignada.getIdComisariaTelegram(), 
+				fotoVictima, fotoAgresor);	
+
+		return  new ResponseEntity<>(dependenciaAsignada, HttpStatus.OK);
+	}
+
+
+
+	private void cuerpoMensaje(int idRestriccion, double lat,double lon, Long idTelegram,
+			FotoIdentificacion fotoVictima, FotoIdentificacion fotoAgresor) {
+		try {
+		
+		this.telegramNotificador.enviarFoto(idTelegram, new InputFile(this.convertirImagen(fotoVictima.getFoto()),"victima"));
+		this.telegramNotificador.enviarFoto(idTelegram, new InputFile(this.convertirImagen(fotoAgresor.getFoto()),"Agresor"));
+			}
+		
+		catch(Exception e) {
+			this.telegramNotificador.enviarMensaje(idTelegram,"Error al enviar imagen");
+			}	
+
+		
+		try {
+			UbicacionNormalizada ubicacionNormalizada = this.normalizador.ObtenerCoordenadas(lat, lon);
+			this.telegramNotificador.enviarMensaje(idTelegram,"Ha ocurrido una violación de la restriccion perimetral con el nro "+idRestriccion);
+			}
+			
+			catch(Exception e) {
+				this.telegramNotificador.enviarMensaje(idTelegram,"Ha ocurrido una violación de la restriccion perimetral con el nro "+idRestriccion);
+			}
+	}
+	
+	
+	
+	
+		/**
+		 * Convierte las imagenes de byte[] a 
+		 * @param imagen
+		 * @return
+		 * @throws IOException 
+		 */
+	
+		private ByteArrayInputStream convertirImagen(byte[] imagen) throws IOException {	
+		return new ByteArrayInputStream(imagen);
+	}
 	
 	
 	

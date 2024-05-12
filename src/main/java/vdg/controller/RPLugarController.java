@@ -41,13 +41,13 @@ public class RPLugarController {
             .map(lugar -> new RPLugarDTO(lugar,
             		provinciaRepository.findByIdProvincia(localidadRepository.findByIdLocalidad(lugar.getDireccion().getIdLocalidad()).getIdProvincia()),
             		localidadRepository.findByIdLocalidad(lugar.getDireccion().getIdLocalidad())))
-            .collect(Collectors.toList());
+            		.collect(Collectors.toList());
 
         return new ResponseEntity<>(lugaresDTO, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<RPLugar> obtenerLugarPorId(@PathVariable Integer id) {
+    public ResponseEntity<RPLugar> obtenerLugarPorId(@PathVariable("id") Integer id) {
         Optional<RPLugar> lugarOptional = lugarRepository.findById(id);
         if (lugarOptional.isPresent()) {
             return new ResponseEntity<>(lugarOptional.get(), HttpStatus.OK);
