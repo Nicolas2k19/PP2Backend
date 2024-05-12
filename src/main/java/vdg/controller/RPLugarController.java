@@ -47,7 +47,7 @@ public class RPLugarController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<RPLugar> obtenerLugarPorId(@PathVariable Integer id) {
+    public ResponseEntity<RPLugar> obtenerLugarPorId(@PathVariable("id") Integer id) {
         Optional<RPLugar> lugarOptional = lugarRepository.findById(id);
         if (lugarOptional.isPresent()) {
             return new ResponseEntity<>(lugarOptional.get(), HttpStatus.OK);

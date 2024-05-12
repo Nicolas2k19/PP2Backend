@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -29,8 +30,10 @@ import vdg.model.api.NormalizacionCoordenadas;
 import vdg.model.domain.BotonAntipanico;
 import vdg.model.domain.Comisaria;
 import vdg.model.domain.Contacto;
+import vdg.model.domain.DependenciaGenero;
 import vdg.model.domain.Incidencia;
 import vdg.model.domain.Persona;
+import vdg.model.domain.RestriccionPerimetral;
 import vdg.model.domain.UbicacionNormalizada;
 import vdg.model.domain.Usuario;
 import vdg.model.email.EmailGateway;
@@ -42,7 +45,9 @@ import vdg.model.notificacionesTerceros.WpNotificador;
 import vdg.repository.BotonAntipanicoRepository;
 import vdg.repository.ComisariaRepository;
 import vdg.repository.ContactoRepository;
+import vdg.repository.DependenciaRepository;
 import vdg.repository.JuzgadoRepository;
+import vdg.repository.RestriccionPerimetralRepository;
 
 
 @RestController
@@ -58,25 +63,23 @@ public class BotonAntipanicoController {
 	private UsuarioController usuarioController;
 	@Autowired
 	private PersonaController personaController;
-	
 	@Autowired
 	private WpNotificador  wpNotificador;
-	
 	@Autowired
 	private NormalizacionCoordenadas normalizador;
-	
 	@Autowired PuntoCercano puntoMasCercano;
-	
 	@Autowired 
 	private ComisariaRepository  comisariaRepo;
-	
-	
 	@Autowired
     private  TelegramNotificador telegramNotificador;
-	
-	
 	@Autowired
 	private JuzgadoRepository juzgadoRepository;
+	@Autowired
+	private DependenciaRepository dependenciaRepository;
+	@Autowired
+	private RestriccionPerimetralRepository restriccionRepository;
+	
+	
 	
 	
 	@Value("${servicioMensajeria}")
@@ -161,6 +164,25 @@ public class BotonAntipanicoController {
 		//this.wpNotificador.notificar(configurarCuerpo(nroTelefono));
 		return comisaria;
 	}
+	
+	
+
+	/**Envia un mensaje a la api de telegram alertando a la dependencia de genero,que se debe pasar por parametro la ciudad
+	 *@Returns CuerpoNotificacion
+	 ***/
+	@PostMapping("/alertarDependenciaPorCiudad/{idRestriccion}")
+	public  ResponseEntity<DependenciaGenero> alertarDependencia(@PathVariable("idRestriccion") int idRestriccion) throws Exception {		
+		RestriccionPerimetral res =	this.restriccionRepository.findByIdRestriccion(idRestriccion);
+		DependenciaGenero dependenciaAsignada = this.dependenciaRepository.findByidDependencia(res.getIdDependenciaGenero());
+		if(dependenciaAsignada==null)
+			return new ResponseEntity<>(dependenciaAsignada, HttpStatus.FAILED_DEPENDENCY);
+		
+		this.telegramNotificador.enviarMensaje(dependenciaAsignada.getIdComisariaTelegram(), "Ha ocurrido una incidencia en la restriccion nro "+ idRestriccion);
+		
+		
+		return  new ResponseEntity<>(dependenciaAsignada, HttpStatus.OK);
+	}
+	
 	
 	
 	

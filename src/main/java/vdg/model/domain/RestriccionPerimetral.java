@@ -30,6 +30,10 @@ public class RestriccionPerimetral {
 	@Column
 	private Integer idGrupo; 
 	
+	@Column
+	private Integer idDependenciaGenero;
+	
+	
 	public Integer getIdGrupo() {
 		return idGrupo;
 	}
@@ -85,6 +89,12 @@ public class RestriccionPerimetral {
 
 	public void setFechaSentencia(Date fechaSentencia) {
 		this.fechaSentencia = fechaSentencia;
+	}
+	public Integer getIdDependenciaGenero() {
+		return idDependenciaGenero;
+	}
+	public void setIdDependenciaGenero(Integer idDependenciaGenero) {
+		this.idDependenciaGenero = idDependenciaGenero;
 	}
 	@Override
 	public String toString() {
