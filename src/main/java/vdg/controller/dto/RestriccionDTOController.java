@@ -79,9 +79,9 @@ public class RestriccionDTOController {
 		for (RestriccionDTO restriccion : restricciones) {
 			int idRestriccion = restriccion.getRestriccion().getIdRestriccion();
 			UbicacionDTO ubicacionDTO = ubicacionController.findByRestriccion(idRestriccion);
-			if(ubicacionController.estaInfringiendo(idRestriccion, ubicacionDTO)) {
+			//if(ubicacionController.estaInfringiendo(idRestriccion, ubicacionDTO)) {
 				ret.add(restriccion);
-			}
+			//}
 		}
 		return ret;
 	}

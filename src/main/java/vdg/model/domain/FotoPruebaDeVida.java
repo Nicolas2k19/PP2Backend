@@ -16,6 +16,9 @@ public class FotoPruebaDeVida {
 	private byte[] foto;
 	
 	@Column
+	private String accionRealizada;
+	
+	@Column
 	private int idPruebaDeVida;
 	
 	public FotoPruebaDeVida() {
@@ -45,5 +48,15 @@ public class FotoPruebaDeVida {
 	public void setIdPruebaDeVida(int idPruebaDeVida) {
 		this.idPruebaDeVida = idPruebaDeVida;
 	}
+
+	public String getAccionRealizada() {
+		return accionRealizada;
+	}
+
+	public void setAccionRealizada(String accionRealizada) {
+		this.accionRealizada = accionRealizada;
+	}
+	
+	
 
 }
