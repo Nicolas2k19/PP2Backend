@@ -5,10 +5,14 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
+import org.telegram.telegrambots.meta.api.methods.send.SendDocument;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
+import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
+import org.telegram.telegrambots.meta.api.objects.InputFile;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.User;
+import org.telegram.telegrambots.meta.api.objects.media.InputMediaPhoto;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.meta.generics.BotSession;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
@@ -134,6 +138,23 @@ public class TelegramNotificador extends TelegramLongPollingBot{
 		}
 	
 	}
+	
+	
+	public void enviarFoto(Long id,InputFile photo) {
+		
+		SendPhoto sm = SendPhoto.builder()
+                .chatId(id.toString()) 
+                .photo(photo).build();    
+		try {
+		    execute(sm);                        
+			} 
+		catch (TelegramApiException e) {
+		    throw new RuntimeException(e);      
+			
+		}
+	
+	}
+	
 	
 	
 
