@@ -165,8 +165,8 @@ public class BotonAntipanicoController {
 				   ,fotoAgresor);
 		}
 			
-		
-			//this.telegramNotificador.enviarMensaje(comisaria.getIdComisariaTelegram(), "Alerta en lat :"+lat+ "long"+ lon);
+		System.out.println("HOLA");
+		this.telegramNotificador.enviarMensaje(comisaria.getIdComisariaTelegram(), "Alerta en lat :"+lat+ "long"+ lon);
 		
 		//this.wpNotificador.notificar(configurarCuerpo(nroTelefono));
 		return comisaria;

@@ -18,11 +18,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import vdg.model.controladorRutina.UbicacionRutina;
 import vdg.model.domain.Persona;
+import vdg.model.domain.RPLugar;
 import vdg.model.domain.RestriccionPerimetral;
 import vdg.model.domain.Ubicacion;
 import vdg.model.domain.Usuario;
 import vdg.model.dto.UbicacionDTO;
 import vdg.model.logica.CalculadorDistancias;
+import vdg.repository.RPLugarRepository;
 import vdg.repository.UbicacionRepository;
 import vdg.repository.UbicacionRutinaRepository;
 
@@ -43,7 +45,16 @@ public class UbicacionController {
 	private PersonaController personaController;
 	@Autowired
 	private UsuarioController usuarioController;
+	@Autowired
+	private RPLugarRepository restriccionLugarRepository;
 	
+	
+	@GetMapping("/{idpersona}")
+	public Ubicacion obtenerUbicacionDePersona(@PathVariable("idpersona") int idpersona){
+		System.out.println("Respuesta "+this.ubicacionRepo.findByIdPersona(idpersona));
+		
+		return this.ubicacionRepo.findByIdPersona(idpersona);
+	}
 
 	@GetMapping
 	public List<Ubicacion> listar() {
@@ -82,6 +93,10 @@ public class UbicacionController {
 		chequearUbicacionRutina(ubicacion);
 		return ubicacionRepo.save(ubicacion);
 	}
+	
+	
+	
+	
 
 	@PostMapping("/infringe/{idRestriccion}")
 	public boolean estaInfringiendo(@PathVariable("idRestriccion") int idRestriccion, @RequestBody UbicacionDTO ubicaciones) {
@@ -92,6 +107,22 @@ public class UbicacionController {
 				ubicaciones.getUbicacionVictimario().getLongitud());
 		return distancia<restriccion.getDistancia();
 	}
+	
+	
+	@PostMapping("/infringePasandoDistancia/{distancia}")
+	public boolean infringePasandoDistancia(@PathVariable("distancia") int distanciaPasada, @RequestBody UbicacionDTO ubicaciones) {
+		Double distancia = CalculadorDistancias.obtenerDistancia(ubicaciones.getUbicacionDamnificada().getLatitud(),
+				ubicaciones.getUbicacionDamnificada().getLongitud(), 
+				ubicaciones.getUbicacionVictimario().getLatitud(), 
+				ubicaciones.getUbicacionVictimario().getLongitud());
+	
+		
+		return distancia<distanciaPasada;
+	}
+	
+	
+	
+	
 
 	public List<Ubicacion> getPerdidasDeLocalizacion(Timestamp fechaLimite) {
 		return ubicacionRepo.findIlocalizables(fechaLimite);
