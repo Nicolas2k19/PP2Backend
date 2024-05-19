@@ -316,7 +316,9 @@ INSERT INTO `Usuario` (`idUsuario`, `email`, `contrasena`, `rolDeUsuario`,`estad
 (18, 'gustycruz85@gmail.com', '983adc986531868a9ef48446fd07d5751982f6336ee073b10512d6568ad149e1', 'ADMINISTRATIVO','AUSENTE',3),
 (20, 'usuario@prueba.com.ar', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'ADMINISTRATIVO','AUSENTE',1),
 (21, 'agresor3@agresor.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'VICTIMARIO','AUSENTE',0),
-(23, 'damnificada2@damnificada.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'DAMNIFICADA','AUSENTE',0);
+(23, 'damnificada2@damnificada.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'DAMNIFICADA','AUSENTE',0),
+(24, 'supervisor@general.com', '8698df0ec492e5026b61ae25e429f82dea81eb962c5fbfa8ed3fd2ac72a968b2', 'SUPERVISOR_GENERAL','NO_CORRESPONDE',1)
+;
 
 -- --------------------------------------------------------
 
@@ -511,7 +513,8 @@ INSERT INTO `RolDeUsuario` (`idRol`, `nombre`) VALUES
 (1, 'ADMINISTRATIVO'),
 (2, 'SUPERVISOR'),
 (3, 'AGRESOR'),
-(4, 'DAMNIFICADA');
+(4, 'DAMNIFICADA'),
+(5, 'SUPERVISOR_GENERAL');
 
 -- --------------------------------------------------------
 

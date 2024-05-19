@@ -88,7 +88,8 @@ public class UsuarioController {
 		if (user == null)
 			return false;
 		if(!(user.getRolDeUsuario().equals(RolDeUsuario.ADMINISTRATIVO) || 
-				user.getRolDeUsuario().equals(RolDeUsuario.SUPERVISOR)))
+				user.getRolDeUsuario().equals(RolDeUsuario.SUPERVISOR) || 
+				user.getRolDeUsuario().equals(RolDeUsuario.SUPERVISOR_GENERAL)))
 			return false;
 		if (user.getContrasena().equals(info.get("contrasena")))
 			return true;
