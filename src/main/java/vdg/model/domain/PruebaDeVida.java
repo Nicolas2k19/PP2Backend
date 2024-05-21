@@ -24,6 +24,10 @@ public class PruebaDeVida {
 	private EstadoPruebaDeVida estado;
 	
 	@Column
+	@Enumerated(EnumType.STRING)
+	private AccionPruebaDeVida accion;
+	
+	@Column
 	private int idRestriccion;
 	
 	@Column
@@ -63,6 +67,14 @@ public class PruebaDeVida {
 
 	public void setEstado(EstadoPruebaDeVida estado) {
 		this.estado = estado;
+	}
+	
+	public AccionPruebaDeVida getAccion() {
+		return accion;
+	}
+
+	public void setAccion(AccionPruebaDeVida accion) {
+		this.accion = accion;
 	}
 
 	public int getIdRestriccion() {
