@@ -2,6 +2,9 @@ package vdg.repository;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
 
@@ -23,5 +26,10 @@ public interface NotificacionRepository extends Repository<Notificacion, Integer
 	@Query(value = "SELECT * FROM Notificacion n WHERE n.idUsuario=?1 and n.estadoNotificacion='Archivada'"
 			+ " ORDER BY n.fecha DESC LIMIT ?2", nativeQuery = true)
 	public List<Notificacion> findArchivadas(int idUsuario, int limit);
+	
+    @Modifying
+    @Transactional
+    @Query(value = "UPDATE Notificacion n SET n.estadoNotificacion = 'Vista' WHERE n.idUsuario = :idUsuario AND n.estadoNotificacion = 'NoVista'", nativeQuery = true)
+    void marcarTodasComoVistas(long idUsuario);
 	
 }

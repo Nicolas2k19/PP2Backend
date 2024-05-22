@@ -2,10 +2,12 @@ package vdg.controller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -80,5 +82,20 @@ public class NotificacionController {
 		notificacionRepo.save(notificacion);
 		return notificacion;
 	}
+	@PutMapping("/marcarTodasComoVistas")
+	public ResponseEntity<String> marcarTodasComoVistas(@RequestBody String emailUsuario) {
+	    try {
+	        List<Usuario> usuarios = usuarioRepo.findByEmailIgnoreCase(emailUsuario);
+	        if (usuarios.isEmpty()) {
+	            return ResponseEntity.status(404).body("Usuario no encontrado.");
+	        }
+	        Usuario user = usuarios.get(0);
+	        notificacionRepo.marcarTodasComoVistas(user.getIdUsuario());
+	        return ResponseEntity.ok("Todas las notificaciones marcadas como vistas.");
+	    } catch (Exception e) {
+	        return ResponseEntity.status(500).body("Error al marcar todas las notificaciones como vistas: " + e.getMessage());
+	    }
+	}
+
 		
 }

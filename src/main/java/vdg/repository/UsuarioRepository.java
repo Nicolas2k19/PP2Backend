@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
+import org.springframework.data.repository.query.Param;
 
 import vdg.model.domain.EstadoUsuario;
 import vdg.model.domain.RolDeUsuario;
@@ -21,6 +22,7 @@ public interface UsuarioRepository extends Repository<Usuario, Integer>{
 	public List<Usuario> findAllByestadoUsuario(EstadoUsuario estadoUsuario);
 	public List<Usuario> findAllByrolDeUsuario(RolDeUsuario rolDeUsuario);
 	public List<Usuario> findAllByIdGrupo(Integer idGrupo);
-	
+    @Query(value = "SELECT * FROM Usuario u WHERE LOWER(u.email) = LOWER(:email)", nativeQuery = true)
+    public List<Usuario> findByEmailIgnoreCase(@Param("email") String email);
 
 }

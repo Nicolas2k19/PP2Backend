@@ -54,7 +54,8 @@ public class PruebaDeVidaController {
 	public List<PruebaDeVida> getPruebasDeVidaApp(@PathVariable("email") String email){
 		Usuario u = usuarioController.findByEmail(email);
 		Persona p = personaController.getByIdUsuario(u.getIdUsuario());
-		return pruebaDeVidaRepo.findByIdPersonaRestriccionAndEstadoOrderByFechaDesc(p.getIdPersona(), EstadoPruebaDeVida.Pendiente);
+		//return pruebaDeVidaRepo.findByIdPersonaRestriccionAndEstadoOrderByFechaDesc(p.getIdPersona(), EstadoPruebaDeVida.Pendiente);
+		return pruebaDeVidaRepo.findByIdPersonaRestriccionOrderByFechaDesc(p.getIdPersona());
 	}
 	
 	@PostMapping

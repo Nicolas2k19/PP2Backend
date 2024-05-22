@@ -1,6 +1,8 @@
 package vdg.controller;
 
+import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.file.Files;
@@ -8,6 +10,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.Timestamp;
 import java.util.stream.Collectors;
+
+import javax.imageio.ImageIO;
+
 import java.util.Base64;
 import java.util.Date;
 import java.util.HashMap;
@@ -25,9 +30,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import vdg.model.domain.EstadoNotificacion;
 import vdg.model.domain.EstadoPruebaDeVida;
+import vdg.model.domain.FotoIdentificacion;
 import vdg.model.domain.FotoPruebaDeVida;
 import vdg.model.domain.FotoPruebaDeVida2;
 import vdg.model.domain.Notificacion;
+import vdg.repository.FotoIdentificacionRepository;
 import vdg.repository.FotoPruebaDeVidaRepository;
 import vdg.repository.NotificacionRepository;
 import vdg.repository.PruebaDeVidaRepository;
@@ -43,6 +50,9 @@ public class FotoPruebaDeVidaController {
     private NotificacionRepository notificacionRepo;
 	@Autowired
 	private PruebaDeVidaRepository pruebaDeVidaRepo;
+	@Autowired
+	private FotoIdentificacionRepository fotoIdentificacionRepo;
+
 
     @GetMapping("/getFotoPruebaDeVida/{idPruebaDeVida}")
     public FotoPruebaDeVida2 getProbando(@PathVariable("idPruebaDeVida") int idPruebaDeVida) {
@@ -50,7 +60,7 @@ public class FotoPruebaDeVidaController {
         FotoPruebaDeVida2 foto2 = new FotoPruebaDeVida2();
         if (foto == null)
             return null;
-        foto2.setFoto("data:image/png;base64," + Base64.getEncoder().encodeToString(foto.getFoto()));
+        foto2.setFoto("data:image/jpg;base64," + Base64.getEncoder().encodeToString(foto.getFoto()));
         foto2.setIdFoto(foto.getIdFoto());
         foto2.setIdPruebaDeVida(idPruebaDeVida);
         return foto2;
@@ -125,100 +135,107 @@ public class FotoPruebaDeVidaController {
     }
 
 
-    public Map<String, Object> validarRostro(int idPruebaDeVida) {
-        Map<String, Object> result = new HashMap<>();
-        try {
-            // Obtener la foto de la prueba de vida desde la base de datos
-            FotoPruebaDeVida foto = fotoPruebaDeVidaRepo.findByIdPruebaDeVida(idPruebaDeVida);
-            if (foto == null) {
-                result.put("success", false);
-                result.put("message", "No se encontró la foto de la prueba de vida.");
-                return result;
-            }
+public Map<String, Object> validarRostro(int idPruebaDeVida) {
+    Map<String, Object> result = new HashMap<>();
+    try {
+    	FotoIdentificacion fotoRef = fotoIdentificacionRepo.findByIdPersona(2);
+    	
+        // Obtener la foto de la prueba de vida desde la base de datos
+        FotoPruebaDeVida foto = fotoPruebaDeVidaRepo.findByIdPruebaDeVida(idPruebaDeVida);
+        if (foto == null) {
+            result.put("success", false);
+            result.put("message", "No se encontró la foto de la prueba de vida.");
+            return result;
+        }
 
-            // Convertir la foto a formato base64 para pasarla como argumento al script de Python
-            String fotoBase64 = Base64.getEncoder().encodeToString(foto.getFoto());
+        // Obtener el directorio base del proyecto
+        String baseDir = System.getProperty("user.dir");
+        System.out.println("Base directory: " + baseDir);
 
-            // Decodificar la imagen base64 a bytes
-            byte[] fotoBytes = Base64.getDecoder().decode(fotoBase64);
-            
-            // Obtener el directorio base del proyecto
-            String baseDir = System.getProperty("user.dir");
+        // Construir rutas relativas
+        String outputPath = baseDir + "/face_recognition/input_image.jpg";
+        String scriptPath = baseDir + "/face_recognition/facial_recognition.py";
+        String folderReference = baseDir + "/face_recognition/maty";
 
-            // Construir rutas relativas
-            String outputPath = baseDir + "/face_recognition/input_image.png";
-            String scriptPath = baseDir + "/face_recognition/facial_recognition.py";
-            String folderReference = baseDir + "/face_recognition/maty"; 							//Deberia tomar la foto de identificacion del usuario correspondiente
+        // Verificar que el directorio de referencia existe
+        Path referenceDirPath = Paths.get(folderReference);
+        if (!Files.exists(referenceDirPath)) {
+            Files.createDirectories(referenceDirPath);
+        }
 
-            // Escribir los bytes decodificados en un archivo .png
-            Path path = Paths.get(outputPath);
-            Files.write(path, fotoBytes);
+        byte[] fotoReferenciaBytes = fotoRef.getFoto();
+        Path pathReference = referenceDirPath.resolve("reference.jpg");
+        Files.write(pathReference, fotoReferenciaBytes);
 
+        byte[] fotoBytes = foto.getFoto();
+        Path path = Paths.get(outputPath);
+        Files.write(path, fotoBytes);
 
-            String imagePath = outputPath; // Ruta de la imagen .png guardada
+        String imagePath = outputPath; 
 
-            // Comando para ejecutar el script de Python con la imagen como argumento
-            String command = "py " + scriptPath + " " + folderReference + " " + imagePath;
+        // Comando para ejecutar el script de Python con la imagen como argumento
+        String command = "py " + scriptPath + " " + folderReference + " " + imagePath;
 
-            // Crear un proceso para ejecutar el comando
-            ProcessBuilder processBuilder = new ProcessBuilder(command.split("\\s+"));
-            processBuilder.redirectErrorStream(true); // Redirigir errores al flujo de salida
+        // Crear un proceso para ejecutar el comando
+        ProcessBuilder processBuilder = new ProcessBuilder(command.split("\\s+"));
+        processBuilder.redirectErrorStream(true); // Redirigir errores al flujo de salida
 
-            // Iniciar el proceso
-            Process process = processBuilder.start();
+        // Iniciar el proceso
+        Process process = processBuilder.start();
 
-            // Leer la salida del proceso
-            InputStream inputStream = process.getInputStream();
-            String output = new BufferedReader(new InputStreamReader(inputStream))
-                    .lines().collect(Collectors.joining("\n"));
+        // Leer la salida del proceso
+        InputStream inputStream = process.getInputStream();
+        String output = new BufferedReader(new InputStreamReader(inputStream))
+                .lines().collect(Collectors.joining("\n"));
 
-            System.out.println(output);
+        System.out.println(output);
 
-            // Esperar a que el proceso termine
-            int exitCode = process.waitFor();
+        // Esperar a que el proceso termine
+        int exitCode = process.waitFor();
 
-            // Comprobar el código de salida del proceso
-            if (exitCode == 0) {
-                // Limpiar el mensaje de INFO y procesar el JSON resultante
-                String cleanOutput = output.replaceAll("(?i)INFO: Created TensorFlow Lite XNNPACK delegate for CPU.", "").trim();
-                JSONObject json = new JSONObject(cleanOutput);
+        // Comprobar el código de salida del proceso
+        if (exitCode == 0) {
+            // Limpiar el mensaje de INFO y procesar el JSON resultante
+            String cleanOutput = output.replaceAll("(?i)INFO: Created TensorFlow Lite XNNPACK delegate for CPU.", "").trim();
+            JSONObject json = new JSONObject(cleanOutput);
 
-                // Convertir el JSON a un Map
-                result.put("data", json.toMap());
+            // Convertir el JSON a un Map
+            result.put("data", json.toMap());
 
-                // Acceder al valor asociado a la clave "data"
-                Map<String, Object> dataMap = (Map<String, Object>) result.get("data");
+            // Acceder al valor asociado a la clave "data"
+            Map<String, Object> dataMap = (Map<String, Object>) result.get("data");
 
-                if (dataMap != null) {
-                    // Iterar sobre el mapa data
-                    for (Map.Entry<String, Object> entry : dataMap.entrySet()) {
-                        String key = entry.getKey();
-                        Object value = entry.getValue();
-                        System.out.println(key);
-                        // Usar equals para comparar cadenas
-                        if ("match".equals(key) && Boolean.TRUE.equals(value)) {
-                            result.put("success", true);
-                            break;
-                        }
+            if (dataMap != null) {
+                // Iterar sobre el mapa data
+                for (Map.Entry<String, Object> entry : dataMap.entrySet()) {
+                    String key = entry.getKey();
+                    Object value = entry.getValue();
+                    System.out.println(key);
+                    // Usar equals para comparar cadenas
+                    if ("match".equals(key) && Boolean.TRUE.equals(value)) {
+                        result.put("success", true);
+                        break;
                     }
-                    if (!result.containsKey("success")) {
-                        result.put("success", false);
-                    }
-                } else {
+                }
+                if (!result.containsKey("success")) {
                     result.put("success", false);
-                    result.put("message", "No se encontró el objeto data en el resultado.");
                 }
             } else {
                 result.put("success", false);
-                result.put("message", "Error al ejecutar el script de validación de rostro.");
+                result.put("message", "No se encontró el objeto data en el resultado.");
             }
-
-        } catch (Exception e) {
-            e.printStackTrace();
+        } else {
             result.put("success", false);
-            result.put("message", "Excepción en la validación de rostro: " + e.getMessage());
+            result.put("message", "Error al ejecutar el script de validación de rostro.");
         }
-        return result;
+
+    } catch (Exception e) {
+        e.printStackTrace();
+        result.put("success", false);
+        result.put("message", "Excepción en la validación de rostro: " + e.getMessage());
     }
+    return result;
+}
+
 
 }
