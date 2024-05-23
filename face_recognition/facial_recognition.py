@@ -194,7 +194,7 @@ def recognition(reference_folder, img):
     frame = cv2.imread(img)
     face_locations = face_recognition.face_locations(frame, model="hog")
 
-    face_detected = False 
+    face_detected = False
 
     for face_location in face_locations:
         top, right, bottom, left = face_location
@@ -208,14 +208,24 @@ def recognition(reference_folder, img):
             name = reference_names[index]
             face_detected = True
 
-        color = (0, 0, 255) if name == "Desconocido" else (125, 220, 0)
-        text = name
+            color = (125, 220, 0)
+            text = name
 
-        cv2.rectangle(frame, (left, top), (right, bottom), color, 2)
-        cv2.putText(frame, text, (left, bottom + 20), cv2.FONT_HERSHEY_SIMPLEX, 0.8, color, 2)
+            cv2.rectangle(frame, (left, top), (right, bottom), color, 2)
+            cv2.putText(frame, text, (left, bottom + 20), cv2.FONT_HERSHEY_SIMPLEX, 0.8, color, 2)
 
-        face_crop = frame[top:bottom, left:right]
-        cv2.imwrite('annotated_image.jpg', face_crop)
+            face_crop = frame[top:bottom, left:right]
+            cv2.imwrite('annotated_image.jpg', face_crop)
+            break  # Guardar solo la primera coincidencia y salir del bucle
+        else:
+            color = (0, 0, 255)
+            text = name
+
+            cv2.rectangle(frame, (left, top), (right, bottom), color, 2)
+            cv2.putText(frame, text, (left, bottom + 20), cv2.FONT_HERSHEY_SIMPLEX, 0.8, color, 2)
+
+            face_crop = frame[top:bottom, left:right]
+            cv2.imwrite('annotated_image.jpg', face_crop)  
 
     cv2.waitKey(0)
     cv2.destroyAllWindows()
