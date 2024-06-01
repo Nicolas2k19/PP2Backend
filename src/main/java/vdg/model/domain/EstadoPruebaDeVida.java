@@ -1,5 +1,5 @@
 package vdg.model.domain;
 
 public enum EstadoPruebaDeVida {
-	Pendiente, Aceptada, Rechazada, AceptadaAutomaticamente, RechazadaAutomaticamente;
+	Pendiente, Aceptada, Rechazada, Procesando, AceptadaAutomaticamente, RechazadaAutomaticamente;
 }

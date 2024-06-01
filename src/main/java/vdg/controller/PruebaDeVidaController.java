@@ -58,6 +58,11 @@ public class PruebaDeVidaController {
 		return pruebaDeVidaRepo.findByIdPersonaRestriccionOrderByFechaDesc(p.getIdPersona());
 	}
 	
+    @GetMapping("/multiple/{idPruebaDeVidaMultiple}")
+    public List<PruebaDeVida> getPruebasDeVidaByMultipleId(@PathVariable("idPruebaDeVidaMultiple") long idPruebaDeVidaMultiple) {
+        return pruebaDeVidaRepo.findByIdPruebaDeVidaMultiple(idPruebaDeVidaMultiple);
+    }
+	
 	@PostMapping
 	public PruebaDeVida agregar(@RequestBody PruebaDeVida pruebaDeVida) {
 		// CREO EL TIMESTAMP
@@ -66,6 +71,8 @@ public class PruebaDeVidaController {
 		Timestamp ahoraStamp = new Timestamp(ahora.getTime());
 		pruebaDeVida.setFecha(ahoraStamp);
 		pruebaDeVida.setEstado(EstadoPruebaDeVida.Pendiente);
+		pruebaDeVida.setIdPruebaDeVidaMultiple(pruebaDeVida.getIdPruebaDeVidaMultiple());
+		pruebaDeVida.setIdRestriccion(pruebaDeVida.getIdRestriccion());
 		generarNotificacionVictimario(pruebaDeVida.getDescripcion(), ahoraStamp, pruebaDeVida.getIdPersonaRestriccion());
 		
 		return pruebaDeVidaRepo.save(pruebaDeVida);
@@ -74,10 +81,16 @@ public class PruebaDeVidaController {
 	@PutMapping("/{idPruebaDeVida}")
 	public PruebaDeVida modificar(@RequestBody PruebaDeVida pruebaDeVida, @PathVariable("idPruebaDeVida") int idPruebaDeVida) {
 		
-		if(pruebaDeVida.getEstado().equals(EstadoPruebaDeVida.Rechazada))
+		if(pruebaDeVida.getEstado().equals(EstadoPruebaDeVida.Rechazada) && pruebaDeVida.isEsMultiple() == false)
 			generarIncidenciaPruebaDeVida(pruebaDeVida);
 		
 		pruebaDeVida.setIdPruebaDeVida(idPruebaDeVida);
+		return pruebaDeVidaRepo.save(pruebaDeVida);
+	}
+	
+	@PutMapping("/procesando")
+	public PruebaDeVida pasarAPorcesando(@RequestBody PruebaDeVida pruebaDeVida) {
+		pruebaDeVida.setEstado(EstadoPruebaDeVida.Procesando);
 		return pruebaDeVidaRepo.save(pruebaDeVida);
 	}
 

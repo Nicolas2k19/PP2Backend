@@ -22,5 +22,7 @@ public interface PruebaDeVidaRepository extends Repository<PruebaDeVida, Integer
 	@Transactional
 	@Query("UPDATE PruebaDeVida p SET p.estado = :estado WHERE p.idPruebaDeVida = :idPruebaDeVida")
 	int updateEstado(@Param("idPruebaDeVida") int idPruebaDeVida, @Param("estado") EstadoPruebaDeVida estado);
+	@Query("SELECT p FROM PruebaDeVida p WHERE p.idPruebaDeVidaMultiple = :idPruebaDeVidaMultiple")
+	public List<PruebaDeVida> findByIdPruebaDeVidaMultiple(@Param("idPruebaDeVidaMultiple") long idPruebaDeVidaMultiple);
 
 }

@@ -31,6 +31,7 @@ public class HistorialUbicacionFecha {
 	public Ubicacion dameUbicacionHabitual(int idPersona, int dia, int hora, int minutos) {
 
 		cargarUbicaciones(idPersona, dia, hora, minutos);
+		System.out.println(this.ubicacionesFecha.toString());
 		
 		List<UbicacionRutina> ubicacionesMasRepetidas = new ArrayList<UbicacionRutina>();
 		int maxima = 0;

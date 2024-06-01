@@ -36,6 +36,9 @@ public class PruebaDeVida {
     
     @Column
     private boolean esMultiple;
+    
+    @Column
+    private long idPruebaDeVidaMultiple;
 
 
     public PruebaDeVida() {
@@ -104,6 +107,14 @@ public class PruebaDeVida {
 
 	public void setEsMultiple(boolean esMultiple) {
 		this.esMultiple = esMultiple;
+	}
+
+	public long getIdPruebaDeVidaMultiple() {
+		return idPruebaDeVidaMultiple;
+	}
+
+	public void setIdPruebaDeVidaMultiple(long idPruebaDeVidaMultiple) {
+		this.idPruebaDeVidaMultiple = idPruebaDeVidaMultiple;
 	}
     
 

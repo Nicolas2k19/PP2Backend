@@ -14,9 +14,14 @@ public class PruebaDeVidaMultiple {
 
     @Column
     private String descripcion;
-
+    
     @Column
-    private Long idPruebaDeVida;
+    private Long idPersona;
+    
+    @Column 
+    @Enumerated(EnumType.STRING)
+    private EstadoPruebaDeVida estado; 
+
 
     public PruebaDeVidaMultiple() {
         super();
@@ -38,13 +43,21 @@ public class PruebaDeVidaMultiple {
         this.descripcion = descripcion;
     }
 
-	public Long getIdPruebaDeVida() {
-		return idPruebaDeVida;
+	public Long getIdPersona() {
+		return idPersona;
 	}
 
-	public void setIdPruebaDeVida(Long idPruebaDeVida) {
-		this.idPruebaDeVida = idPruebaDeVida;
+	public void setIdPersona(Long idPersona) {
+		this.idPersona = idPersona;
 	}
 
+	public EstadoPruebaDeVida getEstado() {
+		return estado;
+	}
 
+	public void setEstado(EstadoPruebaDeVida estado) {
+		this.estado = estado;
+	}
+
+	
 }

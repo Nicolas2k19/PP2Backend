@@ -51,7 +51,8 @@ public class PersonaController {
 		return persona;
 	}
 	
-	public Persona getByIdUsuario(int idUsuario) {
+	@GetMapping("/GetByIdUsuario/{idUsuario}")
+	public Persona getByIdUsuario(@PathVariable("idUsuario") int idUsuario) {
 		List<Persona> personas = personaRepo.findByIdUsuario(idUsuario);
 		return personas.isEmpty() ? null : personas.get(0);
 	}

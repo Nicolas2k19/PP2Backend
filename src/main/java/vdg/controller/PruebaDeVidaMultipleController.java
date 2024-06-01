@@ -5,9 +5,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import vdg.model.domain.EstadoPruebaDeVida;
 import vdg.model.domain.PruebaDeVidaMultiple;
 import vdg.repository.PruebaDeVidaMultipleRepository;
 
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -18,12 +22,14 @@ public class PruebaDeVidaMultipleController {
     private PruebaDeVidaMultipleRepository pruebaDeVidaMultipleRepository;
 
     @PostMapping
-    public ResponseEntity<?> guardarPruebasDeVidaMultiple(@RequestBody PruebaDeVidaMultiple pruebaDeVidaMultiple) {
-        try {
-            return ResponseEntity.ok(pruebaDeVidaMultipleRepository.save(pruebaDeVidaMultiple));
-        } catch (Exception e) {
-            return new ResponseEntity<>("Error al guardar las pruebas de vida múltiples: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+    public PruebaDeVidaMultiple guardarPruebasDeVidaMultiple(@RequestBody PruebaDeVidaMultiple pruebaDeVidaMultiple) {
+          return pruebaDeVidaMultipleRepository.save(pruebaDeVidaMultiple);
+    }
+    
+    @GetMapping("/getAll/{idPersona}")
+    public Collection<PruebaDeVidaMultiple> getPruebasDeVidaMultiple(@PathVariable("idPersona") Long idPersona) {
+         return pruebaDeVidaMultipleRepository.findAllByIdPersona(idPersona);
+       
     }
 
     @GetMapping("/{id}")
@@ -58,4 +64,17 @@ public class PruebaDeVidaMultipleController {
         }
     }
 
+    // Método para actualizar el estado de una prueba de vida múltiple
+    @PutMapping("/estado/{id}")
+    public ResponseEntity<?> actualizarEstadoPruebaDeVidaMultiple(@PathVariable("id") Long id, @RequestBody Map<String, EstadoPruebaDeVida> nuevoEstado) {
+        try {
+            PruebaDeVidaMultiple pruebaDeVidaMultiple = pruebaDeVidaMultipleRepository.findById(id)
+                    .orElseThrow(() -> new IllegalArgumentException("ID de prueba de vida múltiple no válido: " + id));
+            pruebaDeVidaMultiple.setEstado(nuevoEstado.get("estado"));
+            PruebaDeVidaMultiple pruebaActualizada = pruebaDeVidaMultipleRepository.save(pruebaDeVidaMultiple);
+            return ResponseEntity.ok(pruebaActualizada);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Error al actualizar el estado de la prueba de vida múltiple: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }

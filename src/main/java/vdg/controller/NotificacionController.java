@@ -82,8 +82,9 @@ public class NotificacionController {
 		notificacionRepo.save(notificacion);
 		return notificacion;
 	}
-	@PutMapping("/marcarTodasComoVistas")
-	public ResponseEntity<String> marcarTodasComoVistas(@RequestBody String emailUsuario) {
+	
+	@PutMapping("/marcarTodasComoVistas/{emailUsuario}")
+	public ResponseEntity<String> marcarTodasComoVistas(@PathVariable("emailUsuario")  String emailUsuario) {
 	    try {
 	        List<Usuario> usuarios = usuarioRepo.findByEmailIgnoreCase(emailUsuario);
 	        if (usuarios.isEmpty()) {
