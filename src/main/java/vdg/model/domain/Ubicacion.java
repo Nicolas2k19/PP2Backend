@@ -67,5 +67,13 @@ public class Ubicacion {
 	public void setIdPersona(int idPersona) {
 		this.idPersona = idPersona;
 	}
+
+	@Override
+	public String toString() {
+		return "[idUbicacion=" + idUbicacion + ", latitud=" + latitud + ", longitud=" + longitud + ", fecha="
+				+ fecha + ", idPersona=" + idPersona + "]";
+	}
+	
+	
 	
 }
