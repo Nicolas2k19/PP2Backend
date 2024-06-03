@@ -50,6 +50,11 @@ public class PruebaDeVidaController {
 		return pruebaDeVidaRepo.findByIdPersonaRestriccionOrderByFechaDesc(idPersona);
 	}
 	
+	@GetMapping
+	public List<PruebaDeVida> listar() {
+		return pruebaDeVidaRepo.findAll();
+	}
+	
 	@GetMapping("/getByMail/{email}")
 	public List<PruebaDeVida> getPruebasDeVidaApp(@PathVariable("email") String email){
 		Usuario u = usuarioController.findByEmail(email);

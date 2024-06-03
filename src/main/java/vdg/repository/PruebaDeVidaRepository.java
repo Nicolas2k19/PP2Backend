@@ -10,10 +10,12 @@ import org.springframework.data.repository.Repository;
 import org.springframework.data.repository.query.Param;
 
 import vdg.model.domain.EstadoPruebaDeVida;
+import vdg.model.domain.Incidencia;
 import vdg.model.domain.PruebaDeVida;
 
 public interface PruebaDeVidaRepository extends Repository<PruebaDeVida, Integer>{
 
+	public List<PruebaDeVida> findAll();
 	public List<PruebaDeVida> findByIdRestriccion(int idRestriccion);
 	public List<PruebaDeVida> findByIdPersonaRestriccionAndEstadoOrderByFechaDesc(int idPersonaRestriccion, EstadoPruebaDeVida estado);
 	public List<PruebaDeVida> findByIdPersonaRestriccionOrderByFechaDesc(int idPersonaRestriccion);
@@ -25,4 +27,5 @@ public interface PruebaDeVidaRepository extends Repository<PruebaDeVida, Integer
 	@Query("SELECT p FROM PruebaDeVida p WHERE p.idPruebaDeVidaMultiple = :idPruebaDeVidaMultiple")
 	public List<PruebaDeVida> findByIdPruebaDeVidaMultiple(@Param("idPruebaDeVidaMultiple") long idPruebaDeVidaMultiple);
 
+	
 }
