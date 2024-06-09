@@ -71,6 +71,7 @@ public class IniciarScript {
 	
 	public void predecir(List<Ubicacion> ubicaciones) {
 		 	ClientServer clientServer = new ClientServer(null);
+		 	
 	        // We get an entry point from the Python side
 	        PythonMethods modelo = (PythonMethods) clientServer.getPythonServerEntryPoint(new Class[] { PythonMethods.class });
 	        // Java calls Python without ever having been called from Python

@@ -43,6 +43,8 @@ def crearData(gpx):
     for track in gpx.tracks:
             for segment in track.segments:
                         for point in segment.points:
+                                print(f"Tipo "+str(type(point.longitude)))
+                                print(f"Tipo "+str(type(point.latitude)))
                                 tz_name = tzf.timezone_at(lng=point.longitude, lat=point.latitude)
                                 try:
                                     new_time = point.time.astimezone(ZoneInfo(tz_name))
@@ -240,6 +242,27 @@ def main():
     start_gateway(modeloLatitude,modeloLongitude,scale1,scale2)
 
 
+
+
+def armarEntradaDeDatos(datos):
+    entrada = {
+            'latitude' : [],
+            'longitude' : [],
+            'time' : [],
+            "latitude_radians" : [],
+            "longitude_radians" : [],
+            "sen_latitude" : [],
+            "cos_latitude" : [],
+            "sen_longitude" : [],
+            "cos_longitude" : []
+    }
+
+    for dato in datos:
+           entrada["latitude"].append(float(dato.getLatitud()))
+           entrada["longitude"].append(float(dato.getLongitud()))
+           entrada["time"].append(dato.getFecha().toString())
+        
+    return entrada
     
 
 class EntryPoint:
@@ -250,9 +273,11 @@ class EntryPoint:
         self.scale2 = scale2
 
     def predecir(self,ubicaciones):
-        with open("text.txt","w") as file:
-            file.write("Ubicaciones:"+ubicaciones)
-          
+        datosEntrada = armarEntradaDeDatos(ubicaciones)
+        with open("text.txt","a") as file:
+                file.write(str(datosEntrada))
+                
+                #file.write("Longitud:"+str(elem.getLongitud()+"\n"))       
         return ubicaciones
 
     class Java:
@@ -267,7 +292,6 @@ def start_gateway(modeloLatitude, modeloLongitude, scale1, scale2):
     python_parameters=PythonParameters(),
     python_server_entry_point=entry)
     print(f"prediccion de prueba")
-    entry.predecir("asdsad")
     
 if __name__ == "__main__":
     main()

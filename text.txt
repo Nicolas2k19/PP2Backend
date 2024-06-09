@@ -1,0 +1,9 @@
+Ubicaciones:[[idUbicacion=4, latitud=-34.585733, longitud=-58.650988, fecha=2019-11-24 08:58:57.0, idPersona=4], [idUbicacion=16, latitud=-34.532820, longitud=-58.704139, fecha=2024-05-12 21:41:56.0, idPersona=4]]Ubicaciones:[idUbicacion=4, latitud=-34.585733, longitud=-58.650988, fecha=2019-11-24 08:58:57.0, idPersona=4]Ubicaciones:[idUbicacion=16, latitud=-34.532820, longitud=-58.704139, fecha=2024-05-12 21:41:56.0, idPersona=4]Ubicaciones:[idUbicacion=4, latitud=-34.585733, longitud=-58.650988, fecha=2019-11-24 08:58:57.0, idPersona=4]
+Ubicaciones:[idUbicacion=16, latitud=-34.532820, longitud=-58.704139, fecha=2024-05-12 21:41:56.0, idPersona=4]
+Latitud:<py4j.java_gateway.JavaMember object at 0x0000029EC97CC620>
+Longitud:<py4j.java_gateway.JavaMember object at 0x0000029EC97CC7D0>
+Latitud:<py4j.java_gateway.JavaMember object at 0x0000029E8D296000>
+Longitud:<py4j.java_gateway.JavaMember object at 0x0000029EC97CC7A0>
+Latitud:-34.585733
+Latitud:-34.532820
+{'latitude': [-34.585733, -34.53282], 'longitude': [-58.650988, -58.704139], 'time': [JavaObject id=o3, JavaObject id=o5], 'latitude_radians': [], 'longitude_radians': [], 'sen_latitude': [], 'cos_latitude': [], 'sen_longitude': [], 'cos_longitude': []}{'latitude': [-34.585733, -34.53282], 'longitude': [-58.650988, -58.704139], 'time': ['2019-11-24 08:58:57.0', '2024-05-12 21:41:56.0'], 'latitude_radians': [], 'longitude_radians': [], 'sen_latitude': [], 'cos_latitude': [], 'sen_longitude': [], 'cos_longitude': []}{'latitude': [-34.585733, -34.53282], 'longitude': [-58.650988, -58.704139], 'time': ['2019-11-24 08:58:57.0', '2024-05-12 21:41:56.0'], 'latitude_radians': [], 'longitude_radians': [], 'sen_latitude': [], 'cos_latitude': [], 'sen_longitude': [], 'cos_longitude': []}

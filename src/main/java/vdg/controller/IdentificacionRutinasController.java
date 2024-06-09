@@ -54,7 +54,6 @@ public class IdentificacionRutinasController {
 				int batch_size,
 				String pathDatos) {
 		
-		   
 		   return new ConfiguracionLSTM(input_length,oUTPUT_LENGTH,distanciaPermitida,nunits,epochs,batch_size,pathDatos);
 	   }
 	   
