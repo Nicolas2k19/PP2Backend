@@ -5,10 +5,11 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import py4j.ClientServer;
+import py4j.GatewayServer;
 import vdg.model.domain.Ubicacion;
 
 
@@ -28,14 +29,6 @@ public class IniciarScript {
 		this.procesos = new ArrayList<ProcessBuilder>();
 		this.indices = new ArrayList<Integer>();
 	}
-	
-	
-//	INPUT_LENGTH = 25    # Hiperparámetro
-//			OUTPUT_LENGTH = 1    # Modelo uni-step
-//			DISTANCIA_PERMITIDA = 3 
-//			#nunits
-//			#epochs
-////			#batch_size
 	
 	public ProcessBuilder crearProceso(ConfiguracionLSTM config){
 		 System.out.println(this.interprete);
@@ -58,7 +51,6 @@ public class IniciarScript {
 	
 	public void iniciarProceso() throws Exception{
 		
-	
 		if(this.indices.size()==0) throw new Exception("No hay procesos para iniciar, por favor agregue una nuevo identificador");
 		
 		ProcessBuilder processBuilder = this.procesos.get(this.procesos.size()==1 ? 0 : this.procesos.size()-1 );
@@ -76,6 +68,15 @@ public class IniciarScript {
 		
 		
 	}
+	
+	public void predecir(List<Ubicacion> ubicaciones) {
+		 	ClientServer clientServer = new ClientServer(null);
+	        // We get an entry point from the Python side
+	        PythonMethods modelo = (PythonMethods) clientServer.getPythonServerEntryPoint(new Class[] { PythonMethods.class });
+	        // Java calls Python without ever having been called from Python
+	        System.out.println(modelo.predecir(ubicaciones));
+	        clientServer.shutdown();
+	        }
 	
 	
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,9 +32,16 @@ public class IdentificacionRutinasController {
 
 	   @PostMapping("crearIdentificador")
 	    public ResponseEntity<Void> crearIdentificadorRutinas() throws Exception {
-	        List<Ubicacion> ubicaciones = this.ubicacion.findAllByIdPersona(4);
 		  	this.iniciadorScript.crearProceso(crearConfig(25,1,3,128,80,256,"./datos/route_2022-01-31_6.27pm.gpx"));
 		  	this.iniciadorScript.iniciarProceso();
+	        return new ResponseEntity<>(HttpStatus.CREATED);
+	    }
+	   
+	   
+	   @GetMapping("identificarRutina")
+	    public ResponseEntity<Void> identificar() throws Exception {
+	        List<Ubicacion> ubicaciones = this.ubicacion.findAllByIdPersona(4);
+		  	this.iniciadorScript.predecir(ubicaciones );
 	        return new ResponseEntity<>(HttpStatus.CREATED);
 	    }
 	   

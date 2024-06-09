@@ -11,7 +11,11 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import LSTM, Dense
 from tensorflow.keras.optimizers import RMSprop, Adam
 import tensorflow as tf
+from py4j.java_gateway import (
+    JavaGateway, CallbackServerParameters, GatewayParameters,
+    launch_gateway)
 
+from py4j.clientserver import ClientServer, JavaParameters, PythonParameters
 
 
 def abrirDatos(path):
@@ -231,11 +235,45 @@ def main():
     print(f"Datos escalados",scaledDataset1)
     print(f"Predicción latitud",prediccionLatitud)
     print(f"Predicción longitud",prediccionLongitud)
+    print(f"Dataset de entrada sin escalar",ts)
+    
+    start_gateway(modeloLatitude,modeloLongitude,scale1,scale2)
+
 
     
 
+class EntryPoint:
+    def __init__(self,modeloLat,modeloLon,scale1,scale2):
+        self.modeloLatitud = modeloLat
+        self.modeloLongitud = modeloLon
+        self.scale1 = scale1
+        self.scale2 = scale2
+
+    def predecir(self,ubicaciones):
+        with open("text.txt","w") as file:
+            file.write("Ubicaciones:"+ubicaciones)
+          
+        return ubicaciones
+
+    class Java:
+        implements = ["vgd.model.rutinas.PythonMethods"]
+
+def start_gateway(modeloLatitude, modeloLongitude, scale1, scale2):
+    port = launch_gateway()
+    print("Me creé")
+    entry = EntryPoint(modeloLatitude, modeloLongitude, scale1, scale2)
+    gateway = ClientServer(
+    java_parameters=JavaParameters(),
+    python_parameters=PythonParameters(),
+    python_server_entry_point=entry)
+    print(f"prediccion de prueba")
+    entry.predecir("asdsad")
+    
 if __name__ == "__main__":
     main()
+    
+    
+
 
 
 
