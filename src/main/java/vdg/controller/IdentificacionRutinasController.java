@@ -40,7 +40,7 @@ public class IdentificacionRutinasController {
 	   
 	   @GetMapping("identificarRutina")
 	    public ResponseEntity<Void> identificar() throws Exception {
-	        List<Ubicacion> ubicaciones = this.ubicacion.findAllByIdPersona(4);
+	        List<Ubicacion> ubicaciones = this.ubicacion.findAllByIdPersona(1);
 		  	this.iniciadorScript.predecir(ubicaciones );
 	        return new ResponseEntity<>(HttpStatus.CREATED);
 	    }

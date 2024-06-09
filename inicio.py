@@ -261,9 +261,50 @@ def armarEntradaDeDatos(datos):
            entrada["latitude"].append(float(dato.getLatitud()))
            entrada["longitude"].append(float(dato.getLongitud()))
            entrada["time"].append(dato.getFecha().toString())
+           entrada["latitude_radians"].append(degrees_to_radians(float(dato.getLatitud())))
+           entrada["longitude_radians"].append(degrees_to_radians(float(dato.getLongitud())))
+           entrada["sen_latitude"].append(np.sin(degrees_to_radians(float(dato.getLatitud()))))
+           entrada["cos_latitude"].append(np.cos(degrees_to_radians(float(dato.getLatitud()))))
+           entrada["sen_longitude"].append(np.sin(degrees_to_radians(float(dato.getLongitud()))))
+           entrada["cos_longitude"].append(np.cos(degrees_to_radians(float(dato.getLongitud()))))
         
     return entrada
     
+
+def escalarDatosPrediccion(df,data_input,col_ref,entrada,salidaEsperada):
+        '''Escala el dataset en el rango de -1 a 1.'''
+        print("Columna de referencia")
+        print(col_ref)
+        col_ref = df.columns.get_loc(col_ref)
+        # Número de instantes de tiempo de entrada y de covariables
+        NFEATS = data_input['entrada'].shape[2]
+        # Generar listado con "scalers" (1 por cada covariable de entrada)
+        scalers = [MinMaxScaler(feature_range=(-1,1)) for i in range(NFEATS)]
+        # Arreglos que contendrán los datasets escalados
+        entradaConCeros = np.zeros(data_input['entrada'].shape)
+        salidaEsperadaConCeros = np.zeros(data_input['salida'].shape)
+
+        for i in range(NFEATS):
+            entradaConCeros[:,:,i] = scalers[i].fit_transform(entrada[:,:,0])
+        
+   
+        salidaEsperadaConCeros[:,:,0] = scalers[col_ref].fit_transform(salidaEsperada[:,:,0])
+    
+        data_scaled = {
+            'entrada': entradaConCeros,
+            'salida': salidaEsperadaConCeros,
+        }
+        return data_scaled, scalers[col_ref]
+
+def armarDataSetEntrada(df,col_ref,entrada,salidaEsperada):
+        data_input = {
+            'entrada': entrada,
+            'salida': salidaEsperada, 
+        }
+
+        return escalarDatosPrediccion(df,data_input,col_ref,entrada,salidaEsperada)
+
+
 
 class EntryPoint:
     def __init__(self,modeloLat,modeloLon,scale1,scale2):
@@ -273,10 +314,27 @@ class EntryPoint:
         self.scale2 = scale2
 
     def predecir(self,ubicaciones):
+        args = sys.argv[1:]
         datosEntrada = armarEntradaDeDatos(ubicaciones)
+        df = crearYConfigurarDataFrame(datosEntrada)
+        entradaLatitud, salidaLatitud= partirDatos(df.values,int(args[0]),int(args[1]),0)
+        entradaLongitude , salidaLongitude= partirDatos(df.values,int(args[0]),int(args[1]),1)
+
+        datosEscaladosLatitud , scalerLat = armarDataSetEntrada(df,"latitude",entradaLatitud,salidaLatitud)
+        datosEscaladosLongitud , scalerLong= armarDataSetEntrada(df,"longitude",entradaLongitude,salidaLongitude)
+
+        prediccionLatitud = predecir(datosEscaladosLatitud["entrada"],self.modeloLatitud,self.scale1,0)
+        prediccionLongitud= predecir(datosEscaladosLongitud["entrada"],self.modeloLongitud,self.scale2,0)
+
         with open("text.txt","a") as file:
-                file.write(str(datosEntrada))
-                
+                file.write("\n\n"+str(df))
+                file.write("\n\n"+str(df.values))
+                file.write("\n\n"+str(entradaLatitud))
+                file.write("\n\n"+str(entradaLongitude))
+                file.write("\n\n"+str(datosEscaladosLatitud))
+                file.write("\n\n"+str(datosEscaladosLongitud))
+                file.write("\n\n"+str(prediccionLatitud))
+                file.write("\n\n"+str(prediccionLongitud))
                 #file.write("Longitud:"+str(elem.getLongitud()+"\n"))       
         return ubicaciones
 
