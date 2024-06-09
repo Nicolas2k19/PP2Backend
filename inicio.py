@@ -305,6 +305,17 @@ def armarDataSetEntrada(df,col_ref,entrada,salidaEsperada):
         return escalarDatosPrediccion(df,data_input,col_ref,entrada,salidaEsperada)
 
 
+def distanciaSuperior(punto):
+
+    DISTANCIA_PERMITIDA = 3.00
+
+    with open("text.txt","a") as file:
+                file.write("\n\n"+str(round(punto, 5)))
+                file.write("\n\n"+str(DISTANCIA_PERMITIDA))
+                file.write("\n\n"+str(round(punto, 5)>DISTANCIA_PERMITIDA))
+
+    return round(punto, 5)>DISTANCIA_PERMITIDA
+
 
 class EntryPoint:
     def __init__(self,modeloLat,modeloLon,scale1,scale2):
@@ -326,6 +337,20 @@ class EntryPoint:
         prediccionLatitud = predecir(datosEscaladosLatitud["entrada"],self.modeloLatitud,self.scale1,0)
         prediccionLongitud= predecir(datosEscaladosLongitud["entrada"],self.modeloLongitud,self.scale2,0)
 
+      
+
+        diferenciaLat = salidaLatitud.flatten() - prediccionLatitud
+        difereniciaLong = salidaLongitude.flatten() - prediccionLongitud
+
+        latPredictCoordiantesRad = [degrees_to_radians(_) for _ in prediccionLatitud]
+        longPredictCoordinatesRad = [degrees_to_radians(_) for _ in prediccionLongitud]
+
+        latTestCoordinateRad = [degrees_to_radians(_) for _ in salidaLatitud.flatten()]
+        longTestCoordinateRad = [degrees_to_radians(_) for _ in salidaLongitude.flatten()]
+
+        #estaViolandoPrediccion = False
+
+        
         with open("text.txt","a") as file:
                 file.write("\n\n"+str(df))
                 file.write("\n\n"+str(df.values))
@@ -333,10 +358,36 @@ class EntryPoint:
                 file.write("\n\n"+str(entradaLongitude))
                 file.write("\n\n"+str(datosEscaladosLatitud))
                 file.write("\n\n"+str(datosEscaladosLongitud))
-                file.write("\n\n"+str(prediccionLatitud))
-                file.write("\n\n"+str(prediccionLongitud))
-                #file.write("Longitud:"+str(elem.getLongitud()+"\n"))       
-        return ubicaciones
+                file.write("lat pred \n\n"+str(prediccionLatitud))
+                file.write("long pred \n\n"+str(prediccionLongitud))
+                file.write("lat salida \n\n"+str(salidaLatitud))
+                file.write("long salida \n\n"+str(salidaLongitude))
+                file.write("\n\n"+str(diferenciaLat))
+                file.write("\n\n"+str(difereniciaLong))   
+                file.write("\n\n"+str(latTestCoordinateRad))   
+                file.write("\n\n"+str(longTestCoordinateRad))   
+                file.write("\n\n"+str(latPredictCoordiantesRad))   
+
+        for i in range(len(latPredictCoordiantesRad)):
+                coordinateOne = np.array([latPredictCoordiantesRad[i],longPredictCoordinatesRad[i]])
+                coordinateTwo = np.array([latTestCoordinateRad[i],longTestCoordinateRad[i]])
+                result = haversine_distances([coordinateOne, coordinateTwo])
+                resultadoMul = result * 6371000/1000  # multiply by Earth radius to get kilometers
+
+                with open("text.txt","a") as file:
+                     file.write("\n Coordenada pred \n\n"+str([prediccionLatitud[i],prediccionLongitud[i]]))
+                     file.write("\n Coordenada longitude \n\n"+str([salidaLatitud.flatten()[i],salidaLongitude.flatten()[i]]))
+                     file.write("\n Coordenada uno \n\n"+str(coordinateOne))
+                     file.write("\n Coordenada dos\n\n"+str(coordinateTwo))
+                     file.write("\n este es el resultado\n\n"+str(resultadoMul))
+
+                if distanciaSuperior(resultadoMul[0][1]):
+                        return True  
+
+        
+
+        
+        return False
 
     class Java:
         implements = ["vgd.model.rutinas.PythonMethods"]

@@ -6,5 +6,5 @@ import vdg.model.domain.Ubicacion;
 
 public interface PythonMethods {
 	
-	    public List<Ubicacion>  predecir(List<Ubicacion> ubicaciones);
+	    public Boolean  predecir(List<Ubicacion> ubicaciones);
 }
