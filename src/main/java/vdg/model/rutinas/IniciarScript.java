@@ -69,14 +69,16 @@ public class IniciarScript {
 		
 	}
 	
-	public void predecir(List<Ubicacion> ubicaciones) {
+	public boolean predecir(List<Ubicacion> ubicaciones) {
 		 	ClientServer clientServer = new ClientServer(null);
 		 	
 	        // We get an entry point from the Python side
 	        PythonMethods modelo = (PythonMethods) clientServer.getPythonServerEntryPoint(new Class[] { PythonMethods.class });
 	        // Java calls Python without ever having been called from Python
-	        System.out.println(modelo.predecir(ubicaciones));
+	        Boolean resultado =  (modelo.predecir(ubicaciones));
 	        clientServer.shutdown();
+	        
+	        return resultado;
 	        }
 	
 	

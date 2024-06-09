@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import vdg.model.domain.Ubicacion;
+import vdg.model.notificacionesTerceros.TelegramNotificador;
 import vdg.model.rutinas.ConfiguracionLSTM;
 import vdg.model.rutinas.IniciarScript;
 import vdg.repository.UbicacionRepository;
@@ -29,6 +30,9 @@ public class IdentificacionRutinasController {
 	  
 	  @Autowired
 	  UbicacionRepository ubicacion;
+	  
+	  @Autowired
+	   private  TelegramNotificador telegramNotificador;
 
 	   @PostMapping("crearIdentificador")
 	    public ResponseEntity<Void> crearIdentificadorRutinas() throws Exception {
@@ -41,7 +45,11 @@ public class IdentificacionRutinasController {
 	   @GetMapping("identificarRutina")
 	    public ResponseEntity<Void> identificar() throws Exception {
 	        List<Ubicacion> ubicaciones = this.ubicacion.findAllByIdPersona(1);
-		  	this.iniciadorScript.predecir(ubicaciones );
+		  	if(this.iniciadorScript.predecir(ubicaciones )) {
+		  		System.out.println("Funciono bro");
+		  		telegramNotificador.enviarMensaje((long) 770684292, "Alerta el agresor a abandonado su rutina normal");
+		  		
+		  	}
 	        return new ResponseEntity<>(HttpStatus.CREATED);
 	    }
 	   
