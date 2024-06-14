@@ -4,6 +4,8 @@ import java.sql.Timestamp;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 @Entity
 @Table(name = "PruebaDeVida")
 public class PruebaDeVida {
@@ -35,10 +37,10 @@ public class PruebaDeVida {
     
     
     @Column
-    private boolean esMultiple;
+    private Boolean esMultiple;
     
     @Column
-    private long idPruebaDeVidaMultiple;
+    private Long idPruebaDeVidaMultiple;
 
 
     public PruebaDeVida() {
@@ -101,19 +103,19 @@ public class PruebaDeVida {
         this.idPersonaRestriccion = idPersonaRestriccion;
     }
 
-	public boolean isEsMultiple() {
+	public Boolean isEsMultiple() {
 		return esMultiple;
 	}
 
-	public void setEsMultiple(boolean esMultiple) {
+	public void setEsMultiple(Boolean esMultiple) {
 		this.esMultiple = esMultiple;
 	}
 
-	public long getIdPruebaDeVidaMultiple() {
+	public Long getIdPruebaDeVidaMultiple() {
 		return idPruebaDeVidaMultiple;
 	}
 
-	public void setIdPruebaDeVidaMultiple(long idPruebaDeVidaMultiple) {
+	public void setIdPruebaDeVidaMultiple(Long idPruebaDeVidaMultiple) {
 		this.idPruebaDeVidaMultiple = idPruebaDeVidaMultiple;
 	}
     

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
 import vdg.model.domain.Incidencia;
+import vdg.model.domain.RestriccionPerimetral;
 
 public interface IncidenciaRepository extends Repository<Incidencia, Integer> {
 
@@ -14,6 +15,8 @@ public interface IncidenciaRepository extends Repository<Incidencia, Integer> {
 	public Incidencia save(Incidencia incidencia);
 
 	public void delete(Incidencia incidencia);
+	
+	public List<Incidencia> findAll();
 
 	@Query(value = "SELECT * FROM Incidencia i WHERE i.idRestriccion=? and (i.topico='VictimarioIlocalizable' "
 			+ "or i.topico='DamnificadaIlocalizable') ORDER BY i.fecha DESC", nativeQuery = true)

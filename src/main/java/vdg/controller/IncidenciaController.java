@@ -50,6 +50,11 @@ public class IncidenciaController {
 		return incidenciasModificadas;
 	}
 	
+	@GetMapping
+	public List<Incidencia> listar() {
+		return incidenciaRepo.findAll();
+	}
+	
 	public List<Incidencia> getIncidenciasIlocalizable(int idRestriccion){
 		return incidenciaRepo.getIlocalizable(idRestriccion);
 	}

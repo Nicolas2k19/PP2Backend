@@ -1,0 +1,2522 @@
+El script de Python se está ejecutando en segundo plano.
+Argumentos recibidos: ['25', '1', '3', '128', '80', '256', './datos/route_2022-01-31_6.27pm.gpx']
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Tipo <class 'float'>
+Columna de referencia
+latitude
+Columna de referencia
+longitude
+Epoch 1/80
+2/2 - 1s - 605ms/step - loss: 0.6111 - val_loss: 0.4315
+Epoch 2/80
+2/2 - 0s - 46ms/step - loss: 0.2083 - val_loss: 0.0910
+Epoch 3/80
+2/2 - 0s - 44ms/step - loss: 0.1173 - val_loss: 0.0195
+Epoch 4/80
+2/2 - 0s - 45ms/step - loss: 0.0853 - val_loss: 0.0122
+Epoch 5/80
+2/2 - 0s - 46ms/step - loss: 0.0758 - val_loss: 0.0188
+Epoch 6/80
+2/2 - 0s - 45ms/step - loss: 0.0679 - val_loss: 0.0297
+Epoch 7/80
+2/2 - 0s - 46ms/step - loss: 0.0633 - val_loss: 0.0401
+Epoch 8/80
+2/2 - 0s - 45ms/step - loss: 0.0610 - val_loss: 0.0500
+Epoch 9/80
+2/2 - 0s - 44ms/step - loss: 0.0617 - val_loss: 0.0524
+Epoch 10/80
+2/2 - 0s - 45ms/step - loss: 0.0640 - val_loss: 0.0378
+Epoch 11/80
+2/2 - 0s - 46ms/step - loss: 0.0595 - val_loss: 0.0281
+Epoch 12/80
+2/2 - 0s - 46ms/step - loss: 0.0531 - val_loss: 0.0219
+Epoch 13/80
+2/2 - 0s - 45ms/step - loss: 0.0489 - val_loss: 0.0110
+Epoch 14/80
+2/2 - 0s - 45ms/step - loss: 0.0479 - val_loss: 0.0281
+Epoch 15/80
+2/2 - 0s - 46ms/step - loss: 0.0549 - val_loss: 0.0655
+Epoch 16/80
+2/2 - 0s - 47ms/step - loss: 0.0628 - val_loss: 0.0808
+Epoch 17/80
+2/2 - 0s - 45ms/step - loss: 0.0635 - val_loss: 0.0772
+Epoch 18/80
+2/2 - 0s - 45ms/step - loss: 0.0611 - val_loss: 0.0707
+Epoch 19/80
+2/2 - 0s - 44ms/step - loss: 0.0588 - val_loss: 0.0661
+Epoch 20/80
+2/2 - 0s - 44ms/step - loss: 0.0570 - val_loss: 0.0623
+Epoch 21/80
+2/2 - 0s - 45ms/step - loss: 0.0557 - val_loss: 0.0592
+Epoch 22/80
+2/2 - 0s - 46ms/step - loss: 0.0548 - val_loss: 0.0559
+Epoch 23/80
+2/2 - 0s - 46ms/step - loss: 0.0542 - val_loss: 0.0512
+Epoch 24/80
+2/2 - 0s - 46ms/step - loss: 0.0538 - val_loss: 0.0428
+Epoch 25/80
+2/2 - 0s - 45ms/step - loss: 0.0532 - val_loss: 0.0292
+Epoch 26/80
+2/2 - 0s - 44ms/step - loss: 0.0516 - val_loss: 0.0119
+Epoch 27/80
+2/2 - 0s - 44ms/step - loss: 0.0492 - val_loss: 0.0247
+Epoch 28/80
+2/2 - 0s - 45ms/step - loss: 0.0492 - val_loss: 0.0652
+Epoch 29/80
+2/2 - 0s - 45ms/step - loss: 0.0527 - val_loss: 0.0742
+Epoch 30/80
+2/2 - 0s - 45ms/step - loss: 0.0522 - val_loss: 0.0703
+Epoch 31/80
+2/2 - 0s - 45ms/step - loss: 0.0509 - val_loss: 0.0682
+Epoch 32/80
+2/2 - 0s - 43ms/step - loss: 0.0496 - val_loss: 0.0670
+Epoch 33/80
+2/2 - 0s - 46ms/step - loss: 0.0482 - val_loss: 0.0663
+Epoch 34/80
+2/2 - 0s - 44ms/step - loss: 0.0470 - val_loss: 0.0660
+Epoch 35/80
+2/2 - 0s - 44ms/step - loss: 0.0461 - val_loss: 0.0659
+Epoch 36/80
+2/2 - 0s - 46ms/step - loss: 0.0455 - val_loss: 0.0658
+Epoch 37/80
+2/2 - 0s - 44ms/step - loss: 0.0450 - val_loss: 0.0652
+Epoch 38/80
+2/2 - 0s - 44ms/step - loss: 0.0447 - val_loss: 0.0633
+Epoch 39/80
+2/2 - 0s - 46ms/step - loss: 0.0445 - val_loss: 0.0574
+Epoch 40/80
+2/2 - 0s - 45ms/step - loss: 0.0437 - val_loss: 0.0455
+Epoch 41/80
+2/2 - 0s - 44ms/step - loss: 0.0415 - val_loss: 0.0313
+Epoch 42/80
+2/2 - 0s - 43ms/step - loss: 0.0387 - val_loss: 0.0127
+Epoch 43/80
+2/2 - 0s - 44ms/step - loss: 0.0389 - val_loss: 0.0236
+Epoch 44/80
+2/2 - 0s - 45ms/step - loss: 0.0434 - val_loss: 0.0458
+Epoch 45/80
+2/2 - 0s - 44ms/step - loss: 0.0469 - val_loss: 0.0566
+Epoch 46/80
+2/2 - 0s - 45ms/step - loss: 0.0476 - val_loss: 0.0546
+Epoch 47/80
+2/2 - 0s - 44ms/step - loss: 0.0467 - val_loss: 0.0508
+Epoch 48/80
+2/2 - 0s - 45ms/step - loss: 0.0455 - val_loss: 0.0480
+Epoch 49/80
+2/2 - 0s - 43ms/step - loss: 0.0445 - val_loss: 0.0459
+Epoch 50/80
+2/2 - 0s - 50ms/step - loss: 0.0438 - val_loss: 0.0447
+Epoch 51/80
+2/2 - 0s - 47ms/step - loss: 0.0435 - val_loss: 0.0422
+Epoch 52/80
+2/2 - 0s - 44ms/step - loss: 0.0438 - val_loss: 0.0372
+Epoch 53/80
+2/2 - 0s - 43ms/step - loss: 0.0443 - val_loss: 0.0249
+Epoch 54/80
+2/2 - 0s - 44ms/step - loss: 0.0434 - val_loss: 0.0122
+Epoch 55/80
+2/2 - 0s - 45ms/step - loss: 0.0406 - val_loss: 0.0116
+Epoch 56/80
+2/2 - 0s - 45ms/step - loss: 0.0382 - val_loss: 0.0342
+Epoch 57/80
+2/2 - 0s - 45ms/step - loss: 0.0393 - val_loss: 0.0679
+Epoch 58/80
+2/2 - 0s - 44ms/step - loss: 0.0442 - val_loss: 0.0683
+Epoch 59/80
+2/2 - 0s - 44ms/step - loss: 0.0438 - val_loss: 0.0649
+Epoch 60/80
+2/2 - 0s - 44ms/step - loss: 0.0423 - val_loss: 0.0637
+Epoch 61/80
+2/2 - 0s - 45ms/step - loss: 0.0412 - val_loss: 0.0631
+Epoch 62/80
+2/2 - 0s - 43ms/step - loss: 0.0402 - val_loss: 0.0624
+Epoch 63/80
+2/2 - 0s - 45ms/step - loss: 0.0395 - val_loss: 0.0621
+Epoch 64/80
+2/2 - 0s - 45ms/step - loss: 0.0389 - val_loss: 0.0611
+Epoch 65/80
+2/2 - 0s - 44ms/step - loss: 0.0384 - val_loss: 0.0612
+Epoch 66/80
+2/2 - 0s - 45ms/step - loss: 0.0380 - val_loss: 0.0598
+Epoch 67/80
+2/2 - 0s - 45ms/step - loss: 0.0376 - val_loss: 0.0601
+Epoch 68/80
+2/2 - 0s - 45ms/step - loss: 0.0373 - val_loss: 0.0585
+Epoch 69/80
+2/2 - 0s - 45ms/step - loss: 0.0369 - val_loss: 0.0584
+Epoch 70/80
+2/2 - 0s - 44ms/step - loss: 0.0366 - val_loss: 0.0540
+Epoch 71/80
+2/2 - 0s - 45ms/step - loss: 0.0365 - val_loss: 0.0422
+Epoch 72/80
+2/2 - 0s - 45ms/step - loss: 0.0352 - val_loss: 0.0235
+Epoch 73/80
+2/2 - 0s - 45ms/step - loss: 0.0331 - val_loss: 0.0087
+Epoch 74/80
+2/2 - 0s - 44ms/step - loss: 0.0344 - val_loss: 0.0268
+Epoch 75/80
+2/2 - 0s - 45ms/step - loss: 0.0376 - val_loss: 0.0418
+Epoch 76/80
+2/2 - 0s - 43ms/step - loss: 0.0396 - val_loss: 0.0459
+Epoch 77/80
+2/2 - 0s - 46ms/step - loss: 0.0396 - val_loss: 0.0433
+Epoch 78/80
+2/2 - 0s - 45ms/step - loss: 0.0389 - val_loss: 0.0408
+Epoch 79/80
+2/2 - 0s - 45ms/step - loss: 0.0380 - val_loss: 0.0390
+Epoch 80/80
+2/2 - 0s - 44ms/step - loss: 0.0373 - val_loss: 0.0376
+Epoch 1/80
+2/2 - 1s - 648ms/step - loss: 0.8101 - val_loss: 0.0819
+Epoch 2/80
+2/2 - 0s - 55ms/step - loss: 0.3566 - val_loss: 0.2797
+Epoch 3/80
+2/2 - 0s - 43ms/step - loss: 0.1186 - val_loss: 0.2229
+Epoch 4/80
+2/2 - 0s - 42ms/step - loss: 0.1166 - val_loss: 0.1997
+Epoch 5/80
+2/2 - 0s - 43ms/step - loss: 0.1002 - val_loss: 0.1782
+Epoch 6/80
+2/2 - 0s - 43ms/step - loss: 0.0797 - val_loss: 0.1777
+Epoch 7/80
+2/2 - 0s - 43ms/step - loss: 0.0679 - val_loss: 0.1873
+Epoch 8/80
+2/2 - 0s - 44ms/step - loss: 0.0652 - val_loss: 0.1938
+Epoch 9/80
+2/2 - 0s - 45ms/step - loss: 0.0649 - val_loss: 0.1963
+Epoch 10/80
+2/2 - 0s - 56ms/step - loss: 0.0631 - val_loss: 0.1979
+Epoch 11/80
+2/2 - 0s - 43ms/step - loss: 0.0607 - val_loss: 0.2018
+Epoch 12/80
+2/2 - 0s - 47ms/step - loss: 0.0589 - val_loss: 0.2123
+Epoch 13/80
+2/2 - 0s - 47ms/step - loss: 0.0643 - val_loss: 0.2074
+Epoch 14/80
+2/2 - 0s - 43ms/step - loss: 0.0735 - val_loss: 0.1801
+Epoch 15/80
+2/2 - 0s - 41ms/step - loss: 0.0549 - val_loss: 0.1782
+Epoch 16/80
+2/2 - 0s - 45ms/step - loss: 0.0441 - val_loss: 0.1860
+Epoch 17/80
+2/2 - 0s - 59ms/step - loss: 0.0450 - val_loss: 0.1978
+Epoch 18/80
+2/2 - 0s - 48ms/step - loss: 0.0513 - val_loss: 0.2014
+Epoch 19/80
+2/2 - 0s - 45ms/step - loss: 0.0534 - val_loss: 0.2038
+Epoch 20/80
+2/2 - 0s - 47ms/step - loss: 0.0537 - val_loss: 0.2069
+Epoch 21/80
+2/2 - 0s - 47ms/step - loss: 0.0541 - val_loss: 0.2096
+Epoch 22/80
+2/2 - 0s - 46ms/step - loss: 0.0561 - val_loss: 0.2021
+Epoch 23/80
+2/2 - 0s - 48ms/step - loss: 0.0578 - val_loss: 0.1812
+Epoch 24/80
+2/2 - 0s - 46ms/step - loss: 0.0499 - val_loss: 0.1707
+Epoch 25/80
+2/2 - 0s - 44ms/step - loss: 0.0405 - val_loss: 0.1666
+Epoch 26/80
+2/2 - 0s - 46ms/step - loss: 0.0358 - val_loss: 0.1635
+Epoch 27/80
+2/2 - 0s - 46ms/step - loss: 0.0350 - val_loss: 0.1558
+Epoch 28/80
+2/2 - 0s - 42ms/step - loss: 0.0357 - val_loss: 0.1270
+Epoch 29/80
+2/2 - 0s - 45ms/step - loss: 0.0465 - val_loss: 0.1039
+Epoch 30/80
+2/2 - 0s - 44ms/step - loss: 0.0534 - val_loss: 0.0898
+Epoch 31/80
+2/2 - 0s - 44ms/step - loss: 0.0555 - val_loss: 0.0851
+Epoch 32/80
+2/2 - 0s - 45ms/step - loss: 0.0552 - val_loss: 0.0858
+Epoch 33/80
+2/2 - 0s - 45ms/step - loss: 0.0544 - val_loss: 0.0878
+Epoch 34/80
+2/2 - 0s - 45ms/step - loss: 0.0534 - val_loss: 0.0899
+Epoch 35/80
+2/2 - 0s - 45ms/step - loss: 0.0525 - val_loss: 0.0917
+Epoch 36/80
+2/2 - 0s - 45ms/step - loss: 0.0518 - val_loss: 0.0933
+Epoch 37/80
+2/2 - 0s - 47ms/step - loss: 0.0511 - val_loss: 0.0948
+Epoch 38/80
+2/2 - 0s - 44ms/step - loss: 0.0505 - val_loss: 0.0964
+Epoch 39/80
+2/2 - 0s - 43ms/step - loss: 0.0499 - val_loss: 0.0980
+Epoch 40/80
+2/2 - 0s - 45ms/step - loss: 0.0494 - val_loss: 0.0998
+Epoch 41/80
+2/2 - 0s - 44ms/step - loss: 0.0490 - val_loss: 0.1035
+Epoch 42/80
+2/2 - 0s - 44ms/step - loss: 0.0496 - val_loss: 0.1204
+Epoch 43/80
+2/2 - 0s - 45ms/step - loss: 0.0510 - val_loss: 0.1540
+Epoch 44/80
+2/2 - 0s - 46ms/step - loss: 0.0491 - val_loss: 0.1831
+Epoch 45/80
+2/2 - 0s - 44ms/step - loss: 0.0479 - val_loss: 0.2044
+Epoch 46/80
+2/2 - 0s - 49ms/step - loss: 0.0487 - val_loss: 0.2149
+Epoch 47/80
+2/2 - 0s - 43ms/step - loss: 0.0511 - val_loss: 0.2100
+Epoch 48/80
+2/2 - 0s - 45ms/step - loss: 0.0507 - val_loss: 0.1999
+Epoch 49/80
+2/2 - 0s - 45ms/step - loss: 0.0465 - val_loss: 0.1939
+Epoch 50/80
+2/2 - 0s - 44ms/step - loss: 0.0422 - val_loss: 0.1926
+Epoch 51/80
+2/2 - 0s - 47ms/step - loss: 0.0399 - val_loss: 0.1945
+Epoch 52/80
+2/2 - 0s - 44ms/step - loss: 0.0402 - val_loss: 0.1959
+Epoch 53/80
+2/2 - 0s - 44ms/step - loss: 0.0415 - val_loss: 0.1951
+Epoch 54/80
+2/2 - 0s - 45ms/step - loss: 0.0419 - val_loss: 0.1942
+Epoch 55/80
+2/2 - 0s - 43ms/step - loss: 0.0413 - val_loss: 0.1940
+Epoch 56/80
+2/2 - 0s - 47ms/step - loss: 0.0405 - val_loss: 0.1974
+Epoch 57/80
+2/2 - 0s - 45ms/step - loss: 0.0422 - val_loss: 0.1954
+Epoch 58/80
+2/2 - 0s - 44ms/step - loss: 0.0495 - val_loss: 0.1717
+Epoch 59/80
+2/2 - 0s - 46ms/step - loss: 0.0416 - val_loss: 0.1656
+Epoch 60/80
+2/2 - 0s - 42ms/step - loss: 0.0330 - val_loss: 0.1642
+Epoch 61/80
+2/2 - 0s - 45ms/step - loss: 0.0287 - val_loss: 0.1692
+Epoch 62/80
+2/2 - 0s - 47ms/step - loss: 0.0299 - val_loss: 0.1814
+Epoch 63/80
+2/2 - 0s - 47ms/step - loss: 0.0367 - val_loss: 0.1814
+Epoch 64/80
+2/2 - 0s - 46ms/step - loss: 0.0374 - val_loss: 0.1841
+Epoch 65/80
+2/2 - 0s - 46ms/step - loss: 0.0378 - val_loss: 0.1878
+Epoch 66/80
+2/2 - 0s - 46ms/step - loss: 0.0389 - val_loss: 0.1895
+Epoch 67/80
+2/2 - 0s - 48ms/step - loss: 0.0405 - val_loss: 0.1842
+Epoch 68/80
+2/2 - 0s - 55ms/step - loss: 0.0408 - val_loss: 0.1720
+Epoch 69/80
+2/2 - 0s - 51ms/step - loss: 0.0367 - val_loss: 0.1641
+Epoch 70/80
+2/2 - 0s - 47ms/step - loss: 0.0314 - val_loss: 0.1597
+Epoch 71/80
+2/2 - 0s - 45ms/step - loss: 0.0276 - val_loss: 0.1593
+Epoch 72/80
+2/2 - 0s - 44ms/step - loss: 0.0261 - val_loss: 0.1664
+Epoch 73/80
+2/2 - 0s - 47ms/step - loss: 0.0295 - val_loss: 0.1811
+Epoch 74/80
+2/2 - 0s - 44ms/step - loss: 0.0393 - val_loss: 0.1765
+Epoch 75/80
+2/2 - 0s - 45ms/step - loss: 0.0370 - val_loss: 0.1794
+Epoch 76/80
+2/2 - 0s - 45ms/step - loss: 0.0369 - val_loss: 0.1834
+Epoch 77/80
+2/2 - 0s - 44ms/step - loss: 0.0379 - val_loss: 0.1842
+Epoch 78/80
+2/2 - 0s - 45ms/step - loss: 0.0394 - val_loss: 0.1782
+Epoch 79/80
+2/2 - 0s - 43ms/step - loss: 0.0388 - val_loss: 0.1684
+Epoch 80/80
+2/2 - 0s - 44ms/step - loss: 0.0347 - val_loss: 0.1627
+Datos de entrenamiento [[[28.522635   77.207951    0.49781389 ...  0.87862854  0.97518009
+    0.22141317]
+  [28.522634   77.207954    0.49781387 ...  0.87862855  0.9751801
+    0.22141312]
+  [28.522632   77.207961    0.49781384 ...  0.87862857  0.97518013
+    0.221413  ]
+  ...
+  [28.522563   77.208256    0.49781264 ...  0.87862914  0.97518127
+    0.22140798]
+  [28.52256    77.208271    0.49781258 ...  0.87862917  0.97518133
+    0.22140773]
+  [28.522556   77.208286    0.49781251 ...  0.8786292   0.97518138
+    0.22140747]]
+
+ [[28.522634   77.207954    0.49781387 ...  0.87862855  0.9751801
+    0.22141312]
+  [28.522632   77.207961    0.49781384 ...  0.87862857  0.97518013
+    0.221413  ]
+  [28.522629   77.207975    0.49781379 ...  0.87862859  0.97518018
+    0.22141276]
+  ...
+  [28.52256    77.208271    0.49781258 ...  0.87862917  0.97518133
+    0.22140773]
+  [28.522556   77.208286    0.49781251 ...  0.8786292   0.97518138
+    0.22140747]
+  [28.522553   77.2083      0.49781246 ...  0.87862922  0.97518144
+    0.22140723]]
+
+ [[28.522632   77.207961    0.49781384 ...  0.87862857  0.97518013
+    0.221413  ]
+  [28.522629   77.207975    0.49781379 ...  0.87862859  0.97518018
+    0.22141276]
+  [28.522625   77.20799     0.49781372 ...  0.87862862  0.97518024
+    0.22141251]
+  ...
+  [28.522556   77.208286    0.49781251 ...  0.8786292   0.97518138
+    0.22140747]
+  [28.522553   77.2083      0.49781246 ...  0.87862922  0.97518144
+    0.22140723]
+  [28.522549   77.208315    0.49781239 ...  0.87862926  0.9751815
+    0.22140698]]
+
+ ...
+
+ [[28.520581   77.211041    0.49777804 ...  0.87864566  0.97519203
+    0.22136058]
+  [28.520568   77.211038    0.49777782 ...  0.87864577  0.97519202
+    0.22136063]
+  [28.520555   77.211035    0.49777759 ...  0.87864587  0.97519201
+    0.22136068]
+  ...
+  [28.520336   77.210954    0.49777377 ...  0.8786477   0.97519169
+    0.22136206]
+  [28.520328   77.210948    0.49777363 ...  0.87864777  0.97519167
+    0.22136216]
+  [28.520321   77.210942    0.49777351 ...  0.87864782  0.97519165
+    0.22136227]]
+
+ [[28.520568   77.211038    0.49777782 ...  0.87864577  0.97519202
+    0.22136063]
+  [28.520555   77.211035    0.49777759 ...  0.87864587  0.97519201
+    0.22136068]
+  [28.520542   77.211032    0.49777736 ...  0.87864598  0.97519199
+    0.22136073]
+  ...
+  [28.520328   77.210948    0.49777363 ...  0.87864777  0.97519167
+    0.22136216]
+  [28.520321   77.210942    0.49777351 ...  0.87864782  0.97519165
+    0.22136227]
+  [28.520313   77.210936    0.49777337 ...  0.87864789  0.97519162
+    0.22136237]]
+
+ [[28.520555   77.211035    0.49777759 ...  0.87864587  0.97519201
+    0.22136068]
+  [28.520542   77.211032    0.49777736 ...  0.87864598  0.97519199
+    0.22136073]
+  [28.52053    77.211029    0.49777715 ...  0.87864608  0.97519198
+    0.22136078]
+  ...
+  [28.520321   77.210942    0.49777351 ...  0.87864782  0.97519165
+    0.22136227]
+  [28.520313   77.210936    0.49777337 ...  0.87864789  0.97519162
+    0.22136237]
+  [28.520307   77.210929    0.49777326 ...  0.87864794  0.9751916
+    0.22136249]]]
+Particion de entrenamiento                             latitude  longitude  ...  sen_longitude  cos_longitude
+time                                             ...                              
+2022-01-31 18:19:21+05:30  28.522635  77.207951  ...        0.97518       0.221413
+2022-01-31 18:19:21+05:30  28.522634  77.207954  ...        0.97518       0.221413
+2022-01-31 18:19:22+05:30  28.522632  77.207961  ...        0.97518       0.221413
+2022-01-31 18:19:23+05:30  28.522629  77.207975  ...        0.97518       0.221413
+2022-01-31 18:19:24+05:30  28.522625  77.207990  ...        0.97518       0.221413
+
+[5 rows x 8 columns]
+Particion de validacion                             latitude  longitude  ...  sen_longitude  cos_longitude
+time                                             ...                              
+2022-01-31 18:25:45+05:30  28.520289  77.210908  ...       0.975192       0.221363
+2022-01-31 18:25:46+05:30  28.520285  77.210901  ...       0.975191       0.221363
+2022-01-31 18:25:47+05:30  28.520281  77.210894  ...       0.975191       0.221363
+2022-01-31 18:25:48+05:30  28.520277  77.210887  ...       0.975191       0.221363
+2022-01-31 18:25:49+05:30  28.520274  77.210879  ...       0.975191       0.221363
+
+[5 rows x 8 columns]
+Particion de test                             latitude  longitude  ...  sen_longitude  cos_longitude
+time                                             ...                              
+2022-01-31 18:26:33+05:30  28.520373  77.210328  ...       0.975189       0.221373
+2022-01-31 18:26:34+05:30  28.520376  77.210313  ...       0.975189       0.221373
+2022-01-31 18:26:35+05:30  28.520379  77.210298  ...       0.975189       0.221373
+2022-01-31 18:26:36+05:30  28.520382  77.210283  ...       0.975189       0.221373
+2022-01-31 18:26:37+05:30  28.520385  77.210269  ...       0.975189       0.221374
+
+[5 rows x 8 columns]
+Datos escalados {'x_tr_s': array([[[ 1.        , -1.        ,  1.        , ..., -1.        ,
+         -1.        ,  1.        ],
+        [ 1.        , -1.        ,  1.        , ..., -1.        ,
+         -1.        ,  1.        ],
+        [ 1.        , -1.        ,  1.        , ..., -1.        ,
+         -1.        ,  1.        ],
+        ...,
+        [ 1.        , -1.        ,  1.        , ..., -1.        ,
+         -1.        ,  1.        ],
+        [ 1.        , -1.        ,  1.        , ..., -1.        ,
+         -1.        ,  1.        ],
+        [ 1.        , -1.        ,  1.        , ..., -1.        ,
+         -1.        ,  1.        ]],
+
+       [[ 0.99903846, -0.99823633,  0.99903846, ..., -0.99903843,
+         -0.9982361 ,  0.99823634],
+        [ 0.99808795, -0.99588114,  0.99808795, ..., -0.99808789,
+         -0.9958806 ,  0.99588117],
+        [ 0.99714558, -0.99174528,  0.99714558, ..., -0.99714548,
+         -0.99174421,  0.99174534],
+        ...,
+        [ 0.99732382, -0.99031321,  0.99732382, ..., -0.99732372,
+         -0.99031206,  0.99031327],
+        [ 0.9964397 , -0.99026606,  0.9964397 , ..., -0.99643957,
+         -0.99026491,  0.99026612],
+        [ 0.99733215, -0.99087056,  0.99733215, ..., -0.99733205,
+         -0.99086949,  0.99087061]],
+
+       [[ 0.99711538, -0.99412111,  0.99711538, ..., -0.99711529,
+         -0.99412034,  0.99412114],
+        [ 0.99521989, -0.98764342,  0.99521989, ..., -0.99521973,
+         -0.98764182,  0.98764351],
+        [ 0.99333968, -0.98290094,  0.99333968, ..., -0.99333945,
+         -0.98289873,  0.98290106],
+        ...,
+        [ 0.99375558, -0.98062641,  0.99375558, ..., -0.99375535,
+         -0.98062413,  0.98062653],
+        [ 0.99376947, -0.98118105,  0.99376947, ..., -0.99376925,
+         -0.98117884,  0.98118117],
+        [ 0.99377501, -0.98108901,  0.99377501, ..., -0.99377479,
+         -0.9810868 ,  0.98108913]],
+
+       ...,
+
+       [[-0.975     ,  0.81657848, -0.975     , ...,  0.97500082,
+          0.81660027, -0.81657736],
+        [-0.9751434 ,  0.81465137, -0.9751434 , ...,  0.97514423,
+          0.81467334, -0.81465024],
+        [-0.97621313,  0.8125    , -0.97621313, ...,  0.97621392,
+          0.81252216, -0.81249886],
+        ...,
+        [-0.98661909,  0.74233129, -0.98661909, ...,  0.98661957,
+          0.74235801, -0.74232991],
+        [-0.98664887,  0.73718365, -0.98664887, ...,  0.98664934,
+          0.73721069, -0.73718225],
+        [-0.98755002,  0.73198565, -0.98755002, ...,  0.98755047,
+          0.73201302, -0.73198424]],
+
+       [[-0.9875    ,  0.81481481, -0.9875    , ...,  0.98750041,
+          0.81483679, -0.81481368],
+        [-0.9875717 ,  0.81288614, -0.9875717 , ...,  0.98757212,
+          0.8129083 , -0.812885  ],
+        [-0.9885823 ,  0.81073113, -0.9885823 , ...,  0.98858269,
+          0.81075348, -0.81072998],
+        ...,
+        [-0.99375558,  0.73845657, -0.99375558, ...,  0.9937558 ,
+          0.73848364, -0.73845518],
+        [-0.99287939,  0.73329007, -0.99287939, ...,  0.99287965,
+          0.73331746, -0.73328866],
+        [-0.9946643 ,  0.72807304, -0.9946643 , ...,  0.99466449,
+          0.72810074, -0.72807161]],
+
+       [[-1.        ,  0.81305115, -1.        , ...,  1.        ,
+          0.81307331, -0.81305   ],
+        [-1.        ,  0.81112092, -1.        , ...,  1.        ,
+          0.81114327, -0.81111977],
+        [-1.        ,  0.80896226, -1.        , ...,  1.        ,
+          0.80898479, -0.8089611 ],
+        ...,
+        [-1.        ,  0.73458185, -1.        , ...,  1.        ,
+          0.73460926, -0.73458044],
+        [-1.        ,  0.7293965 , -1.        , ...,  1.        ,
+          0.72942422, -0.72939507],
+        [-1.        ,  0.72350831, -1.        , ...,  1.        ,
+          0.72353641, -0.72350687]]]), 'y_tr_s': array([[[ 1.        ]],
+
+       [[ 0.99644918]],
+
+       [[ 0.99378606]],
+
+       [[ 0.99112295]],
+
+       [[ 0.98845983]],
+
+       [[ 0.98579672]],
+
+       [[ 0.9840213 ]],
+
+       [[ 0.98135819]],
+
+       [[ 0.97958278]],
+
+       [[ 0.97780737]],
+
+       [[ 0.97514425]],
+
+       [[ 0.97336884]],
+
+       [[ 0.97159343]],
+
+       [[ 0.97070573]],
+
+       [[ 0.96893032]],
+
+       [[ 0.9671549 ]],
+
+       [[ 0.96537949]],
+
+       [[ 0.96449179]],
+
+       [[ 0.96271638]],
+
+       [[ 0.96094097]],
+
+       [[ 0.96005326]],
+
+       [[ 0.95827785]],
+
+       [[ 0.95650244]],
+
+       [[ 0.95472703]],
+
+       [[ 0.95295162]],
+
+       [[ 0.95117621]],
+
+       [[ 0.9494008 ]],
+
+       [[ 0.94762539]],
+
+       [[ 0.94496227]],
+
+       [[ 0.94318686]],
+
+       [[ 0.94052375]],
+
+       [[ 0.93786063]],
+
+       [[ 0.93519751]],
+
+       [[ 0.9334221 ]],
+
+       [[ 0.93075899]],
+
+       [[ 0.92809587]],
+
+       [[ 0.92543276]],
+
+       [[ 0.92276964]],
+
+       [[ 0.92010652]],
+
+       [[ 0.91833111]],
+
+       [[ 0.915668  ]],
+
+       [[ 0.91300488]],
+
+       [[ 0.91122947]],
+
+       [[ 0.90856636]],
+
+       [[ 0.90590324]],
+
+       [[ 0.90412783]],
+
+       [[ 0.90146471]],
+
+       [[ 0.8988016 ]],
+
+       [[ 0.89613848]],
+
+       [[ 0.89347537]],
+
+       [[ 0.88992455]],
+
+       [[ 0.88726143]],
+
+       [[ 0.88371061]],
+
+       [[ 0.88015979]],
+
+       [[ 0.87660897]],
+
+       [[ 0.87305814]],
+
+       [[ 0.86950732]],
+
+       [[ 0.8659565 ]],
+
+       [[ 0.86151798]],
+
+       [[ 0.85796715]],
+
+       [[ 0.85352863]],
+
+       [[ 0.8490901 ]],
+
+       [[ 0.84553928]],
+
+       [[ 0.84110075]],
+
+       [[ 0.83666223]],
+
+       [[ 0.831336  ]],
+
+       [[ 0.82689747]],
+
+       [[ 0.82245894]],
+
+       [[ 0.81713271]],
+
+       [[ 0.81269419]],
+
+       [[ 0.80825566]],
+
+       [[ 0.80292943]],
+
+       [[ 0.7984909 ]],
+
+       [[ 0.79405237]],
+
+       [[ 0.78961385]],
+
+       [[ 0.78517532]],
+
+       [[ 0.7807368 ]],
+
+       [[ 0.77718597]],
+
+       [[ 0.77274745]],
+
+       [[ 0.76919663]],
+
+       [[ 0.76564581]],
+
+       [[ 0.76209498]],
+
+       [[ 0.75854416]],
+
+       [[ 0.75499334]],
+
+       [[ 0.75144252]],
+
+       [[ 0.74877941]],
+
+       [[ 0.74522858]],
+
+       [[ 0.74256547]],
+
+       [[ 0.73990235]],
+
+       [[ 0.73635153]],
+
+       [[ 0.73368842]],
+
+       [[ 0.7310253 ]],
+
+       [[ 0.72836218]],
+
+       [[ 0.72481136]],
+
+       [[ 0.72214825]],
+
+       [[ 0.71859743]],
+
+       [[ 0.71593431]],
+
+       [[ 0.71327119]],
+
+       [[ 0.70972037]],
+
+       [[ 0.70705726]],
+
+       [[ 0.70350644]],
+
+       [[ 0.70084332]],
+
+       [[ 0.6972925 ]],
+
+       [[ 0.69462938]],
+
+       [[ 0.69107856]],
+
+       [[ 0.68841545]],
+
+       [[ 0.68486462]],
+
+       [[ 0.6813138 ]],
+
+       [[ 0.67865069]],
+
+       [[ 0.67509987]],
+
+       [[ 0.67243675]],
+
+       [[ 0.66888593]],
+
+       [[ 0.66622281]],
+
+       [[ 0.66267199]],
+
+       [[ 0.66000888]],
+
+       [[ 0.65734576]],
+
+       [[ 0.65468265]],
+
+       [[ 0.65290723]],
+
+       [[ 0.65024412]],
+
+       [[ 0.64846871]],
+
+       [[ 0.6466933 ]],
+
+       [[ 0.64491789]],
+
+       [[ 0.64314248]],
+
+       [[ 0.64225477]],
+
+       [[ 0.64047936]],
+
+       [[ 0.63870395]],
+
+       [[ 0.63781625]],
+
+       [[ 0.63692854]],
+
+       [[ 0.63604083]],
+
+       [[ 0.63426542]],
+
+       [[ 0.63337772]],
+
+       [[ 0.63249001]],
+
+       [[ 0.63160231]],
+
+       [[ 0.6307146 ]],
+
+       [[ 0.62893919]],
+
+       [[ 0.62805149]],
+
+       [[ 0.62716378]],
+
+       [[ 0.62538837]],
+
+       [[ 0.62450067]],
+
+       [[ 0.62361296]],
+
+       [[ 0.62183755]],
+
+       [[ 0.62094984]],
+
+       [[ 0.62006214]],
+
+       [[ 0.61828673]],
+
+       [[ 0.61651132]],
+
+       [[ 0.61562361]],
+
+       [[ 0.6138482 ]],
+
+       [[ 0.61207279]],
+
+       [[ 0.61029738]],
+
+       [[ 0.60852197]],
+
+       [[ 0.60674656]],
+
+       [[ 0.60497115]],
+
+       [[ 0.60319574]],
+
+       [[ 0.60142033]],
+
+       [[ 0.59964492]],
+
+       [[ 0.5969818 ]],
+
+       [[ 0.59520639]],
+
+       [[ 0.59343098]],
+
+       [[ 0.59165557]],
+
+       [[ 0.58988016]],
+
+       [[ 0.58810475]],
+
+       [[ 0.58632934]],
+
+       [[ 0.58455393]],
+
+       [[ 0.58189081]],
+
+       [[ 0.5801154 ]],
+
+       [[ 0.57833999]],
+
+       [[ 0.57567688]],
+
+       [[ 0.57390146]],
+
+       [[ 0.57123835]],
+
+       [[ 0.56946294]],
+
+       [[ 0.56768753]],
+
+       [[ 0.56591212]],
+
+       [[ 0.56413671]],
+
+       [[ 0.5623613 ]],
+
+       [[ 0.56058589]],
+
+       [[ 0.55881047]],
+
+       [[ 0.55792277]],
+
+       [[ 0.55614736]],
+
+       [[ 0.55525965]],
+
+       [[ 0.55348424]],
+
+       [[ 0.55259654]],
+
+       [[ 0.55082113]],
+
+       [[ 0.54904572]],
+
+       [[ 0.54815801]],
+
+       [[ 0.5463826 ]],
+
+       [[ 0.5454949 ]],
+
+       [[ 0.54371949]],
+
+       [[ 0.54283178]],
+
+       [[ 0.54194407]],
+
+       [[ 0.54016866]],
+
+       [[ 0.53928096]],
+
+       [[ 0.53839325]],
+
+       [[ 0.53750555]],
+
+       [[ 0.53661784]],
+
+       [[ 0.53573014]],
+
+       [[ 0.53573014]],
+
+       [[ 0.53484243]],
+
+       [[ 0.53484243]],
+
+       [[ 0.53395473]],
+
+       [[ 0.53395473]],
+
+       [[ 0.53306702]],
+
+       [[ 0.53306702]],
+
+       [[ 0.53217932]],
+
+       [[ 0.53217932]],
+
+       [[ 0.53129161]],
+
+       [[ 0.53040391]],
+
+       [[ 0.5295162 ]],
+
+       [[ 0.5286285 ]],
+
+       [[ 0.52774079]],
+
+       [[ 0.52685308]],
+
+       [[ 0.52507767]],
+
+       [[ 0.52330226]],
+
+       [[ 0.52063915]],
+
+       [[ 0.51797603]],
+
+       [[ 0.51531292]],
+
+       [[ 0.51176209]],
+
+       [[ 0.50821127]],
+
+       [[ 0.50377275]],
+
+       [[ 0.49933422]],
+
+       [[ 0.49400799]],
+
+       [[ 0.48868176]],
+
+       [[ 0.48246782]],
+
+       [[ 0.47536618]],
+
+       [[ 0.46826454]],
+
+       [[ 0.46027519]],
+
+       [[ 0.45228584]],
+
+       [[ 0.44340879]],
+
+       [[ 0.43453174]],
+
+       [[ 0.42476698]],
+
+       [[ 0.41500222]],
+
+       [[ 0.40523746]],
+
+       [[ 0.394585  ]],
+
+       [[ 0.38393253]],
+
+       [[ 0.37328007]],
+
+       [[ 0.36262761]],
+
+       [[ 0.35197514]],
+
+       [[ 0.34043498]],
+
+       [[ 0.32889481]],
+
+       [[ 0.31824234]],
+
+       [[ 0.30670217]],
+
+       [[ 0.29516201]],
+
+       [[ 0.28362184]],
+
+       [[ 0.27208167]],
+
+       [[ 0.2605415 ]],
+
+       [[ 0.24900133]],
+
+       [[ 0.23746116]],
+
+       [[ 0.22592099]],
+
+       [[ 0.21438083]],
+
+       [[ 0.20284066]],
+
+       [[ 0.19218819]],
+
+       [[ 0.18064802]],
+
+       [[ 0.16999556]],
+
+       [[ 0.15845539]],
+
+       [[ 0.14780293]],
+
+       [[ 0.13715047]],
+
+       [[ 0.126498  ]],
+
+       [[ 0.11584554]],
+
+       [[ 0.10519308]],
+
+       [[ 0.09542832]],
+
+       [[ 0.08477585]],
+
+       [[ 0.0750111 ]],
+
+       [[ 0.06435863]],
+
+       [[ 0.05459387]],
+
+       [[ 0.04482912]],
+
+       [[ 0.03506436]],
+
+       [[ 0.0252996 ]],
+
+       [[ 0.01553484]],
+
+       [[ 0.00577008]],
+
+       [[-0.00399467]],
+
+       [[-0.01375943]],
+
+       [[-0.0244119 ]],
+
+       [[-0.03417665]],
+
+       [[-0.04394141]],
+
+       [[-0.05459387]],
+
+       [[-0.06435863]],
+
+       [[-0.0750111 ]],
+
+       [[-0.08477585]],
+
+       [[-0.09542832]],
+
+       [[-0.10608078]],
+
+       [[-0.11673324]],
+
+       [[-0.12738571]],
+
+       [[-0.13803817]],
+
+       [[-0.14957834]],
+
+       [[-0.1602308 ]],
+
+       [[-0.17265868]],
+
+       [[-0.18419885]],
+
+       [[-0.19662672]],
+
+       [[-0.20905459]],
+
+       [[-0.22148247]],
+
+       [[-0.23391034]],
+
+       [[-0.24722592]],
+
+       [[-0.2605415 ]],
+
+       [[-0.27296937]],
+
+       [[-0.28628495]],
+
+       [[-0.29871283]],
+
+       [[-0.31202841]],
+
+       [[-0.32445628]],
+
+       [[-0.33777186]],
+
+       [[-0.35019973]],
+
+       [[-0.36262761]],
+
+       [[-0.37594319]],
+
+       [[-0.38837106]],
+
+       [[-0.40079893]],
+
+       [[-0.41411451]],
+
+       [[-0.42654239]],
+
+       [[-0.43897026]],
+
+       [[-0.45139814]],
+
+       [[-0.46382601]],
+
+       [[-0.47625388]],
+
+       [[-0.48779405]],
+
+       [[-0.50022193]],
+
+       [[-0.5126498 ]],
+
+       [[-0.52507767]],
+
+       [[-0.53750555]],
+
+       [[-0.54993342]],
+
+       [[-0.5623613 ]],
+
+       [[-0.57478917]],
+
+       [[-0.58721704]],
+
+       [[-0.59875721]],
+
+       [[-0.61029738]],
+
+       [[-0.62272526]],
+
+       [[-0.63426542]],
+
+       [[-0.64580559]],
+
+       [[-0.65734576]],
+
+       [[-0.66888593]],
+
+       [[-0.6804261 ]],
+
+       [[-0.69196627]],
+
+       [[-0.70350644]],
+
+       [[-0.7150466 ]],
+
+       [[-0.72658677]],
+
+       [[-0.73812694]],
+
+       [[-0.75055482]],
+
+       [[-0.76209498]],
+
+       [[-0.77363515]],
+
+       [[-0.78517532]],
+
+       [[-0.79582779]],
+
+       [[-0.80736795]],
+
+       [[-0.81802042]],
+
+       [[-0.82867288]],
+
+       [[-0.83932534]],
+
+       [[-0.84997781]],
+
+       [[-0.85974257]],
+
+       [[-0.87039503]],
+
+       [[-0.88015979]],
+
+       [[-0.88992455]],
+
+       [[-0.8996893 ]],
+
+       [[-0.90856636]],
+
+       [[-0.91833111]],
+
+       [[-0.92720817]],
+
+       [[-0.93608522]],
+
+       [[-0.94407457]],
+
+       [[-0.95206391]],
+
+       [[-0.96005326]],
+
+       [[-0.96804261]],
+
+       [[-0.97514425]],
+
+       [[-0.98135819]],
+
+       [[-0.98845983]],
+
+       [[-0.99378606]],
+
+       [[-1.        ]]]), 'x_vl_s': array([[[-1.25576923,  0.73838918, -1.25576923, ...,  1.2557596 ,
+          0.73841892, -0.73838765],
+        [-1.2456979 ,  0.73403942, -1.2456979 , ...,  1.24568863,
+          0.73406955, -0.73403787],
+        [-1.23691722,  0.72936321, -1.23691722, ...,  1.23690828,
+          0.72939372, -0.72936164],
+        ...,
+        [-1.02319358,  0.57636422, -1.02319358, ...,  1.02319273,
+          0.57640398, -0.57636217],
+        [-1.01246106,  0.56651525, -1.01246106, ...,  1.01246061,
+          0.56655548, -0.56651318],
+        [-1.00444642,  0.55591784, -1.00444642, ...,  1.00444626,
+          0.55595857, -0.55591574]],
+
+       [[-1.25961538,  0.73427396, -1.25961538, ...,  1.25960559,
+          0.73430409, -0.7342724 ],
+        [-1.24952199,  0.72992056, -1.24952199, ...,  1.24951256,
+          0.72995109, -0.72991899],
+        [-1.24072312,  0.72523585, -1.24072312, ...,  1.24071402,
+          0.72526675, -0.72523426],
+        ...,
+        [-1.01962533,  0.56861479, -1.01962533, ...,  1.01962462,
+          0.56865507, -0.56861271],
+        [-1.00979083,  0.55807917, -1.00979083, ...,  1.00979048,
+          0.55811996, -0.55807707],
+        [-1.00088928,  0.54678839, -1.00088928, ...,  1.00088925,
+          0.54682972, -0.54678626]],
+
+       [[-1.26346154,  0.73015873, -1.26346154, ...,  1.26345158,
+          0.73018926, -0.73015716],
+        [-1.25334608,  0.72580171, -1.25334608, ...,  1.25333649,
+          0.72583262, -0.72580011],
+        [-1.24357755,  0.72051887, -1.24357755, ...,  1.24356832,
+          0.72055022, -0.72051725],
+        ...,
+        [-1.01694915,  0.56021957, -1.01694915, ...,  1.01694854,
+          0.56026041, -0.56021746],
+        [-1.00623053,  0.54899416, -1.00623053, ...,  1.0062303 ,
+          0.54903554, -0.54899203],
+        [-0.99822143,  0.53831105, -0.99822143, ...,  0.9982215 ,
+          0.53835292, -0.5383089 ]],
+
+       ...,
+
+       [[-1.25865385,  0.63609641, -1.25865385, ...,  1.25864409,
+          0.63613534, -0.63609441],
+        [-1.2418738 ,  0.62871433, -1.2418738 , ...,  1.2418647 ,
+          0.62875383, -0.62871229],
+        [-1.226451  ,  0.62087264, -1.226451  , ...,  1.22644249,
+          0.62091271, -0.62087058],
+        ...,
+        [-0.970562  ,  0.40458508, -0.970562  , ...,  0.97056304,
+          0.40463486, -0.40458252],
+        [-0.96083667,  0.39260221, -0.96083667, ...,  0.96083806,
+          0.39265231, -0.39259962],
+        [-0.95286794,  0.37985002, -0.95286794, ...,  0.9528696 ,
+          0.37990046, -0.37984742]],
+
+       [[-1.25576923,  0.62904174, -1.25576923, ...,  1.2557596 ,
+          0.62908125, -0.6290397 ],
+        [-1.23900574,  0.62165343, -1.23900574, ...,  1.23899675,
+          0.62169351, -0.62165136],
+        [-1.22359657,  0.61320755, -1.22359657, ...,  1.22358818,
+          0.61324823, -0.61320545],
+        ...,
+        [-0.96788582,  0.39554407, -0.96788582, ...,  0.96788695,
+          0.39559429, -0.39554149],
+        [-0.95816644,  0.38286827, -0.95816644, ...,  0.95816792,
+          0.38291882, -0.38286566],
+        [-0.95108937,  0.37006847, -0.95108937, ...,  0.9510911 ,
+          0.37011935, -0.37006585]],
+
+       [[-1.25288462,  0.62198707, -1.25288462, ...,  1.2528751 ,
+          0.62202716, -0.621985  ],
+        [-1.23613767,  0.61400412, -1.23613767, ...,  1.2361288 ,
+          0.61404482, -0.61400202],
+        [-1.21979068,  0.60613208, -1.21979068, ...,  1.21978244,
+          0.60617332, -0.60612995],
+        ...,
+        [-0.96520963,  0.38585728, -0.96520963, ...,  0.96521087,
+          0.38590794, -0.38585467],
+        [-0.95638629,  0.37313433, -0.95638629, ...,  0.95638783,
+          0.37318532, -0.3731317 ],
+        [-0.94842152,  0.36028693, -0.94842152, ...,  0.94842334,
+          0.36033822, -0.36028428]]]), 'y_vl_s': array([[[-0.99467377]],
+
+       [[-0.99201065]],
+
+       [[-0.98845983]],
+
+       [[-0.98579672]],
+
+       [[-0.9831336 ]],
+
+       [[-0.97958278]],
+
+       [[-0.97691966]],
+
+       [[-0.97425655]],
+
+       [[-0.97159343]],
+
+       [[-0.96893032]],
+
+       [[-0.9662672 ]],
+
+       [[-0.96360408]],
+
+       [[-0.96094097]],
+
+       [[-0.95916556]],
+
+       [[-0.95650244]],
+
+       [[-0.95383933]],
+
+       [[-0.95206391]],
+
+       [[-0.9494008 ]],
+
+       [[-0.94673768]],
+
+       [[-0.94496227]],
+
+       [[-0.94229916]],
+
+       [[-0.93963604]]]), 'x_ts_s': array([[[-1.175     ,  0.39741329, -1.175     , ...,  1.17499364,
+          0.39746835, -0.39741045],
+        [-1.15869981,  0.38805531, -1.15869981, ...,  1.15869405,
+          0.3881108 , -0.38805245],
+        [-1.14367269,  0.37794811, -1.14367269, ...,  1.14366749,
+          0.378004  , -0.37794523],
+        ...,
+        [-0.89830508,  0.16176945, -0.89830508, ...,  0.89830856,
+          0.16182742, -0.16176647],
+        [-0.88874054,  0.15249838, -0.88874054, ...,  0.88874433,
+          0.15255624, -0.1524954 ],
+        [-0.88172521,  0.14313662, -0.88172521, ...,  0.88172923,
+          0.14319436, -0.14313364]],
+
+       [[-1.17211538,  0.38859494, -1.17211538, ...,  1.17210914,
+          0.38865046, -0.38859208],
+        [-1.15583174,  0.37922919, -1.15583174, ...,  1.1558261 ,
+          0.37928512, -0.3792263 ],
+        [-1.14081827,  0.36910377, -1.14081827, ...,  1.14081318,
+          0.36916009, -0.36910087],
+        ...,
+        [-0.8956289 ,  0.15660316, -0.8956289 , ...,  0.89563246,
+          0.15666123, -0.15660017],
+        [-0.88696039,  0.14730694, -0.88696039, ...,  0.88696424,
+          0.1473649 , -0.14730396],
+        [-0.87994664,  0.13791979, -0.87994664, ...,  0.87995072,
+          0.13797762, -0.13791681]],
+
+       [[-1.16923077,  0.3797766 , -1.16923077, ...,  1.16922464,
+          0.37983256, -0.37977372],
+        [-1.15296367,  0.37040306, -1.15296367, ...,  1.15295814,
+          0.37045943, -0.37040015],
+        [-1.13796384,  0.36084906, -1.13796384, ...,  1.13795887,
+          0.36090576, -0.36084613],
+        ...,
+        [-0.89384478,  0.15143687, -0.89384478, ...,  0.8938484 ,
+          0.15149504, -0.15143388],
+        [-0.88518024,  0.14211551, -0.88518024, ...,  0.88518415,
+          0.14217355, -0.14211252],
+        [-0.87816807,  0.13335507, -0.87816807, ...,  0.87817221,
+          0.13341297, -0.13335209]],
+
+       ...,
+
+       [[-1.11923077,  0.24750147, -1.11923077, ...,  1.11922655,
+          0.24756285, -0.24749831],
+        [-1.1042065 ,  0.24154163, -1.1042065 , ...,  1.10420282,
+          0.24160315, -0.24153846],
+        [-1.0903901 ,  0.23466981, -1.0903901 , ...,  1.09038692,
+          0.23473142, -0.23466664],
+        ...,
+        [-0.86440678,  0.08492089, -0.86440678, ...,  0.86441133,
+          0.08497999, -0.08491785],
+        [-0.85669782,  0.07722258, -0.85669782, ...,  0.85670262,
+          0.07728147, -0.07721955],
+        [-0.84971098,  0.07010108, -0.84971098, ...,  0.849716  ,
+          0.07015974, -0.07009805]],
+
+       [[-1.11730769,  0.24221046, -1.11730769, ...,  1.11730354,
+          0.24227202, -0.24220729],
+        [-1.10229446,  0.23624595, -1.10229446, ...,  1.10229084,
+          0.23630764, -0.23624278],
+        [-1.08753568,  0.22995283, -1.08753568, ...,  1.0875326 ,
+          0.23001458, -0.22994965],
+        ...,
+        [-0.86351472,  0.08169196, -0.86351472, ...,  0.8635193 ,
+          0.08175109, -0.08168891],
+        [-0.85491767,  0.07462687, -0.85491767, ...,  0.85492252,
+          0.07468577, -0.07462383],
+        [-0.84793241,  0.06684056, -0.84793241, ...,  0.84793749,
+          0.06689925, -0.06683754]],
+
+       [[-1.11538462,  0.23691946, -1.11538462, ...,  1.11538054,
+          0.23698118, -0.23691628],
+        [-1.09942639,  0.23153869, -1.09942639, ...,  1.09942288,
+          0.23160052, -0.2315355 ],
+        [-1.08563273,  0.22523585, -1.08563273, ...,  1.08562972,
+          0.22529774, -0.22523266],
+        ...,
+        [-0.8617306 ,  0.07910881, -0.8617306 , ...,  0.86173523,
+          0.07916797, -0.07910577],
+        [-0.85313752,  0.07138222, -0.85313752, ...,  0.85314243,
+          0.07144116, -0.07137918],
+        [-0.84615385,  0.06423215, -0.84615385, ...,  0.84615897,
+          0.06429085, -0.06422912]]]), 'y_ts_s': array([[[-0.87394585]],
+
+       [[-0.87217044]],
+
+       [[-0.87039503]],
+
+       [[-0.86861962]],
+
+       [[-0.86684421]],
+
+       [[-0.8650688 ]],
+
+       [[-0.86418109]],
+
+       [[-0.86240568]],
+
+       [[-0.86063027]],
+
+       [[-0.85885486]],
+
+       [[-0.85796715]],
+
+       [[-0.85619174]],
+
+       [[-0.85441633]],
+
+       [[-0.85264092]],
+
+       [[-0.85175322]],
+
+       [[-0.84997781]],
+
+       [[-0.8482024 ]],
+
+       [[-0.84642699]],
+
+       [[-0.84553928]],
+
+       [[-0.84376387]],
+
+       [[-0.84198846]],
+
+       [[-0.84021305]],
+
+       [[-0.83843764]]])}
+Predicción latitud [28.520529 28.52053  28.520536 28.520538 28.52054  28.520544 28.520546
+ 28.520548 28.520552 28.520555 28.520557 28.52056  28.520561 28.520565
+ 28.520567 28.520569 28.52057  28.520573 28.520575 28.520576 28.52058
+ 28.520582 28.520584]
+Predicción longitud [77.210396 77.21038  77.21037  77.21037  77.210365 77.21036  77.21035
+ 77.21034  77.21034  77.210335 77.21033  77.21032  77.21032  77.21032
+ 77.21031  77.210304 77.2103   77.2103   77.21029  77.21029  77.21029
+ 77.21028  77.21027 ]
+Dataset de entrada sin escalar                             latitude  longitude  ...  sen_longitude  cos_longitude
+time                                             ...                              
+2022-01-31 18:26:33+05:30  28.520373  77.210328  ...       0.975189       0.221373
+2022-01-31 18:26:34+05:30  28.520376  77.210313  ...       0.975189       0.221373
+2022-01-31 18:26:35+05:30  28.520379  77.210298  ...       0.975189       0.221373
+2022-01-31 18:26:36+05:30  28.520382  77.210283  ...       0.975189       0.221373
+2022-01-31 18:26:37+05:30  28.520385  77.210269  ...       0.975189       0.221374
+2022-01-31 18:26:38+05:30  28.520388  77.210254  ...       0.975189       0.221374
+2022-01-31 18:26:39+05:30  28.520391  77.210240  ...       0.975189       0.221374
+2022-01-31 18:26:40+05:30  28.520395  77.210226  ...       0.975189       0.221374
+2022-01-31 18:26:41+05:30  28.520398  77.210212  ...       0.975189       0.221375
+2022-01-31 18:26:42+05:30  28.520401  77.210198  ...       0.975189       0.221375
+2022-01-31 18:26:43+05:30  28.520404  77.210185  ...       0.975189       0.221375
+2022-01-31 18:26:44+05:30  28.520407  77.210172  ...       0.975189       0.221375
+2022-01-31 18:26:45+05:30  28.520410  77.210159  ...       0.975189       0.221376
+2022-01-31 18:26:46+05:30  28.520413  77.210147  ...       0.975189       0.221376
+2022-01-31 18:26:47+05:30  28.520416  77.210135  ...       0.975189       0.221376
+2022-01-31 18:26:48+05:30  28.520418  77.210124  ...       0.975188       0.221376
+2022-01-31 18:26:49+05:30  28.520421  77.210113  ...       0.975188       0.221376
+2022-01-31 18:26:50+05:30  28.520423  77.210103  ...       0.975188       0.221377
+2022-01-31 18:26:51+05:30  28.520426  77.210093  ...       0.975188       0.221377
+2022-01-31 18:26:52+05:30  28.520428  77.210083  ...       0.975188       0.221377
+2022-01-31 18:26:53+05:30  28.520431  77.210073  ...       0.975188       0.221377
+2022-01-31 18:26:54+05:30  28.520433  77.210064  ...       0.975188       0.221377
+2022-01-31 18:26:55+05:30  28.520435  77.210055  ...       0.975188       0.221377
+2022-01-31 18:26:56+05:30  28.520438  77.210047  ...       0.975188       0.221377
+2022-01-31 18:26:57+05:30  28.520440  77.210039  ...       0.975188       0.221378
+2022-01-31 18:26:58+05:30  28.520442  77.210031  ...       0.975188       0.221378
+2022-01-31 18:26:59+05:30  28.520444  77.210024  ...       0.975188       0.221378
+2022-01-31 18:27:00+05:30  28.520446  77.210017  ...       0.975188       0.221378
+2022-01-31 18:27:01+05:30  28.520448  77.210010  ...       0.975188       0.221378
+2022-01-31 18:27:02+05:30  28.520450  77.210003  ...       0.975188       0.221378
+2022-01-31 18:27:03+05:30  28.520452  77.209997  ...       0.975188       0.221378
+2022-01-31 18:27:04+05:30  28.520453  77.209991  ...       0.975188       0.221378
+2022-01-31 18:27:05+05:30  28.520455  77.209986  ...       0.975188       0.221379
+2022-01-31 18:27:06+05:30  28.520457  77.209980  ...       0.975188       0.221379
+2022-01-31 18:27:07+05:30  28.520459  77.209975  ...       0.975188       0.221379
+2022-01-31 18:27:08+05:30  28.520460  77.209969  ...       0.975188       0.221379
+2022-01-31 18:27:09+05:30  28.520462  77.209964  ...       0.975188       0.221379
+2022-01-31 18:27:10+05:30  28.520464  77.209959  ...       0.975188       0.221379
+2022-01-31 18:27:11+05:30  28.520466  77.209954  ...       0.975188       0.221379
+2022-01-31 18:27:12+05:30  28.520467  77.209950  ...       0.975188       0.221379
+2022-01-31 18:27:13+05:30  28.520469  77.209945  ...       0.975188       0.221379
+2022-01-31 18:27:14+05:30  28.520471  77.209940  ...       0.975188       0.221379
+2022-01-31 18:27:15+05:30  28.520473  77.209936  ...       0.975188       0.221379
+2022-01-31 18:27:16+05:30  28.520474  77.209931  ...       0.975188       0.221379
+2022-01-31 18:27:17+05:30  28.520476  77.209927  ...       0.975188       0.221380
+2022-01-31 18:27:18+05:30  28.520478  77.209922  ...       0.975188       0.221380
+2022-01-31 18:27:19+05:30  28.520480  77.209918  ...       0.975188       0.221380
+2022-01-31 18:27:20+05:30  28.520482  77.209914  ...       0.975188       0.221380
+2022-01-31 18:27:21+05:30  28.520484  77.209909  ...       0.975188       0.221380
+
+[49 rows x 8 columns]
+Me creé
+prediccion de prueba
