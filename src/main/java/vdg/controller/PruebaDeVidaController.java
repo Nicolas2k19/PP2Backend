@@ -58,6 +58,14 @@ public class PruebaDeVidaController {
 		return pruebaDeVidaRepo.findByIdPersonaRestriccionOrderByFechaDesc(p.getIdPersona());
 	}
 	
+	@GetMapping("/getSimplesByMail/{email}")
+	public List<PruebaDeVida> getPruebasSimplesDeVidaApp(@PathVariable("email") String email){
+		Usuario u = usuarioController.findByEmail(email);
+		Persona p = personaController.getByIdUsuario(u.getIdUsuario());
+		//return pruebaDeVidaRepo.findByIdPersonaRestriccionAndEstadoOrderByFechaDesc(p.getIdPersona(), EstadoPruebaDeVida.Pendiente);
+		return pruebaDeVidaRepo.findByIdPersonaRestriccionAndEsMultipleFalse(p.getIdPersona());
+	}
+	
     @GetMapping("/multiple/{idPruebaDeVidaMultiple}")
     public List<PruebaDeVida> getPruebasDeVidaByMultipleId(@PathVariable("idPruebaDeVidaMultiple") long idPruebaDeVidaMultiple) {
         return pruebaDeVidaRepo.findByIdPruebaDeVidaMultiple(idPruebaDeVidaMultiple);

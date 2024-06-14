@@ -17,6 +17,8 @@ public interface PruebaDeVidaRepository extends Repository<PruebaDeVida, Integer
 	public List<PruebaDeVida> findByIdRestriccion(int idRestriccion);
 	public List<PruebaDeVida> findByIdPersonaRestriccionAndEstadoOrderByFechaDesc(int idPersonaRestriccion, EstadoPruebaDeVida estado);
 	public List<PruebaDeVida> findByIdPersonaRestriccionOrderByFechaDesc(int idPersonaRestriccion);
+	@Query("SELECT p FROM PruebaDeVida p WHERE p.idPersonaRestriccion = :idPersonaRestriccion AND p.esMultiple = false")
+	List<PruebaDeVida> findByIdPersonaRestriccionAndEsMultipleFalse(@Param("idPersonaRestriccion") int idPersonaRestriccion);
 	public PruebaDeVida save(PruebaDeVida pruebaDeVida);
 	@Modifying
 	@Transactional

@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -72,7 +74,7 @@ public class UbicacionController {
 	}
 
 	@PostMapping("/postUbi/{emailUsuario}")
-	public Ubicacion agregar(@PathVariable("emailUsuario") String emailUsuario, @RequestBody Map<String, Double> posicion) {
+	public ResponseEntity<String> agregar(@PathVariable("emailUsuario") String emailUsuario, @RequestBody Map<String, Double> posicion) {
 		Usuario u = usuarioController.findByEmail(emailUsuario);
 		Persona p = personaController.getByIdUsuario(u.getIdUsuario());
 		Ubicacion ubicacion = new Ubicacion();
@@ -83,7 +85,9 @@ public class UbicacionController {
 		Date ahora = new Date();
 		ubicacion.setFecha(new Timestamp(ahora.getTime()));
 		//chequearUbicacionRutina(ubicacion);
-		return ubicacionRepo.save(ubicacion);
+		ubicacionRepo.save(ubicacion);
+		System.out.println("Guarde la ubicacion: "+ ubicacion.getLatitud() + ubicacion.getLongitud());
+		return ResponseEntity.status(HttpStatus.OK).body("Ubicación agregada correctamente");
 	}
 	
 
