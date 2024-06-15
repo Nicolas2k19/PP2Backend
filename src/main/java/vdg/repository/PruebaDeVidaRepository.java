@@ -19,14 +19,14 @@ public interface PruebaDeVidaRepository extends Repository<PruebaDeVida, Integer
 	public List<PruebaDeVida> findByIdRestriccion(int idRestriccion);
 	public List<PruebaDeVida> findByIdPersonaRestriccionAndEstadoOrderByFechaDesc(int idPersonaRestriccion, EstadoPruebaDeVida estado);
 	public List<PruebaDeVida> findByIdPersonaRestriccionOrderByFechaDesc(int idPersonaRestriccion);
-	@Query("SELECT p FROM PruebaDeVida p WHERE p.idPersonaRestriccion = :idPersonaRestriccion AND p.esMultiple = false")
+	@Query("SELECT p FROM PruebaDeVida p WHERE p.idPersonaRestriccion = :idPersonaRestriccion AND p.esMultiple = false AND tiempoDeRespuesta > current_timestamp()")
 	List<PruebaDeVida> findByIdPersonaRestriccionAndEsMultipleFalse(@Param("idPersonaRestriccion") int idPersonaRestriccion);
 	public PruebaDeVida save(PruebaDeVida pruebaDeVida);
 	@Modifying
 	@Transactional
 	@Query("UPDATE PruebaDeVida p SET p.estado = :estado WHERE p.idPruebaDeVida = :idPruebaDeVida")
 	int updateEstado(@Param("idPruebaDeVida") int idPruebaDeVida, @Param("estado") EstadoPruebaDeVida estado);
-	@Query("SELECT p FROM PruebaDeVida p WHERE p.idPruebaDeVidaMultiple = :idPruebaDeVidaMultiple")
+	@Query("SELECT p FROM PruebaDeVida p WHERE p.idPruebaDeVidaMultiple = :idPruebaDeVidaMultiple AND p.tiempoDeRespuesta > current_timestamp()")
 	public List<PruebaDeVida> findByIdPruebaDeVidaMultiple(@Param("idPruebaDeVidaMultiple") long idPruebaDeVidaMultiple);
 
 	

@@ -1,6 +1,8 @@
 package vdg.controller;
 
 import java.sql.Timestamp;
+import java.time.ZoneOffset;
+import java.time.ZonedDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -76,20 +78,20 @@ public class PruebaDeVidaController {
         return pruebaDeVidaRepo.findByIdPruebaDeVidaMultiple(idPruebaDeVidaMultiple);
     }
 	
-	@PostMapping
-	public PruebaDeVida agregar(@RequestBody PruebaDeVida pruebaDeVida) {
-		// CREO EL TIMESTAMP
-		Date ahora = new Date();
-		ahora.setTime(ahora.getTime());
-		Timestamp ahoraStamp = new Timestamp(ahora.getTime());
-		pruebaDeVida.setFecha(ahoraStamp);
-		pruebaDeVida.setEstado(EstadoPruebaDeVida.Pendiente);
-		pruebaDeVida.setIdPruebaDeVidaMultiple(pruebaDeVida.getIdPruebaDeVidaMultiple());
-		pruebaDeVida.setIdRestriccion(pruebaDeVida.getIdRestriccion());
-		generarNotificacionVictimario(pruebaDeVida.getDescripcion(), ahoraStamp, pruebaDeVida.getIdPersonaRestriccion());
-		
-		return pruebaDeVidaRepo.save(pruebaDeVida);
-	}
+    @PostMapping
+    public PruebaDeVida agregar(@RequestBody PruebaDeVida pruebaDeVida) {
+        // CREO EL TIMESTAMP EN UTC
+        ZonedDateTime ahora = ZonedDateTime.now(ZoneOffset.UTC);
+        Timestamp ahoraStamp = Timestamp.from(ahora.toInstant());
+        
+        pruebaDeVida.setFecha(ahoraStamp);
+        pruebaDeVida.setEstado(EstadoPruebaDeVida.Pendiente);
+        pruebaDeVida.setIdPruebaDeVidaMultiple(pruebaDeVida.getIdPruebaDeVidaMultiple());
+        pruebaDeVida.setIdRestriccion(pruebaDeVida.getIdRestriccion());
+        generarNotificacionVictimario(pruebaDeVida.getDescripcion(), ahoraStamp, pruebaDeVida.getIdPersonaRestriccion());
+        
+        return pruebaDeVidaRepo.save(pruebaDeVida);
+    }
 
 	@PutMapping("/{idPruebaDeVida}")
 	public PruebaDeVida modificar(@RequestBody PruebaDeVida pruebaDeVida, @PathVariable("idPruebaDeVida") int idPruebaDeVida) {
