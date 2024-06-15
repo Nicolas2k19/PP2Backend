@@ -12,7 +12,7 @@ import vdg.model.domain.PruebaDeVidaMultiple;
 @Repository
 public interface PruebaDeVidaMultipleRepository extends JpaRepository<PruebaDeVidaMultiple, Long> {
 
-	@Query("SELECT p FROM PruebaDeVidaMultiple p WHERE p.idPersona = :idPersona")
+	@Query("SELECT p FROM PruebaDeVidaMultiple p WHERE p.idPersona = :idPersona AND p.tiempoDeRespuesta > current_timestamp()")
 	public Collection<PruebaDeVidaMultiple> findAllByIdPersona(@Param("idPersona") Long idPersona);
 
 }

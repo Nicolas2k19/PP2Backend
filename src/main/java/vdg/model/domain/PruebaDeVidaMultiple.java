@@ -1,6 +1,8 @@
 package vdg.model.domain;
 
 import javax.persistence.*;
+
+import java.sql.Timestamp;
 import java.util.List;
 
 @Entity
@@ -22,6 +24,8 @@ public class PruebaDeVidaMultiple {
     @Enumerated(EnumType.STRING)
     private EstadoPruebaDeVida estado; 
 
+    @Column
+    private Timestamp tiempoDeRespuesta;
 
     public PruebaDeVidaMultiple() {
         super();
@@ -57,6 +61,14 @@ public class PruebaDeVidaMultiple {
 
 	public void setEstado(EstadoPruebaDeVida estado) {
 		this.estado = estado;
+	}
+	
+    public Timestamp getTiempoDeRespuesta() {
+		return tiempoDeRespuesta;
+	}
+
+	public void setTiempoDeRespuesta(Timestamp tiempoDeRespuesta) {
+		this.tiempoDeRespuesta = tiempoDeRespuesta;
 	}
 
 	
