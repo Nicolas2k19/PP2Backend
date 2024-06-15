@@ -17,6 +17,9 @@ public class PruebaDeVida {
 
     @Column
     private Timestamp fecha;
+    
+    @Column
+    private Timestamp tiempoDeRespuesta;
 
     @Column
     private String descripcion;
@@ -63,7 +66,19 @@ public class PruebaDeVida {
         this.fecha = fecha;
     }
 
-    public String getDescripcion() {
+    public Timestamp getTiempoDeRespuesta() {
+		return tiempoDeRespuesta;
+	}
+
+	public void setTiempoDeRespuesta(Timestamp tiempoDeRespuesta) {
+		this.tiempoDeRespuesta = tiempoDeRespuesta;
+	}
+
+	public Boolean getEsMultiple() {
+		return esMultiple;
+	}
+
+	public String getDescripcion() {
         return descripcion;
     }
 
