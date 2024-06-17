@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import py4j.ClientServer;
 import py4j.GatewayServer;
+import vdg.model.domain.ConfiguracionLSTM;
 import vdg.model.domain.Ubicacion;
 
 
@@ -36,13 +37,13 @@ public class IniciarScript {
 		 List<String> command = new ArrayList<>();
 	     command.add(this.interprete);
 	     command.add("inicio.py");
-	     command.add(config.input_length+"");
-	     command.add(config.OUTPUT_LENGTH+"");
-	     command.add(config.distanciaPermitida+"");
-	     command.add(config.nunits+"");
-	     command.add(config.epochs+"");
-	     command.add(config.batch_size+"");
-	     command.add(config.pathDatos+"");
+	     command.add(config.getInput_length()+"");
+	     command.add(config.getOUTPUT_LENGTH()+"");
+	     command.add(config.getDistanciaPermitida()+"");
+	     command.add(config.getNunits()+"");
+	     command.add(config.getEpochs()+"");
+	     command.add(config.getBatch_size()+"");
+	     command.add(config.getPathDatos()+"");
 	     ProcessBuilder processBuilder = new ProcessBuilder(command);
 	     this.procesos.add(processBuilder);
 	     this.indices.add(this.indices.size());
