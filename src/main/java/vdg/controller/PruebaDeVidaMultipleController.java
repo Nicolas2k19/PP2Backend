@@ -28,8 +28,14 @@ public class PruebaDeVidaMultipleController {
     
     @GetMapping("/getAll/{idPersona}")
     public Collection<PruebaDeVidaMultiple> getPruebasDeVidaMultiple(@PathVariable("idPersona") Long idPersona) {
-         return pruebaDeVidaMultipleRepository.findAllByIdPersona(idPersona);
-       
+    	this.pasarASinRespuesta((List<PruebaDeVidaMultiple>) pruebaDeVidaMultipleRepository.findAllByIdPersona(idPersona));
+        return pruebaDeVidaMultipleRepository.findAllByIdPersona(idPersona);
+    }
+    
+    @GetMapping("/getAllApp/{idPersona}")
+    public Collection<PruebaDeVidaMultiple> getPruebasDeVidaMultipleApp(@PathVariable("idPersona") Long idPersona) {
+    	this.pasarASinRespuesta((List<PruebaDeVidaMultiple>) pruebaDeVidaMultipleRepository.findAllByIdPersonaApp(idPersona));
+    	return pruebaDeVidaMultipleRepository.findAllByIdPersonaApp(idPersona);
     }
 
     @GetMapping("/{id}")
@@ -77,4 +83,10 @@ public class PruebaDeVidaMultipleController {
             return new ResponseEntity<>("Error al actualizar el estado de la prueba de vida múltiple: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    
+	public void pasarASinRespuesta(List<PruebaDeVidaMultiple> pruebasDeVida) {
+		for(PruebaDeVidaMultiple prueba: pruebasDeVida) {
+			this.pruebaDeVidaMultipleRepository.updateEstadoASinRespuesta(prueba.getIdPruebaDeVidaMultiple());
+		}
+	}
 }

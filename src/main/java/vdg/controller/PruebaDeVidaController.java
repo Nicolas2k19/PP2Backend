@@ -49,6 +49,7 @@ public class PruebaDeVidaController {
 	
 	@GetMapping("/{idPersona}")
 	public List<PruebaDeVida> getPruebasDeVidaPersona(@PathVariable("idPersona") int idPersona){
+		this.pasarASinRespuesta(pruebaDeVidaRepo.findByIdPersonaRestriccionOrderByFechaDesc(idPersona));
 		return pruebaDeVidaRepo.findByIdPersonaRestriccionOrderByFechaDesc(idPersona);
 	}
 	
@@ -61,7 +62,8 @@ public class PruebaDeVidaController {
 	public List<PruebaDeVida> getPruebasDeVidaApp(@PathVariable("email") String email){
 		Usuario u = usuarioController.findByEmail(email);
 		Persona p = personaController.getByIdUsuario(u.getIdUsuario());
-		//return pruebaDeVidaRepo.findByIdPersonaRestriccionAndEstadoOrderByFechaDesc(p.getIdPersona(), EstadoPruebaDeVida.Pendiente);
+		
+		this.pasarASinRespuesta(pruebaDeVidaRepo.findByIdPersonaRestriccionOrderByFechaDesc(p.getIdPersona()));
 		return pruebaDeVidaRepo.findByIdPersonaRestriccionOrderByFechaDesc(p.getIdPersona());
 	}
 	
@@ -69,13 +71,15 @@ public class PruebaDeVidaController {
 	public List<PruebaDeVida> getPruebasSimplesDeVidaApp(@PathVariable("email") String email){
 		Usuario u = usuarioController.findByEmail(email);
 		Persona p = personaController.getByIdUsuario(u.getIdUsuario());
-		//return pruebaDeVidaRepo.findByIdPersonaRestriccionAndEstadoOrderByFechaDesc(p.getIdPersona(), EstadoPruebaDeVida.Pendiente);
+
+		this.pasarASinRespuesta(pruebaDeVidaRepo.findByIdPersonaRestriccionAndEsMultipleFalse(p.getIdPersona()));
 		return pruebaDeVidaRepo.findByIdPersonaRestriccionAndEsMultipleFalse(p.getIdPersona());
 	}
 	
     @GetMapping("/multiple/{idPruebaDeVidaMultiple}")
     public List<PruebaDeVida> getPruebasDeVidaByMultipleId(@PathVariable("idPruebaDeVidaMultiple") long idPruebaDeVidaMultiple) {
-        return pruebaDeVidaRepo.findByIdPruebaDeVidaMultiple(idPruebaDeVidaMultiple);
+    	this.pasarASinRespuesta(pruebaDeVidaRepo.findByIdPruebaDeVidaMultiple(idPruebaDeVidaMultiple));
+    	return pruebaDeVidaRepo.findByIdPruebaDeVidaMultiple(idPruebaDeVidaMultiple);
     }
 	
     @PostMapping
@@ -107,6 +111,12 @@ public class PruebaDeVidaController {
 	public PruebaDeVida pasarAPorcesando(@RequestBody PruebaDeVida pruebaDeVida) {
 		pruebaDeVida.setEstado(EstadoPruebaDeVida.Procesando);
 		return pruebaDeVidaRepo.save(pruebaDeVida);
+	}
+	
+	public void pasarASinRespuesta(List<PruebaDeVida> pruebasDeVida) {
+		for(PruebaDeVida prueba: pruebasDeVida) {
+			this.pruebaDeVidaRepo.updateEstadoASinRespuesta(prueba.getIdPruebaDeVida());
+		}
 	}
 
 	private void generarIncidenciaPruebaDeVida(PruebaDeVida pruebaDeVida) {

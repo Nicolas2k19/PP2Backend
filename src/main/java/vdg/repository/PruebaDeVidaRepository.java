@@ -10,7 +10,6 @@ import org.springframework.data.repository.Repository;
 import org.springframework.data.repository.query.Param;
 
 import vdg.model.domain.EstadoPruebaDeVida;
-import vdg.model.domain.Incidencia;
 import vdg.model.domain.PruebaDeVida;
 
 public interface PruebaDeVidaRepository extends Repository<PruebaDeVida, Integer>{
@@ -26,8 +25,12 @@ public interface PruebaDeVidaRepository extends Repository<PruebaDeVida, Integer
 	@Transactional
 	@Query("UPDATE PruebaDeVida p SET p.estado = :estado WHERE p.idPruebaDeVida = :idPruebaDeVida")
 	int updateEstado(@Param("idPruebaDeVida") int idPruebaDeVida, @Param("estado") EstadoPruebaDeVida estado);
-	@Query("SELECT p FROM PruebaDeVida p WHERE p.idPruebaDeVidaMultiple = :idPruebaDeVidaMultiple AND p.tiempoDeRespuesta > current_timestamp()")
+	@Query("SELECT p FROM PruebaDeVida p WHERE p.idPruebaDeVidaMultiple = :idPruebaDeVidaMultiple")
 	public List<PruebaDeVida> findByIdPruebaDeVidaMultiple(@Param("idPruebaDeVidaMultiple") long idPruebaDeVidaMultiple);
+    @Modifying
+    @Transactional
+    @Query("UPDATE PruebaDeVida p SET p.estado = 'SinRespuesta' WHERE p.idPruebaDeVida = :idPruebaDeVida AND p.tiempoDeRespuesta <= current_timestamp()")
+    void updateEstadoASinRespuesta(@Param("idPruebaDeVida") int idPruebaDeVida);
 
 	
 }
