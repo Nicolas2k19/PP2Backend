@@ -1,5 +1,7 @@
 package vdg.model.dto;
 
+import java.math.BigDecimal;
+
 import vdg.model.domain.Direccion;
 import vdg.model.domain.Persona;
 import vdg.model.domain.Usuario;
@@ -10,6 +12,9 @@ public class FormPersonaDTO {
 	private Usuario usuario;
 	private Direccion direccion;
 	private String foto;
+	private BigDecimal lat;
+	private BigDecimal lon;
+	
 	
 	public Persona getPersona() {
 		return this.persona;
@@ -42,6 +47,23 @@ public class FormPersonaDTO {
 	public void setFoto(String foto) {
 		this.foto = foto;
 	}
+
+	public BigDecimal getLat() {
+		return lat;
+	}
+
+	public void setLat(BigDecimal lat) {
+		this.lat = lat;
+	}
+
+	public BigDecimal getLon() {
+		return lon;
+	}
+
+	public void setLon(BigDecimal lon) {
+		this.lon = lon;
+	}
+	
 	
 	
 }

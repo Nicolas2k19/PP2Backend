@@ -1,5 +1,7 @@
 package vdg.controller.dto;
 
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +18,12 @@ import org.springframework.web.bind.annotation.RestController;
 import vdg.controller.DireccionController;
 import vdg.controller.FotoIdentificacionController;
 import vdg.controller.PersonaController;
+import vdg.controller.UbicacionController;
 import vdg.controller.UsuarioController;
 import vdg.model.domain.Direccion;
 import vdg.model.domain.Persona;
 import vdg.model.domain.RolDeUsuario;
+import vdg.model.domain.Ubicacion;
 import vdg.model.domain.Usuario;
 import vdg.model.dto.ErrorDTO;
 import vdg.model.dto.FormPersonaDTO;
@@ -36,6 +40,8 @@ public class FormPersonaController {
 	@Autowired
 	DireccionController direccionController;
 	@Autowired
+	UbicacionController ubicacionController;
+	@Autowired
 	FotoIdentificacionController fotoController;
 	@Autowired
 	ValidadoresFormPersona validador = new ValidadoresFormPersona();
@@ -51,6 +57,7 @@ public class FormPersonaController {
 		Persona persona = personaDTO.getPersona();
 		Usuario usuario = personaDTO.getUsuario();
 		Direccion direccion = personaDTO.getDireccion();
+		Ubicacion ubicacion = new Ubicacion();
 
 		//Valido el usuario y la persona. La dirección se valida en el front
 		ErrorDTO error = validador.validarAgregarPersona(persona, usuario);
@@ -77,9 +84,14 @@ public class FormPersonaController {
 			idPersonaCreada = personaController.getVictimarioByDni(persona.getDNI()).getIdPersona();
 		
 		// AGREGAR FOTO DE PERFIL
-		if(usuario.getRolDeUsuario().equals(RolDeUsuario.VICTIMARIO)) {
-			fotoController.agregar(personaDTO.getFoto(), idPersonaCreada);
-		}
+		fotoController.agregar(personaDTO.getFoto(), idPersonaCreada);
+		
+		
+		ubicacion.setIdPersona(idPersonaCreada);
+		ubicacion.setLatitud(personaDTO.getLat());
+		ubicacion.setLongitud(personaDTO.getLon());
+		ubicacion.setFecha(Timestamp.valueOf(LocalDateTime.now()));
+		this.ubicacionController.agregar(ubicacion);
 		
 		return error;
 	}
@@ -89,6 +101,7 @@ public class FormPersonaController {
 		Persona p = personaController.getById(id);
 		int idUsuario = p.getIdUsuario();
 		int idDireccion = p.getIdDireccion();
+		Ubicacion idUbicacion = ubicacionController.obtenerUbicacionDePersona(id);
 		ErrorDTO ret = validador.validarBorrarPersona(p);
 		if (ret.getHayError()) {
 			return ret;
@@ -97,6 +110,8 @@ public class FormPersonaController {
 		if (user.getRolDeUsuario().equals(RolDeUsuario.VICTIMARIO)) {
 			fotoController.eliminar(id);
 		}
+
+		ubicacionController.borrar(idUbicacion.getIdUbicacion());
 		personaController.borrar(id);
 		usuarioController.borrar(idUsuario);
 		direccionController.borrar(idDireccion);

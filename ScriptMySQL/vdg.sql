@@ -676,6 +676,23 @@ CREATE TABLE `comisaria` (
 -- --------------------------------------------------------
 
 --
+-- Estructura para parametro
+--
+
+CREATE TABLE `parametro` (
+  `idParametro` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) DEFAULT NULL,
+  `valor` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`idParametro`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+INSERT INTO `parametro` (`idParametro`,`nombre`,`valor`)
+VALUES(1,"Tiempo de respuesta","00:05:00");
+
+
+-- --------------------------------------------------------
+
+--
 -- Índices para tablas volcadas
 --
 

@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -68,8 +69,11 @@ public class UbicacionController {
 		System.out.println("ME PIDIO GET DE TODAS LAS RESTRICCIONES");
 		UbicacionDTO ubiDTO = new UbicacionDTO();
 		RestriccionPerimetral restriccion = restriccionController.getByIdRestriccion(idRestriccion);
+		System.out.println(restriccion.getIdVictimario());
 		ubiDTO.setUbicacionDamnificada(ubicacionRepo.findByIdPersona(restriccion.getIdDamnificada()));
 		ubiDTO.setUbicacionVictimario(ubicacionRepo.findByIdPersona(restriccion.getIdVictimario()));
+		System.out.println(ubiDTO.getUbicacionVictimario());
+		System.out.println(ubiDTO.toString());
 		return ubiDTO;
 	}
 
@@ -90,6 +94,11 @@ public class UbicacionController {
 		return ResponseEntity.status(HttpStatus.OK).body("Ubicación agregada correctamente");
 	}
 	
+	@PostMapping
+	public Ubicacion agregar(@RequestBody Ubicacion ubicacion) {
+		return ubicacionRepo.save(ubicacion);
+	}
+	
 
 	@PutMapping("/{idUbicacion}")
 	public Ubicacion modificar(@RequestBody Ubicacion ubicacion, @PathVariable("idUbicacion") int idUbicacion) {
@@ -97,9 +106,6 @@ public class UbicacionController {
 		chequearUbicacionRutina(ubicacion);
 		return ubicacionRepo.save(ubicacion);
 	}
-	
-	
-	
 	
 
 	@PostMapping("/infringe/{idRestriccion}")
@@ -119,13 +125,9 @@ public class UbicacionController {
 				ubicaciones.getUbicacionDamnificada().getLongitud(), 
 				ubicaciones.getUbicacionVictimario().getLatitud(), 
 				ubicaciones.getUbicacionVictimario().getLongitud());
-	
 		
 		return distancia<distanciaPasada;
 	}
-	
-	
-	
 	
 
 	public List<Ubicacion> getPerdidasDeLocalizacion(Timestamp fechaLimite) {
@@ -153,5 +155,11 @@ public class UbicacionController {
 
 	}
 
+	@DeleteMapping("/{id}")
+	public void borrar(@PathVariable("id") int id) {
+		Ubicacion u = new Ubicacion();
+		u.setIdUbicacion(id);
+		ubicacionRepo.delete(u);
+	}
 
 }
