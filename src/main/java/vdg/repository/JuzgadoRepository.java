@@ -18,6 +18,8 @@ public interface JuzgadoRepository extends Repository<Juzgado, Integer> {
 	public Juzgado findByidJuzgado(int id);
 	
 	public Juzgado findBynombre(String nombre);
+	
+	public Juzgado findByCiudad(String ciudad);
 
 	public List<Juzgado> findAll();
 }
