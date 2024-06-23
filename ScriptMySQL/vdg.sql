@@ -1,4 +1,4 @@
-IN-- CREATE USER 'vdgpps'@'%' IDENTIFIED BY 'vdgpps2019';
+-- CREATE USER 'vdgpps'@'%' IDENTIFIED BY 'vdgpps2019';
 
 GRANT ALL PRIVILEGES ON *.* TO 'vdgpps'@'%';
 
@@ -684,10 +684,9 @@ CREATE TABLE `parametro` (
   `nombre` varchar(255) DEFAULT NULL,
   `valor` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`idParametro`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-INSERT INTO `parametro` (`idParametro`,`nombre`,`valor`)
-VALUES(1,"Tiempo de respuesta","00:05:00");
+INSERT INTO `parametro` (`idParametro`,`nombre`,`valor`) VALUES (1, 'Tiempo de respuesta','00:05:00');
 
 
 -- --------------------------------------------------------

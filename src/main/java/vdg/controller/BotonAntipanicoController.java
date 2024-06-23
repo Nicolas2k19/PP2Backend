@@ -54,6 +54,7 @@ import vdg.model.notificacionesTerceros.TelegramNotificador;
 import vdg.model.notificacionesTerceros.WpNotificador;
 import vdg.repository.BotonAntipanicoRepository;
 import vdg.repository.ComisariaRepository;
+import vdg.repository.ConfigMensajeRepository;
 import vdg.repository.ContactoRepository;
 import vdg.repository.DependenciaRepository;
 import vdg.repository.FotoIdentificacionRepository;
@@ -94,7 +95,8 @@ public class BotonAntipanicoController {
 	private FotoIdentificacionRepository fotoRepository;
 	@Autowired
 	private UbicacionRepository ubicacion;
-	
+	@Autowired
+	private ConfigMensajeRepository configMsjRepo;
 	
 	
 	
@@ -138,7 +140,7 @@ public class BotonAntipanicoController {
 	@PostMapping("/alertarJuzgado/{idJuzgado}/{idPerimetral}")
 	public void alertarJuzgado(@PathVariable("idJuzgado") Integer idJuzgado,@PathVariable("idJuzgado") Integer idPerimetral) {
 		Long idTelegram = this.juzgadoRepository.findByidJuzgado(idJuzgado).getIdJuzgadoTelegram();		
-		this.telegramNotificador.enviarMensaje(idTelegram,"Ha ocurrido una violación de la restricción "+ "Nro :"+idPerimetral);
+		this.telegramNotificador.enviarMensaje(idTelegram,configMsjRepo.findByTipo("alertaTelegram").getMensajeBef()+"\n" +"#"+idPerimetral +"\n" + configMsjRepo.findByTipo("alertaTelegram").getMensajeAft());
 	}
 	
 	
@@ -165,8 +167,7 @@ public class BotonAntipanicoController {
 				   ,fotoAgresor);
 		}
 			
-		System.out.println("HOLA");
-		this.telegramNotificador.enviarMensaje(comisaria.getIdComisariaTelegram(), "Alerta en lat :"+lat+ "long"+ lon);
+		this.telegramNotificador.enviarMensaje(comisaria.getIdComisariaTelegram(), configMsjRepo.findByTipo("alertaTelegramP").getMensajeBef()+lat+ configMsjRepo.findByTipo("alertaTelegramP").getMensajeAft()+ lon);
 		
 		//this.wpNotificador.notificar(configurarCuerpo(nroTelefono));
 		return comisaria;
@@ -243,11 +244,11 @@ public class BotonAntipanicoController {
 		
 		try {
 			UbicacionNormalizada ubicacionNormalizada = this.normalizador.ObtenerCoordenadas(lat, lon);
-			this.telegramNotificador.enviarMensaje(idTelegram,"Ha ocurrido una violación de la restriccion perimetral con el nro "+idRestriccion);
+			this.telegramNotificador.enviarMensaje(idTelegram ,configMsjRepo.findByTipo("alertaTelegram").getMensajeBef()+"\n" +"#"+idRestriccion +"\n" + configMsjRepo.findByTipo("alertaTelegram").getMensajeAft());
 			}
 			
 			catch(Exception e) {
-				this.telegramNotificador.enviarMensaje(idTelegram,"Ha ocurrido una violación de la restriccion perimetral con el nro "+idRestriccion);
+				this.telegramNotificador.enviarMensaje(idTelegram,configMsjRepo.findByTipo("alertaTelegram").getMensajeBef()+"\n" +"#"+idRestriccion +"\n" + configMsjRepo.findByTipo("alertaTelegram").getMensajeAft());
 			}
 	}
 	
@@ -286,11 +287,11 @@ public class BotonAntipanicoController {
 	
 	public void enviarMail(Persona damnificada, BotonAntipanico botonAntipanico) {
 		
-		String asunto = "Botón antipánico activado";
+		String asunto = configMsjRepo.findByTipo("alertaMail").getAsunto();
 		
 		String mensaje = damnificada.getApellido() + ", " + damnificada.getNombre() + 
-				" activó el botón antipánico en lat: " + botonAntipanico.getLatitud() +
-				", long: " + botonAntipanico.getLongitud() + ". A las: " + botonAntipanico.getFecha();
+				configMsjRepo.findByTipo("alertaMail").getMensajeBef() + botonAntipanico.getLatitud() +
+				", " + botonAntipanico.getLongitud() + configMsjRepo.findByTipo("alertaMail").getMensajeAft() + botonAntipanico.getFecha();
 
 		for(Contacto contacto: contactoRepo.findByIdDamnificada(damnificada.getIdPersona())) {
 			EmailGateway.enviarMail(contacto.getEmail(), mensaje, asunto);			

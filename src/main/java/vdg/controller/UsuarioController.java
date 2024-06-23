@@ -24,6 +24,7 @@ import vdg.model.dto.ErrorDTO;
 import vdg.model.email.EmailGateway;
 import vdg.model.logica.Encriptar;
 import vdg.model.validadores.ValidadoresUsuario;
+import vdg.repository.ConfigMensajeRepository;
 import vdg.repository.UsuarioRepository;
 
 @RestController
@@ -33,6 +34,8 @@ public class UsuarioController {
 
 	@Autowired
 	private UsuarioRepository usuarioRepo;
+	@Autowired
+	private ConfigMensajeRepository configMsjRepo;
 	@Autowired
 	private ValidadoresUsuario validador = new ValidadoresUsuario();
 	
@@ -130,11 +133,6 @@ public class UsuarioController {
 	}
 	
 	
-	
-	
-	
-	
-	
 	@PutMapping("/recuperarContrasena")
 	public ErrorDTO recuperarContrasena(@RequestBody Usuario usuario) {
 		ErrorDTO error = new ErrorDTO();
@@ -143,9 +141,9 @@ public class UsuarioController {
 		if(usuarios.size()!=0) {
 			usuario = usuarios.get(0);
 			int contrasena = (int) Math.floor(Math.random()*9999+1);
-			String mensaje = "Su contraseña es: "+contrasena +"\n" + "Podrá modificar la contraseña desde el sistema";
+			String mensaje = configMsjRepo.findByTipo("passMail").getMensajeBef()+"\n "+contrasena +"\n" + configMsjRepo.findByTipo("passMail").getMensajeAft();
 			System.out.println("------------------------------------------------ "+contrasena+" ------------------------------------");
-			EmailGateway.enviarMail(usuario.getEmail(), mensaje, "Contraseña modificada");
+			EmailGateway.enviarMail(usuario.getEmail(), mensaje, configMsjRepo.findByTipo("passMail").getAsunto());
 			String contrasenaEncriptada = Encriptar.sha256(""+contrasena);
 			usuario.setContrasena(contrasenaEncriptada);
 			usuarioRepo.save(usuario);
