@@ -1,0 +1,15 @@
+2024-06-21 18:25:10,447 - py4j.java_gateway - ERROR - An error occurred while trying to start the callback server (127.0.0.1:25336)
+Traceback (most recent call last):
+  File "C:\Users\Nicol\AppData\Local\Programs\Python\Python312\Lib\site-packages\py4j\java_gateway.py", line 2231, in start
+    self.server_socket.bind((self.address, self.port))
+OSError: [WinError 10048] Solo se permite un uso de cada dirección de socket (protocolo/dirección de red/puerto)
+2024-06-21 18:29:03,408 - py4j.java_gateway - ERROR - An error occurred while trying to start the callback server (127.0.0.1:25334)
+Traceback (most recent call last):
+  File "C:\Users\Nicol\AppData\Local\Programs\Python\Python312\Lib\site-packages\py4j\java_gateway.py", line 2231, in start
+    self.server_socket.bind((self.address, self.port))
+OSError: [WinError 10048] Solo se permite un uso de cada dirección de socket (protocolo/dirección de red/puerto)
+2024-06-21 18:29:10,513 - py4j.java_gateway - ERROR - An error occurred while trying to start the callback server (127.0.0.1:25334)
+Traceback (most recent call last):
+  File "C:\Users\Nicol\AppData\Local\Programs\Python\Python312\Lib\site-packages\py4j\java_gateway.py", line 2231, in start
+    self.server_socket.bind((self.address, self.port))
+OSError: [WinError 10048] Solo se permite un uso de cada dirección de socket (protocolo/dirección de red/puerto)

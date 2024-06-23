@@ -16,8 +16,8 @@ public interface UsuarioRepository extends Repository<Usuario, Integer>{
 	public Usuario save(Usuario usuario);
 	public void delete(Usuario usuario);
 	@Query(value = "SELECT * FROM Usuario u WHERE u.email = :email", nativeQuery = true)
-	public List<Usuario> findByEmail(@Param("email") String email);
-	public List<Usuario> findByIdUsuario(int idUsuario);
+	public List<Usuario> findAllByEmail(String email);
+	public List<Usuario> findAllByIdUsuario(int idUsuario);
 	@Query(value = "SELECT * FROM Usuario u WHERE u.rolDeUsuario='ADMINISTRATIVO' OR u.rolDeUsuario='SUPERVISOR' OR u.rolDeUsuario='SUPERVISOR_GENERAL'", nativeQuery = true)
 	public List<Usuario> findEmpleados();
 	public List<Usuario> findAllByestadoUsuario(EstadoUsuario estadoUsuario);

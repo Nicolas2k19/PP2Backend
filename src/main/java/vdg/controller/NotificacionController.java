@@ -37,7 +37,7 @@ public class NotificacionController {
 	@GetMapping("/App/{emailUsuario}")
 	public List<Notificacion> getNotificacionesApp(@PathVariable("emailUsuario") String emailUsuario) {
 		Usuario user = new Usuario();
-		user = usuarioRepo.findByEmail(emailUsuario).get(0);
+		user = usuarioRepo.findAllByEmail(emailUsuario).get(0);
 		return notificacionRepo.findByIdUsuario(user.getIdUsuario());
 	}
 	
@@ -53,13 +53,13 @@ public class NotificacionController {
 	
 	@GetMapping("/getCantNoVistas/{emailUsuario}")
 	public int getCantNoVistas(@PathVariable("emailUsuario") String emailUsuario) {
-		int idUsuario = usuarioRepo.findByEmail(emailUsuario).get(0).getIdUsuario();
+		int idUsuario = usuarioRepo.findAllByEmail(emailUsuario).get(0).getIdUsuario();
 		return notificacionRepo.countByEstadoNotificacionAndIdUsuario(EstadoNotificacion.NoVista,idUsuario);
 	}
 	
 	@GetMapping("/getNoVistas/{emailUsuario}")
 	public List<Notificacion> getNoVistas(@PathVariable("emailUsuario") String emailUsuario) {
-		int idUsuario = usuarioRepo.findByEmail(emailUsuario).get(0).getIdUsuario();
+		int idUsuario = usuarioRepo.findAllByEmail(emailUsuario).get(0).getIdUsuario();
 		List<Notificacion> novistas = notificacionRepo.findByEstadoNotificacionAndIdUsuario(EstadoNotificacion.NoVista,idUsuario);
 		for(Notificacion notificacion: novistas) {
 			this.setVista(notificacion.getIdNotificacion());

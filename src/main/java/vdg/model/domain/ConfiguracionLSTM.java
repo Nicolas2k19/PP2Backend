@@ -2,7 +2,11 @@ package vdg.model.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -11,11 +15,12 @@ public class ConfiguracionLSTM {
 
 		@Id
 		@Column
+	    @GeneratedValue(strategy = GenerationType.SEQUENCE)
 		int idConfig;
 		@Column
 		int input_length;
 		@Column
-		int	OUTPUT_LENGTH;
+		int	output;
 		@Column
 		int	distanciaPermitida; 
 		@Column
@@ -26,27 +31,10 @@ public class ConfiguracionLSTM {
 		int batch_size;
 		@Column
 		String pathDatos;
-		@Column
-		int idPersona;
-		public ConfiguracionLSTM(
-				int input_length, 
-				int oUTPUT_LENGTH, 
-				int distanciaPermitida, 
-				int nunits, 
-				int epochs,
-				int batch_size,
-				String pathDatos,
-				int idPersona) {
-			this.input_length = input_length;
-			this.OUTPUT_LENGTH = oUTPUT_LENGTH;
-			this.distanciaPermitida = distanciaPermitida;
-			this.nunits = nunits;
-			this.epochs = epochs;
-			this.batch_size = batch_size;
-			this.pathDatos = pathDatos;
-			this.idPersona = idPersona;
-		}
-		
+		@ManyToOne
+		@JoinColumn(name = "idPersona")
+	    private Persona idPersona;
+			
 		
 		public int getInput_length() {
 			return input_length;
@@ -54,11 +42,13 @@ public class ConfiguracionLSTM {
 		public void setInput_length(int input_length) {
 			this.input_length = input_length;
 		}
-		public int getOUTPUT_LENGTH() {
-			return OUTPUT_LENGTH;
+		
+		
+		public int getOutput() {
+			return output;
 		}
-		public void setOUTPUT_LENGTH(int oUTPUT_LENGTH) {
-			OUTPUT_LENGTH = oUTPUT_LENGTH;
+		public void setOutput(int output) {
+			this.output = output;
 		}
 		public int getDistanciaPermitida() {
 			return distanciaPermitida;
@@ -90,12 +80,27 @@ public class ConfiguracionLSTM {
 		public void setPathDatos(String pathDatos) {
 			this.pathDatos = pathDatos;
 		}
-		public int getIdPersona() {
+		public int getIdConfig() {
+			return idConfig;
+		}
+		public void setIdConfig(int idConfig) {
+			this.idConfig = idConfig;
+		}
+		public Persona getIdPersona() {
 			return idPersona;
 		}
-		public void setIdPersona(int idPersona) {
+		public void setIdPersona(Persona idPersona) {
 			this.idPersona = idPersona;
 		}
+		@Override
+		public String toString() {
+			return "ConfiguracionLSTM [idConfig=" + idConfig + ", input_length=" + input_length + ", output=" + output
+					+ ", distanciaPermitida=" + distanciaPermitida + ", nunits=" + nunits + ", epochs=" + epochs
+					+ ", batch_size=" + batch_size + ", pathDatos=" + pathDatos + ", idPersona=" + idPersona + "]";
+		}
+		
+		
+		
 		
 		
 	
