@@ -684,15 +684,11 @@ CREATE TABLE `parametro` (
   `nombre` varchar(255) DEFAULT NULL,
   `valor` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`idParametro`)
-<<<<<<< HEAD
-);
 
-INSERT INTO `parametro` (`idParametro`,`nombre`,`valor`) VALUES(1,'Tiempo de respuesta','00:05:00');
-=======
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-INSERT INTO `parametro` (`idParametro`,`nombre`,`valor`) VALUES (1, 'Tiempo de respuesta','00:05:00');
->>>>>>> 3425e238d08a6b2c1175890ec89ecc2f30e6872c
+INSERT INTO `parametro` (`idParametro`,`nombre`,`valor`) VALUES(1,'Tiempo de respuesta','00:05:00');
+
 
 
 -- --------------------------------------------------------
