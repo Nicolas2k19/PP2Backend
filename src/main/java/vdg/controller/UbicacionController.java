@@ -68,7 +68,9 @@ public class UbicacionController {
 	public UbicacionDTO findByRestriccion(@PathVariable("idRestriccion") int idRestriccion) {
 		System.out.println("ME PIDIO GET DE TODAS LAS RESTRICCIONES");
 		UbicacionDTO ubiDTO = new UbicacionDTO();
+		System.out.println(" no Paseeeeeeee");
 		RestriccionPerimetral restriccion = restriccionController.getByIdRestriccion(idRestriccion);
+		System.out.println("Paseeeeeeee");
 		System.out.println(restriccion.getIdVictimario());
 		ubiDTO.setUbicacionDamnificada(ubicacionRepo.findByIdPersona(restriccion.getIdDamnificada()));
 		ubiDTO.setUbicacionVictimario(ubicacionRepo.findByIdPersona(restriccion.getIdVictimario()));

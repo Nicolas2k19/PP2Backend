@@ -1,0 +1,26 @@
+
+ Estoy haciendo el print 
+
+ Estoy haciendo el print 
+
+ Estoy haciendo el print 
+
+ Estoy haciendo el print 
+
+ Estoy haciendo el print 
+
+ Estoy haciendo el print 
+
+ Estoy haciendo el print 
+
+ Estoy haciendo el print 
+
+ Estoy haciendo el print 
+
+ Estoy haciendo el print 
+
+ Estoy haciendo el print 
+<class 'py4j.java_collections.JavaList'>
+ Estoy haciendo el print 
+<class 'py4j.java_collections.JavaList'>
+ Estoy haciendo el print 

@@ -24,6 +24,7 @@ import vdg.model.dto.ErrorDTO;
 import vdg.model.email.EmailGateway;
 import vdg.model.logica.Encriptar;
 import vdg.model.validadores.ValidadoresUsuario;
+import vdg.repository.ConfigMensajeRepository;
 import vdg.repository.UsuarioRepository;
 
 @RestController
@@ -33,6 +34,8 @@ public class UsuarioController {
 
 	@Autowired
 	private UsuarioRepository usuarioRepo;
+	@Autowired
+	private ConfigMensajeRepository configMsjRepo;
 	@Autowired
 	private ValidadoresUsuario validador = new ValidadoresUsuario();
 	
@@ -77,7 +80,7 @@ public class UsuarioController {
 	@GetMapping("/GetByEmail/{email}")
 	public Usuario findByEmail(@PathVariable("email") String email) {
 		System.out.println("Llegue al get");
-		List<Usuario> usuarios = usuarioRepo.findByEmail(email);
+		List<Usuario> usuarios = usuarioRepo.findAllByEmail(email);
 		return usuarios.isEmpty() ? null : usuarios.get(0);
 	}
 
@@ -112,13 +115,13 @@ public class UsuarioController {
 	}
 
 	public Usuario findByIdUsuario(int idUsuario) {
-		List<Usuario> usuarios = usuarioRepo.findByIdUsuario(idUsuario);
+		List<Usuario> usuarios = usuarioRepo.findAllByIdUsuario(idUsuario);
 		return usuarios.isEmpty() ? null : usuarios.get(0);
 	}
 	
 	@GetMapping("/{id}")
 	public Usuario findByIdUsuarios(@PathVariable("id") int id) {
-		List<Usuario> usuarios = usuarioRepo.findByIdUsuario(id);
+		List<Usuario> usuarios = usuarioRepo.findAllByIdUsuario(id);
 		return usuarios.isEmpty() ? null : usuarios.get(0);
 	}
 	
@@ -130,22 +133,17 @@ public class UsuarioController {
 	}
 	
 	
-	
-	
-	
-	
-	
 	@PutMapping("/recuperarContrasena")
 	public ErrorDTO recuperarContrasena(@RequestBody Usuario usuario) {
 		ErrorDTO error = new ErrorDTO();
 		List<Usuario> usuarios = new ArrayList<Usuario>();
-		usuarios = usuarioRepo.findByEmail(usuario.getEmail()); 
+		usuarios = usuarioRepo.findAllByEmail(usuario.getEmail()); 
 		if(usuarios.size()!=0) {
 			usuario = usuarios.get(0);
 			int contrasena = (int) Math.floor(Math.random()*9999+1);
-			String mensaje = "Su contraseña es: "+contrasena +"\n" + "Podrá modificar la contraseña desde el sistema";
+			String mensaje = configMsjRepo.findByTipo("passMail").getMensajeBef()+"\n "+contrasena +"\n" + configMsjRepo.findByTipo("passMail").getMensajeAft();
 			System.out.println("------------------------------------------------ "+contrasena+" ------------------------------------");
-			EmailGateway.enviarMail(usuario.getEmail(), mensaje, "Contraseña modificada");
+			EmailGateway.enviarMail(usuario.getEmail(), mensaje, configMsjRepo.findByTipo("passMail").getAsunto());
 			String contrasenaEncriptada = Encriptar.sha256(""+contrasena);
 			usuario.setContrasena(contrasenaEncriptada);
 			usuarioRepo.save(usuario);
