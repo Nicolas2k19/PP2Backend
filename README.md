@@ -37,6 +37,7 @@ Este proyecto contiene el backend para la aplicación VDG. Proporciona instrucci
          -localidad.sql
          -notificacion.sql
          -ciudad.sql
+         -configMensajes.sql
          -comisaria.sql
 
 5. **Configurar properties:** Se debe configurar el `aplication.properties` con los parametros de la base de datos y el puerto como se muestra a continuacion.
@@ -49,6 +50,19 @@ Este proyecto contiene el backend para la aplicación VDG. Proporciona instrucci
 6. **Limpiar el proyecto:** En Eclipse, ve a `Project > Clean` para limpiar el proyecto.
 
 7. **Compilar y correr:** Compila el proyecto y ejecútalo.
+
+## Configuración de CORS para Comunicación entre Backend, Frontend y Aplicación Móvil
+
+Para asegurar una comunicación adecuada entre el backend, el frontend y la aplicación móvil, es fundamental configurar el archivo de CORS (Cross-Origin Resource Sharing). A continuación, se detallan los pasos necesarios:
+
+### Configuración de CORS en Java
+
+1. **Ubicación del Archivo de Configuración**: Dirígete a `src/vdg/CorsConfig.java`.
+
+2. **Ejemplo de Configuración en CorsConfig.java**:
+
+![image](https://github.com/Nicolas2k19/PP2Backend/assets/86579814/723d19db-791d-4f3c-b8dc-9e22f02e5f55)
+
 
 ## Documentación de la API
 
