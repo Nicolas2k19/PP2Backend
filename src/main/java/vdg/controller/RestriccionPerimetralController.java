@@ -44,7 +44,6 @@ public class RestriccionPerimetralController {
 	@Autowired
 	ControladorUbicaciones controladorUbicaciones = new ControladorUbicaciones();
 	
-	
 	@Autowired
 	SelectorAdministrativo selectorAdminstrador;
 	
@@ -121,8 +120,6 @@ public class RestriccionPerimetralController {
 	
 	@PutMapping
 	public RestriccionPerimetral modificarRestriccion(@RequestBody RestriccionPerimetral restriccion) {
-		System.out.println(restriccion);
-		
 		return restriccionPerimetralRepo.save(restriccion);
 	}
 

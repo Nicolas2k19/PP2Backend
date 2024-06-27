@@ -79,7 +79,6 @@ public class UsuarioController {
 
 	@GetMapping("/GetByEmail/{email}")
 	public Usuario findByEmail(@PathVariable("email") String email) {
-		System.out.println("Llegue al get");
 		List<Usuario> usuarios = usuarioRepo.findAllByEmail(email);
 		return usuarios.isEmpty() ? null : usuarios.get(0);
 	}

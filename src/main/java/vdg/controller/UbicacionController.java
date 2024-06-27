@@ -48,14 +48,10 @@ public class UbicacionController {
 	private PersonaController personaController;
 	@Autowired
 	private UsuarioController usuarioController;
-	@Autowired
-	private RPLugarRepository restriccionLugarRepository;
 	
 	
 	@GetMapping("/{idpersona}")
 	public Ubicacion obtenerUbicacionDePersona(@PathVariable("idpersona") int idpersona){
-		System.out.println("Respuesta "+this.ubicacionRepo.findByIdPersona(idpersona));
-		
 		return this.ubicacionRepo.findByIdPersona(idpersona);
 	}
 
@@ -66,16 +62,10 @@ public class UbicacionController {
 
 	@GetMapping("/getByRestriccion/{idRestriccion}")
 	public UbicacionDTO findByRestriccion(@PathVariable("idRestriccion") int idRestriccion) {
-		System.out.println("ME PIDIO GET DE TODAS LAS RESTRICCIONES");
 		UbicacionDTO ubiDTO = new UbicacionDTO();
-		System.out.println(" no Paseeeeeeee");
 		RestriccionPerimetral restriccion = restriccionController.getByIdRestriccion(idRestriccion);
-		System.out.println("Paseeeeeeee");
-		System.out.println(restriccion.getIdVictimario());
 		ubiDTO.setUbicacionDamnificada(ubicacionRepo.findByIdPersona(restriccion.getIdDamnificada()));
 		ubiDTO.setUbicacionVictimario(ubicacionRepo.findByIdPersona(restriccion.getIdVictimario()));
-		System.out.println(ubiDTO.getUbicacionVictimario());
-		System.out.println(ubiDTO.toString());
 		return ubiDTO;
 	}
 
