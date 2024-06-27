@@ -51,7 +51,7 @@ Este proyecto contiene el backend para la aplicación VDG. Proporciona instrucci
 
 7. **Compilar y correr:** Compila el proyecto y ejecútalo.
 
-## Configuración de CORS para Comunicación entre Backend, Frontend y Aplicación Móvil
+## Configuración de CORS para Comunicación entre Backend, Frontend y Aplicación Móvil 🛠️
 
 Para asegurar una comunicación adecuada entre el backend, el frontend y la aplicación móvil, es fundamental configurar el archivo de CORS (Cross-Origin Resource Sharing). A continuación, se detallan los pasos necesarios:
 
@@ -64,7 +64,7 @@ Para asegurar una comunicación adecuada entre el backend, el frontend y la apli
 ![image](https://github.com/Nicolas2k19/PP2Backend/assets/86579814/723d19db-791d-4f3c-b8dc-9e22f02e5f55)
 
 
-## Documentación de la API
+## Documentación de la API 📚
 
 La documentación de la API se genera automáticamente con Swagger y está disponible en:
 
