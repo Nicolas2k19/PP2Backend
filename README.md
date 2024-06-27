@@ -2,7 +2,7 @@
 
 Este proyecto contiene el backend para la aplicación VDG. Proporciona instrucciones sobre cómo configurar y ejecutar el repositorio.
 
-## Instrucciones para correr el repo
+## Instrucciones para correr el repo 👨‍🏫
 
 1. **Crear una base de datos (MySQL):** Crea una base de datos llamada `vdg` en tu servidor MySQL junto a un usario vdgpps y una contraseña vdgpps2019.
    ```
@@ -75,7 +75,10 @@ La documentación de la API se genera automáticamente con Swagger y está dispo
 
 Puedes utilizar esta página para explorar y probar las API proporcionadas por el backend.
 
-## Pruebas con Postman
+## Pruebas con Postman 🧬
 
 Se incluye un archivo llamado `Vdg.postman_collection.json`, el cual contiene pruebas de las APIs que puedes importar en Postman.
+
+## Manual de usuario 📕
+Para obtener una guia detallada de como funciona el sistema porfavopr leea el manual de usuario que subimos a esta repositorio.
 
