@@ -11,6 +11,7 @@ import org.hibernate.annotations.Cascade;
 public class RestriccionPerimetral {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
 	private int idRestriccion;
 	@Column

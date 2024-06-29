@@ -5,8 +5,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import vdg.model.domain.ConfigMensaje;
 import vdg.model.domain.DetalleRestriccion;
 import vdg.model.domain.RPLugar;
+import vdg.model.domain.RestriccionPerimetral;
 import vdg.repository.DetalleRestriccionRepository;
 
 
@@ -22,12 +24,15 @@ public class DetalleRestriccionController {
     private DetalleRestriccionRepository detalleRepository;
 
     // Crear nueva DetalleRestriccion
-    @PostMapping
+    @PostMapping("/Agregar")
     public ResponseEntity<DetalleRestriccion> crearDetalleRestriccion(@RequestBody DetalleRestriccion detalleRestriccion) {
+    	System.out.println(detalleRestriccion);
         try {
+        	
             DetalleRestriccion _detalleRestriccion = detalleRepository.save(detalleRestriccion);
             return new ResponseEntity<>(_detalleRestriccion, HttpStatus.CREATED);
         } catch (Exception e) {
+        	System.out.println(e);
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -57,23 +62,17 @@ public class DetalleRestriccionController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-
-    // Actualizar DetalleRestriccion por ID
-    @PutMapping("/{id}")
-    public ResponseEntity<DetalleRestriccion> actualizarDetalleRestriccion(@PathVariable("id") int id, @RequestBody DetalleRestriccion detalleRestriccion) {
-        DetalleRestriccion detalleRestriccionData = detalleRepository.findById(id);
-
-        if (detalleRestriccionData != null) {
-            detalleRestriccionData.setRestriccion(detalleRestriccion.getRestriccion());
-            detalleRestriccionData.setJuez(detalleRestriccion.getJuez());
-            detalleRestriccionData.setDetalle(detalleRestriccion.getDetalle());
-            detalleRestriccionData.setLinkSeguimiento(detalleRestriccion.getLinkSeguimiento());
-            detalleRestriccionData.setJuzgado(detalleRestriccion.getJuzgado());
-            return new ResponseEntity<>(detalleRepository.save(detalleRestriccionData), HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+    
+    @GetMapping("/TraerRes/{idRestriccion}")
+    public DetalleRestriccion getDetalleRestriccionByIdRestriccion(@PathVariable int idRestriccion) {
+        return detalleRepository.findByRestriccion_IdRestriccion(idRestriccion);
     }
+
+	@PutMapping("/Update")
+	public DetalleRestriccion modificar(@RequestBody DetalleRestriccion mensaje) {
+		
+		return detalleRepository.save(mensaje);
+	}
 
     // Eliminar DetalleRestriccion por ID
     @DeleteMapping("/{id}")
@@ -85,6 +84,9 @@ public class DetalleRestriccionController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    
+
+    
 
 }
 

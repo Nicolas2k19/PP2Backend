@@ -38,6 +38,9 @@ public class IncidenciaController {
 	private PersonaRepository personaController;
 	@Autowired
 	private UsuarioRepository usuarioController;
+	@Autowired
+	private GeneradorNotificaciones generadorNotificaciones;
+
 	
 
 	@GetMapping("/{idRestriccion}/{cantidad}")
@@ -118,10 +121,12 @@ public class IncidenciaController {
 		Persona victimario = personaController.findById(restriccion.getIdVictimario());
 		Usuario usuario = usuarioController.findAllByIdUsuario(restriccion.getIdUsuario()).get(0);
 		
-		Notificacion notificacion = GeneradorNotificaciones.generarNotificacion(incidencia, restriccion, damnificada, victimario, usuario);
-		notificacionRepo.save(notificacion);
+
 		
-		return nuevaIncidencia;
+		Notificacion notificacion = generadorNotificaciones.generarNotificacion(incidencia, restriccion, damnificada, victimario, usuario);
+	    notificacionRepo.save(notificacion);
+
+	    return nuevaIncidencia;
 	}
 	
 	

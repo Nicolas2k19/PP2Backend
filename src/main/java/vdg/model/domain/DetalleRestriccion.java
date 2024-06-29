@@ -1,6 +1,6 @@
 package vdg.model.domain;
 
-import javax.persistence.CascadeType;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,20 +19,21 @@ public class DetalleRestriccion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idDetalle;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "idRestriccion")
     private RestriccionPerimetral restriccion;
     
     @Column
-    private String Juez;
+    private String juez;
     
      @Column
-     private String Detalle;
+     private String detalle;
      
-     @Column
-    private String LinkSeguimiento;
+     @OneToOne
+     @JoinColumn(name = "idComisaria")
+     private Comisaria comisaria;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "idJuzgado")
     private Juzgado juzgado;
 
@@ -43,6 +44,13 @@ public class DetalleRestriccion {
 
 	public int getIdDetalle() {
 		return idDetalle;
+	}
+
+
+	@Override
+	public String toString() {
+		return "DetalleRestriccion [idDetalle=" + idDetalle + ", restriccion=" + restriccion + ", juez=" + juez
+				+ ", detalle=" + detalle + ", comisaria=" + comisaria + ", juzgado=" + juzgado + "]";
 	}
 
 
@@ -61,33 +69,26 @@ public class DetalleRestriccion {
 	}
 
 
+
+
+
 	public String getJuez() {
-		return Juez;
+		return juez;
 	}
 
 
 	public void setJuez(String juez) {
-		Juez = juez;
+		this.juez = juez;
 	}
 
 
 	public String getDetalle() {
-		return Detalle;
+		return detalle;
 	}
 
 
 	public void setDetalle(String detalle) {
-		Detalle = detalle;
-	}
-
-
-	public String getLinkSeguimiento() {
-		return LinkSeguimiento;
-	}
-
-
-	public void setLinkSeguimiento(String linkSeguimiento) {
-		LinkSeguimiento = linkSeguimiento;
+		this.detalle = detalle;
 	}
 
 
@@ -98,6 +99,16 @@ public class DetalleRestriccion {
 
 	public void setJuzgado(Juzgado juzgado) {
 		this.juzgado = juzgado;
+	}
+
+
+	public Comisaria getComisaria() {
+		return comisaria;
+	}
+
+
+	public void setComisaria(Comisaria comisaria) {
+		this.comisaria = comisaria;
 	}
     
 }

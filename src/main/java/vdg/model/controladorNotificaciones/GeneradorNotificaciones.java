@@ -2,22 +2,61 @@ package vdg.model.controladorNotificaciones;
 
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import vdg.controller.UsuarioController;
 import vdg.model.domain.EstadoNotificacion;
+import vdg.model.domain.EstadoUsuario;
 import vdg.model.domain.Incidencia;
 import vdg.model.domain.Notificacion;
 import vdg.model.domain.Persona;
 import vdg.model.domain.RestriccionPerimetral;
 import vdg.model.domain.TipoIncidencia;
 import vdg.model.domain.Usuario;
+import vdg.repository.UsuarioRepository;
 
 @Component
 public class GeneradorNotificaciones {
+	
+    private static UsuarioRepository usuarioRepo;
 
-	public static Notificacion generarNotificacion(Incidencia incidencia, RestriccionPerimetral restriccion,
-			Persona damnificada, Persona victimario, Usuario usuario) {
-		return crearNotificacionPorIncidencia(incidencia, restriccion, damnificada, victimario, usuario);
-	}
+    @Autowired
+    public GeneradorNotificaciones(UsuarioRepository usuarioRepo) {
+        this.usuarioRepo = usuarioRepo;
+    }
+	
+
+    public static Notificacion generarNotificacion(Incidencia incidencia, RestriccionPerimetral restriccion,
+                                                   Persona damnificada, Persona victimario, Usuario usuario) {
+        Usuario destinatario = obtenerUsuarioDestinatario(incidencia, usuario);
+        return crearNotificacionPorIncidencia(incidencia, restriccion, damnificada, victimario, destinatario);
+    }
+
+    private static Usuario obtenerUsuarioDestinatario(Incidencia incidencia, Usuario usuario) {
+        if (usuario.getEstadoUsuario().equals(EstadoUsuario.CONECTADO)) {
+            return usuario;
+        } else {
+            Usuario miembroDisponible = obtenerMiembroDisponibleDelGrupo(usuario.getIdGrupo());
+            if (miembroDisponible != null) {
+                return miembroDisponible;
+            } else {
+                throw new RuntimeException("No hay miembros disponibles en el grupo del usuario.");
+            }
+        }
+    }
+
+    private static Usuario obtenerMiembroDisponibleDelGrupo(int idGrupo) {
+    	List<Usuario> listaUsuarios = usuarioRepo.findAll();
+        for (Usuario usuario : listaUsuarios) {
+            if (usuario.getEstadoUsuario().equals(EstadoUsuario.CONECTADO) && usuario.getIdGrupo() == idGrupo) {
+                return usuario;
+            }
+        }
+        return null;
+    }
 
 	public static Notificacion crearNotificacionPorIncidencia(Incidencia incidencia, RestriccionPerimetral restriccion,
 			Persona damnificada, Persona victimario, Usuario usuario) {
