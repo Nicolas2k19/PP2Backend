@@ -12,6 +12,7 @@ import py4j.ClientServer;
 import py4j.GatewayServer;
 import py4j.Py4JNetworkException;
 import vdg.model.domain.ConfiguracionLSTM;
+import vdg.model.domain.CoordenadasPersona;
 import vdg.model.domain.Ubicacion;
 import vdg.model.domain.UbicacionesEntrenamiento;
 
@@ -78,11 +79,11 @@ public class IniciarScript {
   }
     
 
-    public boolean predecir(List<Ubicacion> ubicaciones) {
+    public boolean predecir(List<CoordenadasPersona> ubicaciones) {
         ClientServer clientServer = new ClientServer(null);
         PythonMethods modelo = (PythonMethods) clientServer.getPythonServerEntryPoint(new Class[] { PythonMethods.class });
-       // Boolean resultado = modelo.predecir(ubicaciones);
-        //clientServer.shutdown();
-        return true;
+        Boolean resultado = modelo.predecir(ubicaciones);
+        clientServer.shutdown();
+        return resultado;
     }
 }

@@ -8,6 +8,7 @@ import vdg.model.domain.ConfiguracionLSTM;
 public interface ConfiguracionRepository extends Repository<ConfiguracionLSTM, Integer>{
 	
 	public ConfiguracionLSTM findByIdPersona(int idDamnificada);
+	public List<ConfiguracionLSTM> findAll();
 	public void save(ConfiguracionLSTM config);
 	public void delete(ConfiguracionLSTM config);
 }

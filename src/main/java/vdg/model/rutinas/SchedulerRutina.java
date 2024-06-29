@@ -1,0 +1,44 @@
+package vdg.model.rutinas;
+
+import java.util.List;
+import java.util.TimerTask;
+
+import vdg.controller.IdentificacionRutinasController;
+import vdg.model.domain.CoordenadasPersona;
+import vdg.model.domain.Persona;
+
+public class SchedulerRutina extends TimerTask {
+	
+	IdentificacionRutinasController identificacion;
+	Persona idPersona;
+	
+	@Override
+	public void run() {
+		try {
+			System.out.println("Funcionando");
+			this.identificacion.identificar(idPersona);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+	public IdentificacionRutinasController getIdentificacion() {
+		return identificacion;
+	}
+
+	public void setIdentificacion(IdentificacionRutinasController identificacion) {
+		this.identificacion = identificacion;
+	}
+
+	public Persona getIdPersona() {
+		return idPersona;
+	}
+
+	public void setIdPersona(Persona idPersona) {
+		this.idPersona = idPersona;
+	}
+	
+
+}

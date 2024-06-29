@@ -1,4 +1,16 @@
-INSERT INTO `Ubicacion` (`idUbicacion`, `latitud`, `longitud`, `fecha`, `idPersona`) VALUES
+CREATE TABLE coordenadaspersona (
+    idDato INT AUTO_INCREMENT PRIMARY KEY,
+    latitud DECIMAL(9, 6),
+    longitud DECIMAL(9, 6),
+    fecha TIMESTAMP,
+    idPersona INT,
+    FOREIGN KEY (idPersona) REFERENCES Persona(idPersona)
+);
+
+
+
+
+INSERT INTO `coordenadaspersona` (`idDato`, `latitud`, `longitud`, `fecha`, `idPersona`) VALUES
 (17, '28.520371', '77.210164', '2022-04-19 03:51:43', 1),
 (18, '28.520368', '77.210176', '2022-04-19 03:51:44', 1),
 (19, '28.520365', '77.210189', '2022-04-19 03:51:45', 1),

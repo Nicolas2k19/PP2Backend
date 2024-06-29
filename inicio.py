@@ -351,7 +351,7 @@ if __name__ == "__main__":
 
 
 
- # args = sys.argv[1:]
+        # args = sys.argv[1:]
         # datosEntrada = armarEntradaDeDatos(ubicaciones)
         # df = crearYConfigurarDataFrame(datosEntrada)
         # entradaLatitud, salidaLatitud= partirDatos(df.values,int(args[0]),int(args[1]),0)
