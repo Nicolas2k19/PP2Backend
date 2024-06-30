@@ -16,6 +16,7 @@ import vdg.model.domain.CoordenadasPersona;
 import vdg.model.domain.Ubicacion;
 import vdg.model.domain.UbicacionesEntrenamiento;
 import vdg.model.notificacionesTerceros.TelegramNotificador;
+import vdg.repository.ConfigMensajeRepository;
 
 @Component
 public class IniciarScript {
@@ -100,7 +101,7 @@ public class IniciarScript {
   }
     
 
-    public void predecir(List<CoordenadasPersona> ubicaciones,TelegramNotificador telegram) {
+    public void predecir(List<CoordenadasPersona> ubicaciones,TelegramNotificador telegram,ConfigMensajeRepository repository) {
     	System.out.println("Proceso---------------------------------------------------------------------");
     	System.out.println(this.procesosActivos.get(0));
     	
@@ -112,7 +113,7 @@ public class IniciarScript {
         	Boolean resultado = modelo.predecir(ubicaciones,indiceModelo-1);
         	System.out.println("El resultado de la prediccion es "+ resultado+ " --------------------------------------------------");
         	if (resultado) {
-        		telegram.enviarMensaje((long) 770684292, "Alerta el agresor a abandonado su rutina normal");
+        		telegram.enviarMensaje((long) 770684292, repository.findByTipo("alertaRutina").getMensajeBef());
         	}}
         	catch(Exception e) {
         		clientServer.shutdown();

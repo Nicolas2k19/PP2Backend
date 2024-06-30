@@ -8,4 +8,8 @@ insert INTO configmensaje ( asunto, mensajeAft, mensajeBef, tipo) VALUES
 (null, 'y longitud:', 'Alerta en latitud:', 'alertaTelegramP'),
 (null, 'y longitud:', 'Alerta en latitud:', 'alertaWspP');
 
+
 select * from configmensaje;
+
+
+

@@ -7,18 +7,20 @@ import vdg.controller.IdentificacionRutinasController;
 import vdg.model.domain.CoordenadasPersona;
 import vdg.model.domain.Persona;
 import vdg.model.notificacionesTerceros.TelegramNotificador;
+import vdg.repository.ConfigMensajeRepository;
 
 public class SchedulerRutina extends TimerTask {
 	
 	IdentificacionRutinasController identificacion;
 	private  TelegramNotificador telegramNotificador;
+	ConfigMensajeRepository repository;
 	Persona idPersona;
 	
 	@Override
 	public void run() {
 		try {
 			System.out.println("Funcionando");
-			this.identificacion.identificar(idPersona,telegramNotificador);
+			this.identificacion.identificar(idPersona,telegramNotificador,this.repository);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -49,6 +51,14 @@ public class SchedulerRutina extends TimerTask {
 	public void setTelegramNotificador(TelegramNotificador telegramNotificador) {
 		this.telegramNotificador = telegramNotificador;
 	}
-	
 
+	public ConfigMensajeRepository getRepository() {
+		return repository;
+	}
+
+	public void setRepository(ConfigMensajeRepository repository) {
+		this.repository = repository;
+	}
+	
+	
 }

@@ -25,6 +25,7 @@ import vdg.model.domain.UbicacionesEntrenamiento;
 import vdg.model.notificacionesTerceros.TelegramNotificador;
 import vdg.model.rutinas.IniciarScript;
 import vdg.model.rutinas.SchedulerRutina;
+import vdg.repository.ConfigMensajeRepository;
 import vdg.repository.ConfiguracionRepository;
 import vdg.repository.CoordenadasPersonaRepository;
 import vdg.repository.PersonaRepository;
@@ -62,8 +63,8 @@ public class IdentificacionRutinasController {
 	  CoordenadasPersonaRepository coordenadaPersonaRepository;
 	  
 	  SchedulerRutina scheduler;
-	  
-	  
+	  @Autowired
+	  ConfigMensajeRepository repository;
 	  
 	  
 	  @Autowired
@@ -92,12 +93,12 @@ public class IdentificacionRutinasController {
 		  	return new ResponseEntity<>(HttpStatus.CREATED);
 	       
 	    }
-	    public ResponseEntity<Void> identificar(Persona idPersona,TelegramNotificador telegram) throws Exception {
+	    public ResponseEntity<Void> identificar(Persona idPersona,TelegramNotificador telegram,ConfigMensajeRepository repository) throws Exception {
 	    	List<CoordenadasPersona> coordenadasPersona = this.coordenadaPersonaRepository.findAllByidPersona(idPersona);
 	    	System.out.println("Coordenadas ingresadas---------------------------------------------------------------------------------------");
 	    	System.out.println(coordenadasPersona);
 	    	System.out.println(coordenadasPersona.size());
-	    	this.iniciadorScript.predecir(coordenadasPersona,telegram);
+	    	this.iniciadorScript.predecir(coordenadasPersona,telegram,repository);
 	        return new ResponseEntity<>(HttpStatus.CREATED);
 	    }
 	    
@@ -119,6 +120,7 @@ public class IdentificacionRutinasController {
 				    scheduler.setIdentificacion(this);
 				    scheduler.setTelegramNotificador(telegramNotificador);
 				    scheduler.setIdPersona(idPersona);
+				    scheduler.setRepository(this.repository);
 				    time.schedule(scheduler, 0, 15000); 
 		    }
 		  	
