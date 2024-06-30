@@ -322,11 +322,13 @@ class EntryPoint:
     def predecir(self,ubicacionesPersonaReal,indice):
         args = sys.argv[1:]
         datosEntrada = armarEntradaDeDatos(ubicacionesPersonaReal)
+        
+        df = crearYConfigurarDataFrame(datosEntrada)
         with open("LogPredecir.txt","a") as file:
             file.write("\n Hola, funciono \n"+str(datosEntrada))
             file.write("\n Hola, funciono \n"+str(ubicacionesPersonaReal))
             file.write("\n Hola, funciono \n"+str(ubicacionesPersonaReal.size()))
-        df = crearYConfigurarDataFrame(datosEntrada)
+            file.write("\n Hola, funciono \n"+str(df))
         entradaLatitud, salidaLatitud= partirDatos(df.values,int(args[0]),int(args[1]),0)
         entradaLongitude , salidaLongitude= partirDatos(df.values,int(args[0]),int(args[1]),1)
 

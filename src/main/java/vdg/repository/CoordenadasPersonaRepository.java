@@ -10,7 +10,7 @@ import vdg.model.domain.Persona;
 
 public interface CoordenadasPersonaRepository extends Repository<CoordenadasPersona, Integer>{
 	
-	@Query(value = "SELECT * FROM coordenadasPersona WHERE idPersona = ? LIMIT 27", nativeQuery = true)
+	@Query(value = "SELECT * FROM coordenadasPersona WHERE idPersona = ?  ORDER BY idDato  DESC LIMIT 27", nativeQuery = true)
 	public List<CoordenadasPersona> findAllByidPersona(Persona idPersona);
 	public CoordenadasPersona save(CoordenadasPersona coordenada);
 
