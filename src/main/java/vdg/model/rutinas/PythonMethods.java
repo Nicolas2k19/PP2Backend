@@ -8,9 +8,9 @@ import vdg.model.domain.UbicacionesEntrenamiento;
 
 public interface PythonMethods {
 		
-	 public List<UbicacionesEntrenamiento> entrenar(List<UbicacionesEntrenamiento> ubicaciones);
+	 public int entrenar(List<UbicacionesEntrenamiento> ubicaciones);
 
-	 public Boolean predecir(List<CoordenadasPersona> ubicaciones);
+	 public Boolean predecir(List<CoordenadasPersona> ubicaciones,int entero);
 }
 
 

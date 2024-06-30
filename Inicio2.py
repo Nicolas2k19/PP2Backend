@@ -9,6 +9,7 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import LSTM, Dense
 from tensorflow.keras.optimizers import RMSprop, Adam
 import tensorflow as tf
+import matplotlib.pyplot as plt;
 
 
 logging.basicConfig(level=logging.DEBUG)
@@ -172,6 +173,14 @@ def entrenarModelo(N_UNITS,OUTPUT_LENGTH,EPOCHS,BATCH_SIZE,scaledDataset):
         verbose=2
     )
 
+    args = sys.argv[1:]
+    plt.plot(historia.history['loss'],label='RMSE train')
+    plt.plot(historia.history['val_loss'],label='RMSE val')
+    plt.xlabel('Iteración')
+    plt.ylabel('RMSE')
+    plt.legend();
+    plt.savefig("curva"+args[len(args)-1]+".jpg")
+
     return modelo
 
 def predecirConModelo(x, model, scaler,verboseindeX):
@@ -259,36 +268,26 @@ class EntryPoint:
         self.scale1 = ""
         self.model2 = ""
         self.scale2 = ""
+        self.modelosLatitud = []
+        self.modelosLongitud = []
+        self.scalerLatitud = []
+        self.scalerLongitud = []
 
     def entrenar(self,ubicaciones):
         args = sys.argv[1:]
-
         datosArmados = armarEntradaDeDatos(ubicaciones)
-       
-       
         df = crearYConfigurarDataFrame(datosArmados)
-
-        
-
         tr, vl, ts  = crearParticionesDeEntrenamiento(df)
-
-
         xtrainLatitude , ytrainLatitude = partirDatos(tr.values,int(args[0]),int(args[1]),0)
         xvalidationLatitude , yvalidationLatitude= partirDatos(vl.values,int(args[0]),int(args[1]),0)
         xtestLatitude, ytestLatitude= partirDatos(ts.values,int(args[0]),int(args[1]),0)
-
         xtrainLongitude , ytrainLongitude= partirDatos(tr.values,int(args[0]),int(args[1]),1)
         xvalidationLongitude , yvalidationLongitude= partirDatos(vl.values,int(args[0]),int(args[1]),1)
         xtestLongitude , ytestLongitude= partirDatos(ts.values,int(args[0]),int(args[1]),1)
-
-  
         scaledDataset1, scale1 = scale(df,"latitude",xtrainLatitude,xvalidationLatitude,xtestLatitude,ytrainLatitude,yvalidationLatitude,ytestLatitude)
         scaledDataset2, scale2 = scale(df,"longitude",xtrainLongitude,xvalidationLongitude,xtestLongitude,ytrainLongitude,yvalidationLongitude,ytestLongitude)
-
-
         modeloLatitude = entrenarModelo(int(args[3]),int(args[1]),int(args[4]),int(args[5]),scaledDataset1)
         modeloLongitude = entrenarModelo(int(args[3]),int(args[1]),int(args[4]),int(args[5]),scaledDataset2)
-
         prediccionLatitud = predecirConModelo(scaledDataset1["x_ts_s"],modeloLatitude,scale1,0)
         prediccionLongitud = predecirConModelo(scaledDataset2["x_ts_s"],modeloLongitude,scale2,0)
 
@@ -309,14 +308,18 @@ class EntryPoint:
             file.write("\n Hola, funciono \n"+str(prediccionLatitud))
             file.write("\n Hola, funciono \n"+str(prediccionLongitud))
 
-        self.modeloLatitud = modeloLatitude
-        self.modeloLongitud = modeloLongitude
-        self.scale1 = scale1
-        self.scale2 = scale2
+        # self.modeloLatitud = modeloLatitude
+        # self.modeloLongitud = modeloLongitude
+        # self.scale1 = scale1
+        # self.scale2 = scale2
+        self.modelosLatitud.append(modeloLatitude)
+        self.modelosLongitud.append(modeloLongitude)
+        self.scalerLatitud.append(scale1)
+        self.scalerLongitud.append(scale2)
 
-        return ubicaciones
+        return len(self.modelosLatitud)
 
-    def predecir(self,ubicacionesPersonaReal):
+    def predecir(self,ubicacionesPersonaReal,indice):
         args = sys.argv[1:]
         datosEntrada = armarEntradaDeDatos(ubicacionesPersonaReal)
         with open("LogPredecir.txt","a") as file:
@@ -326,11 +329,12 @@ class EntryPoint:
         df = crearYConfigurarDataFrame(datosEntrada)
         entradaLatitud, salidaLatitud= partirDatos(df.values,int(args[0]),int(args[1]),0)
         entradaLongitude , salidaLongitude= partirDatos(df.values,int(args[0]),int(args[1]),1)
+
         datosEscaladosLatitud , scalerLat = armarDataSetEntrada(df,"latitude",entradaLatitud,salidaLatitud)
         datosEscaladosLongitud , scalerLong= armarDataSetEntrada(df,"longitude",entradaLongitude,salidaLongitude)
 
-        prediccionLatitud = predecir(datosEscaladosLatitud["entrada"],self.modeloLatitud,self.scale1,0)
-        prediccionLongitud= predecir(datosEscaladosLongitud["entrada"],self.modeloLongitud,self.scale2,0)
+        prediccionLatitud = predecir(datosEscaladosLatitud["entrada"],self.modelosLatitud[indice],self.scalerLatitud[indice],0)
+        prediccionLongitud= predecir(datosEscaladosLongitud["entrada"],self.modelosLongitud[indice],self.scalerLongitud[indice],0)
 
         with open("LogPredecir.txt","a") as file:
             file.write("\n\n\nPrediccion latitud -------------------------------- \n\n\n"+str(prediccionLatitud))
